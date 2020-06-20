@@ -1,0 +1,30 @@
+C51 COMPILER V7.07   DELAY1MS                                                              08/02/2009 10:12:41 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE DELAY1MS
+OBJECT MODULE PLACED IN delay1ms.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE delay1ms.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          void delay1ms(int t)
+   2          
+   3          {       int h,j;
+   4   1              for(h=0;h<t;h++)
+   5   1          for(j=0;j<1000;j++);
+   6   1              return;
+   7   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     38    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>0</fileVersion>
+  <configuration>
+    <name>Debug</name>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\ks0108.hex</name>
+      <inputs>
+        <name>$TOOLKIT_DIR$\src\template\cfgm16.xcl</name>
+        <name>$TOOLKIT_DIR$\src\template\cfg3t.xcl</name>
+        <name>$PROJ_DIR$\Debug\Obj\ks0108.r90</name>
+        <name>$TOOLKIT_DIR$\lib\clib\cl3t-ec-sf.r90</name>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\ks0108.c</name>
+      <outputs>
+        <name>$PROJ_DIR$\Debug\Obj\ks0108.r90</name>
+      </outputs>
+      <inputs>
+        <name>$TOOLKIT_DIR$\INC\iom16.h</name>
+        <name>$TOOLKIT_DIR$\INC\iomacro.h</name>
+        <name>$PROJ_DIR$\delay.h</name>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+  </configuration>
+</project>
+
+

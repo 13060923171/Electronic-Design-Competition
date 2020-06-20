@@ -1,0 +1,215 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        03/02/2009  19:45:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE PWM 电机 A.obj TO PWM 电机 A RAMSIZE (256) CODE (0X0000-0X1FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  PWM 电机 A.obj (PWM_电籣_A)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  PWM 电机 A (PWM_电籣_A)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?PWM_电籣_A
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     00E1H     UNIT         ?PR?XIONG?PWM_电籣_A
+            CODE    00EFH     008CH     UNIT         ?C_C51STARTUP
+            CODE    017BH     0077H     UNIT         ?PR?MAIN?PWM_电籣_A
+            CODE    01F2H     0009H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   PWM 电机 A (PWM_电籣_A)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PWM_电籣_A
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  PWM 电机 A (PWM_电籣_A)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PWM_电籣_A
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+BL51 BANKED LINKER/LOCATER V6.00                                                      03/02/2009  19:45:29  PAGE 2
+
+
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:017BH         PUBLIC        main
+  C:000EH         PUBLIC        xiong
+  B:0080H.0       PUBLIC        P00
+  B:0080H.1       PUBLIC        P01
+  B:0080H.2       PUBLIC        P02
+  B:0080H.4       PUBLIC        P04
+  D:0098H         PUBLIC        SCON
+  B:0080H.5       PUBLIC        P05
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0080H.6       PUBLIC        P06
+  B:0080H.7       PUBLIC        P07
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        i
+  D:000AH         PUBLIC        j
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:017BH         LINE#         12
+  C:017BH         LINE#         13
+  C:017BH         LINE#         14
+  C:017BH         LINE#         15
+  C:017BH         LINE#         16
+  C:0183H         LINE#         17
+  C:0186H         LINE#         18
+  C:0188H         LINE#         19
+  C:018AH         LINE#         21
+  C:0193H         LINE#         22
+  C:0193H         LINE#         23
+  C:0196H         LINE#         24
+  C:0199H         LINE#         25
+  C:019BH         LINE#         26
+  C:019BH         LINE#         27
+  C:01A4H         LINE#         28
+  C:01A4H         LINE#         29
+  C:01A7H         LINE#         30
+  C:01AAH         LINE#         31
+  C:01ACH         LINE#         32
+  C:01ACH         LINE#         33
+  C:01B5H         LINE#         34
+  C:01B5H         LINE#         35
+  C:01B8H         LINE#         36
+  C:01BBH         LINE#         37
+  C:01BDH         LINE#         38
+  C:01BDH         LINE#         39
+  C:01C6H         LINE#         40
+  C:01C6H         LINE#         41
+  C:01C9H         LINE#         42
+  C:01CCH         LINE#         43
+  C:01CEH         LINE#         47
+  C:01D7H         LINE#         48
+  C:01DAH         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.00                                                      03/02/2009  19:45:29  PAGE 3
+
+
+  C:01DDH         LINE#         50
+  C:01DFH         LINE#         51
+  C:01E8H         LINE#         52
+  C:01EBH         LINE#         53
+  C:01EEH         LINE#         54
+  C:01F0H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         PROC          XIONG
+  C:000EH         LINE#         61
+  C:0010H         LINE#         63
+  C:0019H         LINE#         64
+  C:0019H         LINE#         65
+  C:001CH         LINE#         66
+  C:001FH         LINE#         68
+  C:0021H         LINE#         69
+  C:0023H         LINE#         70
+  C:0025H         LINE#         71
+  C:0027H         LINE#         72
+  C:0027H         LINE#         74
+  C:0030H         LINE#         75
+  C:0030H         LINE#         77
+  C:0033H         LINE#         78
+  C:0036H         LINE#         80
+  C:0038H         LINE#         81
+  C:003AH         LINE#         82
+  C:003CH         LINE#         83
+  C:003EH         LINE#         84
+  C:0044H         LINE#         85
+  C:0044H         LINE#         86
+  C:0055H         LINE#         87
+  C:0058H         LINE#         88
+  C:005BH         LINE#         89
+  C:005DH         LINE#         90
+  C:005FH         LINE#         91
+  C:0061H         LINE#         92
+  C:0063H         LINE#         93
+  C:0067H         LINE#         94
+  C:0067H         LINE#         96
+  C:0070H         LINE#         97
+  C:0070H         LINE#         98
+  C:0073H         LINE#         99
+  C:0076H         LINE#         100
+  C:0078H         LINE#         101
+  C:007AH         LINE#         103
+  C:007CH         LINE#         104
+  C:007EH         LINE#         105
+  C:0084H         LINE#         106
+  C:0084H         LINE#         107
+  C:0095H         LINE#         108
+  C:0098H         LINE#         109
+  C:009BH         LINE#         110
+  C:009DH         LINE#         111
+  C:009FH         LINE#         112
+  C:00A1H         LINE#         113
+  C:00A3H         LINE#         114
+  C:00A7H         LINE#         115
+  C:00A7H         LINE#         116
+BL51 BANKED LINKER/LOCATER V6.00                                                      03/02/2009  19:45:29  PAGE 4
+
+
+  C:00B0H         LINE#         117
+  C:00B0H         LINE#         118
+  C:00B3H         LINE#         119
+  C:00B6H         LINE#         120
+  C:00B8H         LINE#         121
+  C:00BAH         LINE#         122
+  C:00BCH         LINE#         123
+  C:00BEH         LINE#         127
+  C:00C7H         LINE#         128
+  C:00C7H         LINE#         129
+  C:00CAH         LINE#         130
+  C:00CDH         LINE#         131
+  C:00CFH         LINE#         132
+  C:00D1H         LINE#         133
+  C:00D3H         LINE#         134
+  C:00D5H         LINE#         136
+  C:00D5H         LINE#         147
+  C:00DEH         LINE#         148
+  C:00DEH         LINE#         149
+  C:00E1H         LINE#         150
+  C:00E4H         LINE#         151
+  C:00E6H         LINE#         152
+  C:00E8H         LINE#         153
+  C:00EAH         LINE#         154
+  C:00ECH         LINE#         156
+  C:00ECH         LINE#         166
+  -------         ENDPROC       XIONG
+  -------         ENDMOD        PWM_电籣_A
+
+Program Size: data=13.0 xdata=0 code=499
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

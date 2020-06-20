@@ -1,0 +1,60 @@
+C51 COMPILER V7.07   PWM                                                                   07/31/2009 15:39:45 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN pwm.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE pwm.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          sbit p1_2=P1^2;
+   3          sbit p1_5=P1^5;
+   4          int setnumber,count;
+   5          void pwm(int number)
+   6          int number;
+   7          {       setnumber=number;                       /*有效脉冲的个数等于设定的值*/
+   8   1              TMOD=0x01;
+   9   1              TH0=0xfc;
+  10   1              TL0=0x18;
+  11   1              EA=1;                   
+  12   1              ET0=1;
+  13   1              TR0=1;                                  /*启动定时器0*/
+  14   1                      }
+  15          time0() interrupt 0 using 1
+  16          {       TR0=0;                                  /*关定时器0*/
+  17   1              if (count < setnumber)                  /*如果计数变量小于给定值则给电机送有效电平*/
+  18   1              {       p1_2=0;
+  19   2                      p1_5=0;
+  20   2              }
+  21   1          else                                        /*否则关电机驱动*/
+  22   1              {       p1_2=1;
+  23   2                      p1_5=1;
+  24   2              }
+  25   1         count++;
+  26   1         if (count>=10)                               /*设定一个周期的脉冲个数为10*/
+  27   1         count=0;
+  28   1         TH0=0xfc;                                    /*重新设定计数初值，开定时器*/
+  29   1         TL0=0x18;
+  30   1         TR0=1;
+  31   1      }
+  32          main()
+  33          { for(;;)
+  34   1        pwm(2);
+  35   1      }
+  36          
+  37          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    103    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

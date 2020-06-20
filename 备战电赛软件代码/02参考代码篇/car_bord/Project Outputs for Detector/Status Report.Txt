@@ -1,0 +1,10 @@
+Output: Protel
+Type  : ProtelNetlist
+From  : Project [Detector.PrjPCB]
+   Generated File[Detector.NET]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 10:12:21 On 2007-10-2

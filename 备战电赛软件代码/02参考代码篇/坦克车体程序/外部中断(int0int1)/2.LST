@@ -1,0 +1,83 @@
+C51 COMPILER V8.05a   2                                                                    02/13/2009 23:59:24 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 2
+OBJECT MODULE PLACED IN 2.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 2.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          //sbit d0=P0^0;
+   5          uchar tie;
+   6          unsigned char a[16]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x88,0x83,0xc6,0xa1,0x86,0x8e},b[2]
+             -;
+   7          /*void delay( uint z)
+   8          { uint j;
+   9            while( z--)
+  10            { for(j=110;j>0;j--);}
+  11          }*/
+  12          void main()
+  13          {  
+  14   1        TMOD=0X01;
+  15   1        TH0=(65536-50000)/256;
+  16   1        TL0=(65536-50000)%256;
+  17   1        EA=1;
+  18   1        ET0=1;
+  19   1        TR0=1;
+  20   1        EX0=1;
+  21   1        //IT0=0;//
+  22   1        IT0=1;//Ìø±ä
+  23   1       while(1)
+  24   1        {  /*for(i=0;i<8;i++)
+  25   2           { d0=1;
+  26   2                 P0=a[i];
+  27   2                 P2=i;
+  28   2                 delay(300);
+  29   2                }     */
+  30   2                
+  31   2        }
+  32   1      }
+  33          void exter0() interrupt 0
+  34          { tie++;}
+  35          void time0() interrupt 1
+  36          {  uint tt,l,shi,min;
+  37   1        TH0=(65536-50000)/256;
+  38   1        TL0=(65536-50000)%256;
+  39   1        tt++;
+  40   1        l=tt%3;
+  41   1        switch(l)
+  42   1        { case 0x00 : P2=0x00;P0=b[0];break;
+  43   2          case 0x01:  P2=0x01;P0=b[1];break;
+  44   2              case 0x02 : P2=0x02;P0=a[tie];break;
+  45   2        }     
+  46   1        if( tt==20)
+  47   1        { tt=0;
+  48   2          min++;}
+  49   1              if(min==10)
+  50   1              { min=0;
+  51   2                shi++;}
+  52   1              if(shi==6)
+  53   1              { shi=0;}
+  54   1              b[0]=a[min];
+C51 COMPILER V8.05a   2                                                                    02/13/2009 23:59:24 PAGE 2   
+
+  55   1              b[1]=a[shi];
+  56   1      }
+  57                                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    194    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

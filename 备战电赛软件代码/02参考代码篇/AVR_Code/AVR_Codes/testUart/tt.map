@@ -1,0 +1,25 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+rx_buffer                                                         0160h       64
+str                                                               01A0h        7
+frameData                                                         01A7h       16
+p                                                                 01B7h        2
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+rx_wr_index                                                       R5           1
+rx_rd_index                                                       R4           1
+rx_counter                                                        R7           1
+rx_buffer_overflow                                                R2.0      1bit
+state                                                             R6           1
+statechanged                                                      R2.1      1bit
+serFlag                                                           R2.2      1bit
+timerFlag                                                         R2.3      1bit
+timerCounter                                                      R8,R9        2
+baCounter                                                         R11          1

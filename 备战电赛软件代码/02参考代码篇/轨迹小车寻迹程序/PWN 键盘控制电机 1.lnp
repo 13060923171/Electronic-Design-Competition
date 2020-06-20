@@ -1,0 +1,4 @@
+"PWN 键盘控制电机 1.obj" 
+TO "PWN 键盘控制电机 1" 
+RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

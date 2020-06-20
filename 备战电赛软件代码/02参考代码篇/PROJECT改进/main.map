@@ -1,0 +1,17 @@
+CodeVisionAVR C Compiler V1.25.6 Standard
+(C) Copyright 1998-2007 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: H:\比赛\PROJECT改进\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+flage                                                                 160h      1
+Timer                                                                 161h      3
+write                                                                 164h      1
+BalanceTime                                                           165h      1
+vula_adc                                                                R5      1
+*step                                                                 166h     10
+*mode                                                                 170h      6
+*display                                                              176h     10
+buzz_S0                                                                 R4      1

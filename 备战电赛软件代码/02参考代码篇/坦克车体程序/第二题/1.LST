@@ -1,0 +1,107 @@
+C51 COMPILER V8.05a   1                                                                    02/27/2009 21:31:40 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint unsigned int
+   4          uchar x3,x4;
+   5          sbit P20=P3^6;
+   6          sbit P21=P3^7;
+   7          sbit P22=P1^3;
+   8          sbit P23=P1^4;
+   9          sbit P24=P1^5;
+  10          sbit P25=P1^6;
+  11          sbit P10=P1^0;
+  12          sbit P11=P1^1;
+  13          sbit P12=P1^2;
+  14          void ds(uchar x1,uchar x2)
+  15          {
+  16   1              TMOD=0X01;
+  17   1              TH0=x1;
+  18   1              TL0=x2;
+  19   1              x3=x1;
+  20   1              x4=x2;
+  21   1      
+  22   1              EA=1;ET0=1;
+  23   1              TR0=1;  
+  24   1      }
+  25          
+  26          void xunji()
+  27          {
+  28   1              if(P10==1&&P11==1&&P12==1)//全亮
+  29   1              {
+  30   2                      P22=1;                    //全停
+  31   2                      P23=1; 
+  32   2                      P24=1;
+  33   2                      P25=1;          
+  34   2              }
+  35   1              if((P10==0&&P11==0&&P12==0)||(P10==0&&P11==1&&P12==0))//全灭或中间灯亮
+  36   1              {
+  37   2                      ds(0xff,0xff);    //全速前进
+  38   2              }
+  39   1              if(P10==1&&P11==0&&P12==0)      //左边亮
+  40   1              {
+  41   2                      ds(0xff,0xe3);    //减速右拐
+  42   2              }
+  43   1              if(P10==0&&P11==0&&P12==1) //右边亮
+  44   1              {
+  45   2                      ds(0xff,0xe3);   //减速左拐
+  46   2              }
+  47   1      }
+  48          void main()
+  49          {
+  50   1      
+  51   1              while(1)
+  52   1              {
+  53   2              xunji();
+  54   2              
+  55   2              P20=1;
+C51 COMPILER V8.05a   1                                                                    02/27/2009 21:31:40 PAGE 2   
+
+  56   2              P21=1;
+  57   2              P22=1;
+  58   2              P23=1; 
+  59   2              P24=1;
+  60   2              P25=1;  
+  61   2              }       
+  62   1      }
+  63          void time0()interrupt 1
+  64          {
+  65   1              TH0=x3;
+  66   1              TL0=x4;
+  67   1              if((P10==0&&P11==0&&P12==0)||(P10==0&&P11==1&&P12==0))//全灭或中间灯亮
+  68   1              {
+  69   2                      P23=0;  //全速前进
+  70   2                      P25=0;
+  71   2              }
+  72   1              if(P21==1&&P11==0&&P12==0)      //左边亮
+  73   1              {
+  74   2                      P23=0;           //右边走
+  75   2                      P25=1;
+  76   2              }
+  77   1                      if(P10==0&&P11==0&&P12==1) //右边亮
+  78   1              {
+  79   2                      P23=1;           //左边走
+  80   2                      P25=0;
+  81   2              }
+  82   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    165    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,56 @@
+C51 COMPILER V8.05a   1                                                                    02/27/2009 20:17:39 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          sbit P10=P1^0; //  控制左电机前进
+   5          sbit P11=P1^1;//控制左电机后退
+   6          sbit P12=P1^2;//控制右电机
+   7          sbit P13=P1^3;//控制右电机
+   8          sbit P14=P1^4;//寻迹左
+   9          sbit P15=P1^5;//寻迹中
+  10          sbit P16=P1^6;//寻迹右
+  11          fun1()
+  12          { P10=0;P11=1;P12=0;P13=1;}
+  13          //fun2()
+  14          //{ P10=1;P11=0;P12=1;P13=0;}
+  15          fun3()
+  16          { P10=0;P11=1;P12=1;P13=1;}
+  17          fun4()
+  18          { P10=1;P11=1;P12=1;P13=0;}
+  19          fun5()
+  20          { P10=1;P11=1;P12=1;P13=1;}
+  21          void main()
+  22          { while(1)
+  23   1        { if((P14==0&&P15==1&&P16==0)||
+  24   2      (P14==0&&P15==0&&P16==0))
+  25   2                fun1();
+  26   2          if(P14==1&&P15==0&&P16==0)
+  27   2                fun4();
+  28   2               if(P14==0&&P15==0&&P16==1)
+  29   2               fun3();
+  30   2              if(P10==4&&P15==1&&P16==1)
+  31   2               fun5();
+  32   2        }
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     95    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

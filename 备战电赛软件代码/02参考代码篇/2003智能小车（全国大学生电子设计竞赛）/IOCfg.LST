@@ -1,0 +1,63 @@
+C51 COMPILER V8.02   IOCFG                                                                 07/29/2009 23:40:26 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE IOCFG
+OBJECT MODULE PLACED IN IOCfg.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE IOCfg.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          /*引脚定义*/
+   4          
+   5          //步进电机引脚
+   6          //左边电机
+   7          sbit  LMot_AP    = P0^0;
+   8          sbit  LMot_AN    = P0^1;
+   9          sbit  LMot_BP    = P0^2;
+  10          sbit  LMot_BN    = P0^3;
+  11          //右边电机
+  12          sbit  RMot_AP    = P3^4;
+  13          sbit  RMot_AN    = P3^5;
+  14          sbit  RMot_BP    = P3^6;
+  15          sbit  RMot_BN    = P3^7;
+  16          
+  17          //寻线电路引脚
+  18          sbit  Follow_L          = P0^5;
+  19          sbit  Follow_M          = P0^6;
+  20          sbit  Follow_R          = P0^7;
+  21          
+  22          //金属检测引脚
+  23          sbit  Metal_DTC    = P3^2;
+  24          
+  25          //超声波障碍物检测引脚
+  26          sbit  UltraDTC_TR   = P1^0;
+  27          sbit  UltraDTC_RE   = P1^1;
+  28          
+  29          //光源检测引脚
+  30          sbit  LightDTC_L   = P1^2;
+  31          sbit  LightDTC_M   = P1^3;
+  32          sbit  LightDTC_R   = P1^4;
+  33          
+  34          //声光指示引脚
+  35          sbit  Guide   = P1^5;
+  36          
+  37          //数码管显示引脚
+  38          #define  DispData    P2
+  39          sbit  DS1CS     = P1^6;
+  40          sbit  DS0CS     = P1^7;
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

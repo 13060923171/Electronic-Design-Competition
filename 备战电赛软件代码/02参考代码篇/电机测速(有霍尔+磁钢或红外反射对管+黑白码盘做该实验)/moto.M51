@@ -1,0 +1,164 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        11/29/2008  10:44:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE moto test.obj TO moto RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  moto test.obj (MOTO_TEST)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  moto (MOTO_TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0017H     UNIT         ?DT?MOTO_TEST
+            IDATA   001FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0018H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     00A9H     UNIT         ?PR?TIMER3?MOTO_TEST
+            CODE    08A9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0935H     0055H     UNIT         ?C?LIB_CODE
+            CODE    098AH     0038H     UNIT         ?PR?MAIN?MOTO_TEST
+            CODE    09C2H     001BH     UNIT         ?C_INITSEG
+            CODE    09DDH     0016H     UNIT         ?PR?_DELAYM?MOTO_TEST
+
+
+
+OVERLAY MAP OF MODULE:   moto (MOTO_TEST)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MOTO_TEST
+  +--> ?C_INITSEG
+
+?PR?MAIN?MOTO_TEST
+  +--> ?PR?_DELAYM?MOTO_TEST
+
+
+
+SYMBOL TABLE OF MODULE:  moto (MOTO_TEST)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.00                                                      11/29/2008  10:44:20  PAGE 2
+
+
+
+  -------         MODULE        MOTO_TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:09DDH         PUBLIC        _delaym
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:098AH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  D:0008H         PUBLIC        kop
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  B:0088H.4       PUBLIC        TR0
+  C:0800H         PUBLIC        timer3
+  B:0088H.6       PUBLIC        TR1
+  D:000AH         PUBLIC        a
+  D:0014H         PUBLIC        b
+  D:00C8H         PUBLIC        T2CON
+  D:001CH         PUBLIC        i
+  D:001EH         PUBLIC        j
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAYM
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0005H         SYMBOL        p
+  -------         ENDDO         
+  C:09DDH         LINE#         8
+  C:09DDH         LINE#         9
+  C:09DDH         LINE#         10
+  C:09E7H         LINE#         11
+  C:09E7H         LINE#         12
+  C:09F2H         LINE#         13
+  C:09F2H         LINE#         14
+  -------         ENDPROC       _DELAYM
+  -------         PROC          MAIN
+  C:098AH         LINE#         16
+  C:098AH         LINE#         17
+  C:098AH         LINE#         18
+  C:098CH         LINE#         19
+  C:098FH         LINE#         20
+  C:0991H         LINE#         21
+  C:0993H         LINE#         22
+  C:0995H         LINE#         23
+  C:0998H         LINE#         24
+  C:099BH         LINE#         25
+  C:099EH         LINE#         26
+  C:09A0H         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.00                                                      11/29/2008  10:44:20  PAGE 3
+
+
+  C:09A2H         LINE#         28
+  C:09A2H         LINE#         29
+  C:09A2H         LINE#         30
+  C:09A5H         LINE#         31
+  C:09A5H         LINE#         32
+  C:09ADH         LINE#         33
+  C:09B0H         LINE#         34
+  C:09B7H         LINE#         35
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER3
+  C:0800H         LINE#         38
+  C:0817H         LINE#         39
+  C:081AH         LINE#         40
+  C:081DH         LINE#         41
+  C:0825H         LINE#         42
+  C:082BH         LINE#         43
+  C:082BH         LINE#         44
+  C:0831H         LINE#         45
+  C:0838H         LINE#         46
+  C:0844H         LINE#         48
+  C:0855H         LINE#         49
+  C:0876H         LINE#         50
+  C:0888H         LINE#         51
+  C:088EH         LINE#         52
+  C:0891H         LINE#         53
+  C:0894H         LINE#         54
+  C:0894H         LINE#         55
+  -------         ENDPROC       TIMER3
+  -------         ENDMOD        MOTO_TEST
+
+  -------         MODULE        ?C?UIDIV
+  C:0935H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0114H BYTE (13%) *
+******************************************************************************
+
+Program Size: data=32.0 xdata=0 code=505
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

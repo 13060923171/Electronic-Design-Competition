@@ -1,0 +1,57 @@
+C51 COMPILER V8.02   LIGHTDTC                                                              07/29/2009 23:40:26 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE LIGHTDTC
+OBJECT MODULE PLACED IN LightDTC.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE LightDTC.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"IOCfg.c"
+   4          #include"TimeDLY.h"
+   5          #include"StepMot.h"
+   6          #include"LightDTC.h"
+   7          
+   8          //寻线函数：LightDTC()
+   9          void  Light_DTC(void)
+  10          {
+  11   1              INT8U temp;
+  12   1              temp = LightDTC_L;
+  13   1              temp = (temp<<1)|LightDTC_M;
+  14   1              temp = (temp<<1)|LightDTC_R;
+  15   1              switch(temp&0x07)
+  16   1              {
+  17   2                      //没检测到光源时，原地打转
+  18   2                      case 0x00:  LMotRun(LSPEED);RMotStop();     break;
+  19   2                      //仅右边检测到光源时，左电机快转，右电机慢转
+  20   2                      case 0x01:  LMotRun(HSPEED);RMotRun(LSPEED);break;
+  21   2                      //仅中间检测到光源时，正常，左右电机都快转
+  22   2                      case 0x02:  LMotRun(HSPEED);RMotRun(HSPEED);break;
+  23   2                      //中间以及右边检测到光源时，左电机快转，右电机慢转
+  24   2                      case 0x03:  LMotRun(HSPEED);RMotRun(LSPEED);break;
+  25   2                      //仅左边检测到光源时，左电机慢转，右电机快转
+  26   2                      case 0x04:  LMotRun(LSPEED);RMotRun(HSPEED);break;
+  27   2                      case 0x05:  break;  //不可能出现此情况
+  28   2                      //中间以及左边检测到光源时，左电机慢转，右电机快转
+  29   2                      case 0x06:  LMotRun(LSPEED);RMotRun(HSPEED);break;      
+  30   2                      //中间，左右边都检测到光源时，正常，左右电机都快转
+  31   2                      case 0x07:  LMotRun(HSPEED);RMotRun(HSPEED);break;
+  32   2                      default: break;
+  33   2                      }
+  34   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    121    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

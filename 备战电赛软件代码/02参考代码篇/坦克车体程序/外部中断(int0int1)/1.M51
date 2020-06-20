@@ -1,0 +1,126 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        02/13/2009  23:57:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE 1.obj TO 1 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  1.obj (1)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  1 (1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?1
+            IDATA   0018H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0020H     UNIT         ?PR?MAIN?1
+            CODE    08ACH     001FH     UNIT         ?PR?_DELAY?1
+            CODE    08CBH     0013H     UNIT         ?C_INITSEG
+            CODE    08DEH     0006H     UNIT         ?PR?EXTER0?1
+
+
+
+OVERLAY MAP OF MODULE:   1 (1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?1
+  +--> ?C_INITSEG
+
+?PR?MAIN?1
+  +--> ?PR?_DELAY?1
+
+
+
+SYMBOL TABLE OF MODULE:  1 (1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        1
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/13/2009  23:57:59  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:08ACH         PUBLIC        _delay
+  B:0080H.0       PUBLIC        d0
+  D:00B8H         PUBLIC        IP
+  C:088CH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  C:08DEH         PUBLIC        exter0
+  D:0008H         PUBLIC        a
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:08ACH         LINE#         6
+  C:08ACH         LINE#         7
+  C:08ACH         LINE#         8
+  C:08B6H         LINE#         9
+  C:08CAH         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:088CH         LINE#         11
+  C:088CH         LINE#         12
+  C:088CH         LINE#         13
+  C:088EH         LINE#         14
+  C:0890H         LINE#         16
+  C:0892H         LINE#         17
+  C:0892H         LINE#         18
+  C:0894H         LINE#         19
+  C:0896H         LINE#         20
+  C:089DH         LINE#         21
+  C:089FH         LINE#         22
+  C:08A6H         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         PROC          EXTER0
+  C:08DEH         LINE#         26
+  C:08DEH         LINE#         27
+  -------         ENDPROC       EXTER0
+  -------         ENDMOD        1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 005AH BYTE ( 4%) *
+******************************************************************************
+
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/13/2009  23:57:59  PAGE 3
+
+
+Program Size: data=25.0 xdata=0 code=234
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

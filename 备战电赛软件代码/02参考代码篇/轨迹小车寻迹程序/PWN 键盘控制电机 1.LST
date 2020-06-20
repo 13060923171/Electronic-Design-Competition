@@ -1,0 +1,140 @@
+C51 COMPILER V8.05a   PWN_键盘縚制电籣_1                                                   03/02/2009 12:07:50 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE PWN_键盘縚制电籣_1
+OBJECT MODULE PLACED IN PWN 键盘控制电机 1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE PWN 键盘控制电机 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit P00=P0^0;    //循迹口
+   3          sbit P01=P0^1;
+   4          sbit P02=P0^2;
+   5          
+   6          sbit P04=P0^4;     //电机1              左轮
+   7          sbit P05=P0^5;
+   8          
+   9          sbit P06=P0^6;     //电机2
+  10          sbit P07=P0^7;
+  11          unsigned int i=0,j=0;
+  12          void main()
+  13          { 
+  14   1         while(1)
+  15   1        {     
+  16   2         P04=1;P05=1;P06=1; P07=1;
+  17   2         TMOD=0X01;
+  18   2         EA=1;
+  19   2         ET0=1;         
+  20   2        
+  21   2      if(P00==0&&P01==1&&P02==0)                         // 小车直走           定时0.002ms             
+  22   2       { 
+  23   3       TH0=0XFF;                //定时0.01ms
+  24   3       TL0=0xFe;
+  25   3       TR0=1;
+  26   3       }
+  27   2              if(P00==0&&P01==0&&P02==1)                //小车右转            定时0.005ms       
+  28   2        { 
+  29   3         TH0=0XFF;
+  30   3         TL0=0Xfb;
+  31   3         TR0=1;  
+  32   3        }      
+  33   2              if(P00==1&&P01==0&&P02==0)                //小车左转            定时0.005ms                     
+  34   2        { 
+  35   3         TH0=0XFF;
+  36   3         TL0=0XFb;
+  37   3         TR0=1;
+  38   3        }
+  39   2          if(P00==1&&P01==1&&P02==1)                     //全部检测到黑线时 车停
+  40   2                {
+  41   3                 TH0=0XFF;
+  42   3             TL0=0Xfb;
+  43   3             TR0=1; } 
+  44   2       } 
+  45   1      }
+  46          
+  47           xiong() interrupt 1 
+  48          {        
+  49   1        if(P00==0&&P01==1&&P02==0)                  //小车直线快走  定时0.002ms                               
+  50   1               {
+  51   2          TH0=0XFF;
+  52   2          TL0=0xFe;
+  53   2      
+  54   2              P04=0;                          //电机1 左轮
+  55   2              P05=1;
+C51 COMPILER V8.05a   PWN_键盘縚制电籣_1                                                   03/02/2009 12:07:50 PAGE 2   
+
+  56   2              P06=1;                     //电机2       右转
+  57   2              P07=0;
+  58   2               } 
+  59   1      
+  60   1        if(P00==0&&P01==0&&P02==1)                      //小车右转            定时0.005ms       
+  61   1         {                                    
+  62   2                                        
+  63   2          TH0=0XFF;
+  64   2          TL0=0Xfb;
+  65   2      
+  66   2              P04=1;                          //电机1                  左轮
+  67   2              P05=1;                  
+  68   2              P06=1;                 //电机2
+  69   2              P07=0;
+  70   2              i=1;
+  71   2         }
+  72   1                              if(P00==0&&P01==0&&P02==0&&i==1)           // 特别
+  73   1                                      {TH0=0XFF;
+  74   2                                       TL0=0Xfb;
+  75   2                                           P04=1;
+  76   2                                           P05=1;
+  77   2                                               P06=1;
+  78   2                                               P07=0;
+  79   2                                                                       j=0;
+  80   2                                              }
+  81   1                                                              
+  82   1          if(P00==1&&P01==0&&P02==0)            //小车左转                    定时0.005ms
+  83   1             { 
+  84   2              TH0=0XFF;
+  85   2              TL0=0XFb;
+  86   2              P04=0;                          //电机1
+  87   2                  P05=1;
+  88   2                                              
+  89   2                  P06=1;                         //电机2
+  90   2                  P07=1;
+  91   2              j=1;         
+  92   2               }
+  93   1                                 if(P00==0&&P01==0&&P02==0&&j==1)                // 特别
+  94   1                                    { TH0=0XFF;
+  95   2                                      TL0=0Xfb;
+  96   2                                          P04=0;
+  97   2                                          P05=1;
+  98   2                                              P06=1;
+  99   2                                              P07=1;
+ 100   2                                                              i=0;   
+ 101   2                                                         }                                                    
+ 102   1               if(P00==1&&P01==1&&P02==1)
+ 103   1               {                                                                                  //全部检测到黑线时 车停
+ 104   2                TH0=0XFF;
+ 105   2            TL0=0Xfb;
+ 106   2                P04=1;           
+ 107   2                P05=1;
+ 108   2            P06=1;
+ 109   2            P07=1;}   
+ 110   1      }
+ 111          
+ 112           
+ 113          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    264    ----
+C51 COMPILER V8.05a   PWN_键盘縚制电籣_1                                                   03/02/2009 12:07:50 PAGE 3   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,73 @@
+C51 COMPILER V6.12  API                                                                    02/27/2009 16:06:01 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE API
+OBJECT MODULE PLACED IN .\API.OBJ
+COMPILER INVOKED BY: C:\软件备份\学习工具软件\KeilC51v612\programm\C51\BIN\C51.EXE .\API.h DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          // BYTE type definition
+   2          #ifndef _BYTE_DEF_
+   3          #define _BYTE_DEF_
+   4          typedef unsigned char BYTE;
+   5          #endif   /* _BYTE_DEF_ */
+   6          
+   7          //COMMONDS******************************//
+   8          
+   9          #define R_REG				0X00		//should be used with special register
+  10          #define W_REG				0X20		//should be used with special register
+  11          #define R_RX_PAYLOAD		0X61	//read RX payload
+  12          #define W_TX_PAYLOAD		0XA0	//write TX payload
+  13          #define FLUSH_TX			0XE1//clear TX FIFO
+  14          #define FLUSH_RX			0XE2//clear RX FIFO
+  15          #define REUSE_TX_PLD		0XE3	//reuse the packet last tasmitted
+  16          #define ACTIVATE			0X50//active or disable the follow three commonds,with 0x73
+  17          #define R_RX_PL_WID			0X60	//read the wideth of RX payload ,which is in zhe top of FIFO
+  18          #define W_ACK_PAYLOAD		0XA8	//write ack_payload to pipe u by the form of (W_ACK_PAYLOAD|u)
+  19          #define W_TX_PAYLOAD_NOACK	0XB0	//disable autoack of the following packet in TX FIFO
+  20          #define NOP					0XFF		//might be used to read status reg
+  21          
+  22          //REGISTERS******************************//
+  23          #define CONFIG          0x00	// 'Config' register address
+  24          #define EN_AA           0x01	// 'Enable Auto Acknowledgment' register address
+  25          #define EN_RXADDR       0x02	// 'Enabled RX addresses' register address
+  26          #define SETUP_AW        0x03	// 'Setup address width' register address
+  27          #define SETUP_RETR      0x04	// 'Setup Auto. Retrans' register address
+  28          #define RF_CH           0x05	// 'RF channel' register address
+  29          #define RF_SETUP        0x06	// 'RF setup' register address
+  30          #define STATUS          0x07	// 'Status' register address
+  31          #define OBSERVE_TX      0x08	// 'Observe TX' register address
+  32          #define CD              0x09  	// 'Carrier Detect' register address
+  33          #define RX_ADDR_P0      0x0A  	// 'RX address pipe0' register address
+  34          #define RX_ADDR_P1      0x0B  	// 'RX address pipe1' register address
+  35          #define RX_ADDR_P2      0x0C  	// 'RX address pipe2' register address
+  36          #define RX_ADDR_P3      0x0D  	// 'RX address pipe3' register address
+  37          #define RX_ADDR_P4      0x0E  	// 'RX address pipe4' register address
+  38          #define RX_ADDR_P5      0x0F  	// 'RX address pipe5' register address
+  39          #define TX_ADDR         0x10  	// 'TX address' register address
+  40          #define RX_PW_P0        0x11  	// 'RX payload width, pipe0' register address
+  41          #define RX_PW_P1        0x12  	// 'RX payload width, pipe1' register address
+  42          #define RX_PW_P2        0x13  	// 'RX payload width, pipe2' register address
+  43          #define RX_PW_P3        0x14  	// 'RX payload width, pipe3' register address
+  44          #define RX_PW_P4        0x15  	// 'RX payload width, pipe4' register address
+  45          #define RX_PW_P5        0x16  	// 'RX payload width, pipe5' register address
+  46          #define FIFO_STATUS     0x17  	// 'FIFO Status Register' register address
+  47          #define DYNPD		0x1C  	// 'Enable dynamic payload length' register address
+  48          #define FEATURE		0x1D	// 'Feature' register address
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V6.12  API                                                                    02/27/2009 16:06:01 PAGE 2   
+
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,94 @@
+C51 COMPILER V8.02   STEPMOT                                                               07/29/2009 23:40:26 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE STEPMOT
+OBJECT MODULE PLACED IN StepMot.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE StepMot.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"IOCfg.c"
+   4          #include"TimeDLY.h"
+   5          #include"StepMot.h"
+   6          
+   7          /**左边电机**/
+   8          //以指定速度运行函数：MotRun()
+   9          void LMotRun(INT16U speed)
+  10          {
+  11   1              INT16U cnt;
+  12   1              cnt = 12500/speed;
+  13   1              LMot_AP = 1;
+  14   1              LMot_AN = 0;
+  15   1              LMot_BP = 0;
+  16   1              LMot_BN = 0;
+  17   1              LDelay(cnt);
+  18   1              LMot_AP = 0;
+  19   1              LMot_AN = 1;
+  20   1              LDelay(cnt);
+  21   1              LMot_AN = 0;
+  22   1              LMot_BP = 1;
+  23   1              LDelay(cnt);
+  24   1              LMot_BP = 0;
+  25   1              LMot_BN = 1;
+  26   1              LDelay(cnt);
+  27   1              LMot_BN = 0;    
+  28   1              }
+  29          
+  30          //停止电机函数：MotStop()
+  31          void LMotStop(void)
+  32          {
+  33   1              LMot_AP = 0;
+  34   1              LMot_AN = 0;
+  35   1              LMot_BP = 0;
+  36   1              LMot_BN = 0;
+  37   1              }
+  38          
+  39          /**右边电机**/
+  40          //以指定速度运行函数：MotRun()
+  41          void RMotRun(INT16U speed)
+  42          {
+  43   1              INT16U cnt;
+  44   1              cnt = 12500/speed;
+  45   1              RMot_AP = 1;
+  46   1              RMot_AN = 0;
+  47   1              RMot_BP = 0;
+  48   1              RMot_BN = 0;
+  49   1              LDelay(cnt);
+  50   1              RMot_AP = 0;
+  51   1              RMot_AN = 1;
+  52   1              LDelay(cnt);
+  53   1              RMot_AN = 0;
+  54   1              RMot_BP = 1;
+  55   1              LDelay(cnt);
+C51 COMPILER V8.02   STEPMOT                                                               07/29/2009 23:40:26 PAGE 2   
+
+  56   1              RMot_BP = 0;
+  57   1              RMot_BN = 1;
+  58   1              LDelay(cnt);
+  59   1              RMot_BN = 0;    
+  60   1              }
+  61          
+  62          //停止电机函数：MotStop()
+  63          void RMotStop(void)
+  64          {
+  65   1              RMot_AP = 0;
+  66   1              RMot_AN = 0;
+  67   1              RMot_BP = 0;
+  68   1              RMot_BN = 0;
+  69   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

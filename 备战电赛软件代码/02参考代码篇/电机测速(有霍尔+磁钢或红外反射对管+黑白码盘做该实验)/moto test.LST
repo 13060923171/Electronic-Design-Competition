@@ -1,0 +1,80 @@
+C51 COMPILER V8.05a   MOTO_TEST                                                            11/29/2008 10:44:19 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE MOTO_TEST
+OBJECT MODULE PLACED IN moto test.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE moto test.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          unsigned int i=0;
+   3          sbit P36=P3^6; 
+   4          unsigned char j;
+   5          unsigned int kop;
+   6          unsigned char a[10]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+   7          unsigned char b[8]={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
+   8          void delaym(unsigned int t)
+   9          { unsigned char p;            
+  10   1      while(t--)
+  11   1      {
+  12   2      for(p=0; p<125; p++);           
+  13   2      }
+  14   1      }
+  15          
+  16          void main()
+  17          {
+  18   1          EA = 1;
+  19   1          TH0=0x00;
+  20   1              TL0=0x00;
+  21   1              ET0=1;
+  22   1              ET1=1;          
+  23   1              TMOD = 0x15;// 打开定时器和计数器
+  24   1              TH1=0x3C; //50ms
+  25   1              TL1=0xB0;               
+  26   1          TR0 = 1;
+  27   1              TR1 = 1;
+  28   1      while(1)
+  29   1      { 
+  30   2        for(j=0;j<3;j++) //显示个数
+  31   2        {
+  32   3        P0=b[j];
+  33   3        P2=j;
+  34   3        delaym(2);
+  35   3         }
+  36   2        }
+  37   1      }
+  38          timer3() interrupt 3  //中断
+  39          { TH1=0X3C;
+  40   1       TL1=0XB0;
+  41   1       i++;
+  42   1      if(i==20) //1s
+  43   1      {
+  44   2         kop=TH0;//计数器计入脉冲
+  45   2         kop=kop<<8;
+  46   2         kop=kop+TL0;
+  47   2      
+  48   2      b[2]=a[kop/100];
+  49   2      b[1]=a[kop%100/10];
+  50   2      b[0]=a[kop%100%10];
+  51   2      i=0;
+  52   2      TH0=0;
+  53   2      TL0=0;
+  54   2      }
+  55   1      }
+C51 COMPILER V8.05a   MOTO_TEST                                                            11/29/2008 10:44:19 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    247    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     23    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

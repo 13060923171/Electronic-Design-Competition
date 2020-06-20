@@ -1,0 +1,119 @@
+C51 COMPILER V7.07   XUNJI                                                                 08/02/2009 10:12:43 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE XUNJI
+OBJECT MODULE PLACED IN xunji.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE xunji.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg51.h>
+   2          
+   3          void rightrun() 
+   4          {       b=1;
+*** ERROR C202 IN LINE 4 OF XUNJI.C: 'b': undefined identifier
+   5   1              p1_0=1;
+*** ERROR C202 IN LINE 5 OF XUNJI.C: 'p1_0': undefined identifier
+   6   1              p1_1=0;
+*** ERROR C202 IN LINE 6 OF XUNJI.C: 'p1_1': undefined identifier
+   7   1              p1_3=1;
+*** ERROR C202 IN LINE 7 OF XUNJI.C: 'p1_3': undefined identifier
+   8   1              p1_4=1;
+*** ERROR C202 IN LINE 8 OF XUNJI.C: 'p1_4': undefined identifier
+   9   1              a=2;
+*** ERROR C202 IN LINE 9 OF XUNJI.C: 'a': undefined identifier
+  10   1              return;
+  11   1      }
+  12           void leftrun()
+  13          {       
+  14   1              b=1;
+*** ERROR C202 IN LINE 14 OF XUNJI.C: 'b': undefined identifier
+  15   1              p1_0=1;
+*** ERROR C202 IN LINE 15 OF XUNJI.C: 'p1_0': undefined identifier
+  16   1              p1_1=1;
+*** ERROR C202 IN LINE 16 OF XUNJI.C: 'p1_1': undefined identifier
+  17   1              p1_3=1;
+*** ERROR C202 IN LINE 17 OF XUNJI.C: 'p1_3': undefined identifier
+  18   1              p1_4=0;
+*** ERROR C202 IN LINE 18 OF XUNJI.C: 'p1_4': undefined identifier
+  19   1              a=1;
+*** ERROR C202 IN LINE 19 OF XUNJI.C: 'a': undefined identifier
+  20   1              return;
+  21   1      }
+  22          
+  23          
+  24          void forwordrun()
+  25          {       b=0;
+*** ERROR C202 IN LINE 25 OF XUNJI.C: 'b': undefined identifier
+  26   1              p1_0=1;
+*** ERROR C202 IN LINE 26 OF XUNJI.C: 'p1_0': undefined identifier
+  27   1              p1_1=0;
+*** ERROR C202 IN LINE 27 OF XUNJI.C: 'p1_1': undefined identifier
+  28   1              p1_3=1;/**/
+*** ERROR C202 IN LINE 28 OF XUNJI.C: 'p1_3': undefined identifier
+  29   1              p1_4=0;/**/
+*** ERROR C202 IN LINE 29 OF XUNJI.C: 'p1_4': undefined identifier
+  30   1              a=3;
+*** ERROR C202 IN LINE 30 OF XUNJI.C: 'a': undefined identifier
+  31   1              return;
+  32   1      }
+  33          void backrun()
+  34          {       b=0;
+*** ERROR C202 IN LINE 34 OF XUNJI.C: 'b': undefined identifier
+  35   1              p1_0=0;
+*** ERROR C202 IN LINE 35 OF XUNJI.C: 'p1_0': undefined identifier
+C51 COMPILER V7.07   XUNJI                                                                 08/02/2009 10:12:43 PAGE 2   
+
+  36   1              p1_1=1;
+*** ERROR C202 IN LINE 36 OF XUNJI.C: 'p1_1': undefined identifier
+  37   1              p1_3=0;/**/
+*** ERROR C202 IN LINE 37 OF XUNJI.C: 'p1_3': undefined identifier
+  38   1              p1_4=1;/**/
+*** ERROR C202 IN LINE 38 OF XUNJI.C: 'p1_4': undefined identifier
+  39   1              a=4;
+*** ERROR C202 IN LINE 39 OF XUNJI.C: 'a': undefined identifier
+  40   1              return;
+  41   1      }
+  42          void xunji()
+  43          {       if(p2_0==1)                                     /*Èç¹ûÓÒ±ßÐ¡µÆ²»ÁÁ£¬Ôò½øÐÐÓÒ×ª*/
+*** ERROR C202 IN LINE 43 OF XUNJI.C: 'p2_0': undefined identifier
+  44   1              {       if(p2_0==1&&p2_1==1)                    /*Èç¹ûÖÐ¼äÐ¡µÆºÍÓÒ±ßÐ¡µÆ¶¼²»ÁÁ£¬ÔòÐ¡×ª*/
+*** ERROR C202 IN LINE 44 OF XUNJI.C: 'p2_0': undefined identifier
+  45   2                              rightrun();                                     
+  46   2                      else if(p2_0==1&&p2_1==0&&p2_2==0)      /*Èç¹ûÖ»ÓÐÓÒ±ßÐ¡µÆ²»ÁÁ£¬Ôò´ó×ª*/
+*** ERROR C202 IN LINE 46 OF XUNJI.C: 'p2_0': undefined identifier
+  47   2                      {       rightrun();     
+  48   3                              rightrun();
+  49   3                      }
+  50   2              }
+  51   1              if(p2_2==1)                                     /*Èç¹û×ó±ßÐ¡µÆ²»ÁÁ£¬Ôò½øÐÐ×ó×ª*/
+*** ERROR C202 IN LINE 51 OF XUNJI.C: 'p2_2': undefined identifier
+  52   1              {       if(p2_2==1&&p2_1==1)                    /*Èç¹ûÖÐ¼äÐ¡µÆºÍ×ó±ßÐ¡µÆ¶¼²»ÁÁ£¬ÔòÐ¡×ª*/ 
+*** ERROR C202 IN LINE 52 OF XUNJI.C: 'p2_2': undefined identifier
+  53   2                              leftrun();                                                              
+  54   2                      else if(p2_0==0&&p2_1==0&&p2_2==1)      /*Èç¹ûÖ»ÓÐ×ó±ßÐ¡µÆ²»ÁÁ£¬Ôò´ó×ª*/       
+*** ERROR C202 IN LINE 54 OF XUNJI.C: 'p2_0': undefined identifier
+  55   2                      {       leftrun();
+  56   3                              leftrun();
+  57   3                      }       
+  58   2              }       
+  59   1              if(p2_1==1&&p2_0==0&&p2_2==0)                   /*Èç¹ûÖ»ÓÐÖÐ¼äµÆÁÁ£¬ÔòÇ°½ø*/
+*** ERROR C202 IN LINE 59 OF XUNJI.C: 'p2_1': undefined identifier
+  60   1              {//     cesu()  ;
+  61   2                      forwordrun();
+  62   2              }               
+  63   1                      
+  64   1              if((p2_0==0&&p2_1==0&&p2_2==0)||(p2_0==1&&p2_1==0&&p2_2==1)||(p2_0==1&&p2_1==1&&p2_2==1)) /*Èç¹û³öÏÖÈý¸öµ
+             -ÆÈ«ÁÁ»òÖÐ¼äÁÁÁ½±ßÃðÔòÖ´ÐÐÉÏÒ»´Î²Ù×÷*/
+*** ERROR C202 IN LINE 64 OF XUNJI.C: 'p2_0': undefined identifier
+  65   1                      {
+  66   2                              switch(a)
+*** ERROR C202 IN LINE 66 OF XUNJI.C: 'a': undefined identifier
+  67   2                              {case 1:leftrun();break;
+  68   3                              case 2:rightrun();break;
+  69   3                              default:backrun();
+  70   3                              }
+  71   2                      }
+  72   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  33 ERROR(S)

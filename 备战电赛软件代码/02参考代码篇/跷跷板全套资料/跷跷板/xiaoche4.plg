@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Documents and Settings\Administrator\×ÀÃæ\xc2\xiaoche4.uv2
+Project File Date:  08/07/2009
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+linking...
+BL51 BANKED LINKER/LOCATER V6.00 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2005
+"STARTUP.obj",
+"main.obj" 
+TO "xiaoche4" 
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 113FH BYTE (215%) *
+******************************************************************************
+Program Size: data=127.0 xdata=0 code=5608
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+*** FATAL ERROR L250: CODE SIZE LIMIT IN RESTRICTED VERSION EXCEEDED
+    MODULE:  F:\KEIL\UV3\C51\LIB\C51S.LIB (-----)
+    LIMIT:   0800H BYTES
+Target not created
+Build target 'Target 1'
+linking...
+BL51 BANKED LINKER/LOCATER V6.00 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2005
+"STARTUP.obj",
+"main.obj" 
+TO "xiaoche4" 
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 113FH BYTE (215%) *
+******************************************************************************
+Program Size: data=127.0 xdata=0 code=5608
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+*** FATAL ERROR L250: CODE SIZE LIMIT IN RESTRICTED VERSION EXCEEDED
+    MODULE:  F:\KEIL\UV3\C51\LIB\C51S.LIB (-----)
+    LIMIT:   0800H BYTES
+Target not created

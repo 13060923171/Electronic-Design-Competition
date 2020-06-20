@@ -1,0 +1,960 @@
+
+24L01.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000a  00800100  000005a2  00000636  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005a2  00000000  00000000  00000094  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000000  0080010a  000005ac  00000640  2**0
+                  ALLOC
+  3 .noinit       00000000  0080010a  0080010a  00000640  2**0
+                  CONTENTS
+  4 .eeprom       00000000  00810000  00810000  00000640  2**0
+                  CONTENTS
+  5 .stab         00000408  00000000  00000000  00000640  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  6 .stabstr      00000084  00000000  00000000  00000a48  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges 00000014  00000000  00000000  00000acc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 000000f5  00000000  00000000  00000ae0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_info   000004b8  00000000  00000000  00000bd5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_abbrev 00000107  00000000  00000000  0000108d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_line   000002eb  00000000  00000000  00001194  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_str    00000017  00000000  00000000  0000147f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c <__ctors_end>
+   4:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+   8:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+   c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  10:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  14:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  18:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  1c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  20:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  24:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  28:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  2c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  30:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  34:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  38:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  3c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  40:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  44:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  48:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  4c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  50:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  54:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  58:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  5c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  60:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  64:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  68:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  6c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  70:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  74:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  78:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  7c:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  80:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  84:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+  88:	0c 94 63 00 	jmp	0xc6 <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e2 ea       	ldi	r30, 0xA2	; 162
+  a0:	f5 e0       	ldi	r31, 0x05	; 5
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	aa 30       	cpi	r26, 0x0A	; 10
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	11 e0       	ldi	r17, 0x01	; 1
+  b4:	aa e0       	ldi	r26, 0x0A	; 10
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	aa 30       	cpi	r26, 0x0A	; 10
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0c 94 a5 02 	jmp	0x54a <main>
+
+000000c6 <__bad_interrupt>:
+  c6:	0c 94 00 00 	jmp	0x0 <__vectors>
+
+000000ca <delayus>:
+
+
+/*------------------us延时子程序-----------------------------*/ 
+void delayus(uint us) 
+{  uint i; 
+  ca:	cf 93       	push	r28
+  cc:	df 93       	push	r29
+  ce:	cd b7       	in	r28, 0x3d	; 61
+  d0:	de b7       	in	r29, 0x3e	; 62
+  d2:	24 97       	sbiw	r28, 0x04	; 4
+  d4:	0f b6       	in	r0, 0x3f	; 63
+  d6:	f8 94       	cli
+  d8:	de bf       	out	0x3e, r29	; 62
+  da:	0f be       	out	0x3f, r0	; 63
+  dc:	cd bf       	out	0x3d, r28	; 61
+  de:	9a 83       	std	Y+2, r25	; 0x02
+  e0:	89 83       	std	Y+1, r24	; 0x01
+   us=us*5/4;
+  e2:	29 81       	ldd	r18, Y+1	; 0x01
+  e4:	3a 81       	ldd	r19, Y+2	; 0x02
+  e6:	c9 01       	movw	r24, r18
+  e8:	88 0f       	add	r24, r24
+  ea:	99 1f       	adc	r25, r25
+  ec:	88 0f       	add	r24, r24
+  ee:	99 1f       	adc	r25, r25
+  f0:	82 0f       	add	r24, r18
+  f2:	93 1f       	adc	r25, r19
+  f4:	96 95       	lsr	r25
+  f6:	87 95       	ror	r24
+  f8:	96 95       	lsr	r25
+  fa:	87 95       	ror	r24
+  fc:	9a 83       	std	Y+2, r25	; 0x02
+  fe:	89 83       	std	Y+1, r24	; 0x01
+   for(i=0;i<us;i++); 
+ 100:	1c 82       	std	Y+4, r1	; 0x04
+ 102:	1b 82       	std	Y+3, r1	; 0x03
+ 104:	2b 81       	ldd	r18, Y+3	; 0x03
+ 106:	3c 81       	ldd	r19, Y+4	; 0x04
+ 108:	89 81       	ldd	r24, Y+1	; 0x01
+ 10a:	9a 81       	ldd	r25, Y+2	; 0x02
+ 10c:	28 17       	cp	r18, r24
+ 10e:	39 07       	cpc	r19, r25
+ 110:	30 f4       	brcc	.+12     	; 0x11e <delayus+0x54>
+ 112:	8b 81       	ldd	r24, Y+3	; 0x03
+ 114:	9c 81       	ldd	r25, Y+4	; 0x04
+ 116:	01 96       	adiw	r24, 0x01	; 1
+ 118:	9c 83       	std	Y+4, r25	; 0x04
+ 11a:	8b 83       	std	Y+3, r24	; 0x03
+ 11c:	f3 cf       	rjmp	.-26     	; 0x104 <delayus+0x3a>
+ 11e:	24 96       	adiw	r28, 0x04	; 4
+ 120:	0f b6       	in	r0, 0x3f	; 63
+ 122:	f8 94       	cli
+ 124:	de bf       	out	0x3e, r29	; 62
+ 126:	0f be       	out	0x3f, r0	; 63
+ 128:	cd bf       	out	0x3d, r28	; 61
+ 12a:	df 91       	pop	r29
+ 12c:	cf 91       	pop	r28
+ 12e:	08 95       	ret
+
+00000130 <delayms>:
+} 	
+
+
+/*------------------ms延时子程序-----------------------------*/ 
+void delayms(uint ms) 
+{  uint i,j; 
+ 130:	cf 93       	push	r28
+ 132:	df 93       	push	r29
+ 134:	cd b7       	in	r28, 0x3d	; 61
+ 136:	de b7       	in	r29, 0x3e	; 62
+ 138:	26 97       	sbiw	r28, 0x06	; 6
+ 13a:	0f b6       	in	r0, 0x3f	; 63
+ 13c:	f8 94       	cli
+ 13e:	de bf       	out	0x3e, r29	; 62
+ 140:	0f be       	out	0x3f, r0	; 63
+ 142:	cd bf       	out	0x3d, r28	; 61
+ 144:	9a 83       	std	Y+2, r25	; 0x02
+ 146:	89 83       	std	Y+1, r24	; 0x01
+   for(i=0;i<ms;i++) 
+ 148:	1c 82       	std	Y+4, r1	; 0x04
+ 14a:	1b 82       	std	Y+3, r1	; 0x03
+ 14c:	2b 81       	ldd	r18, Y+3	; 0x03
+ 14e:	3c 81       	ldd	r19, Y+4	; 0x04
+ 150:	89 81       	ldd	r24, Y+1	; 0x01
+ 152:	9a 81       	ldd	r25, Y+2	; 0x02
+ 154:	28 17       	cp	r18, r24
+ 156:	39 07       	cpc	r19, r25
+ 158:	a0 f4       	brcc	.+40     	; 0x182 <delayms+0x52>
+      for(j=0;j<1141;j++); 
+ 15a:	1e 82       	std	Y+6, r1	; 0x06
+ 15c:	1d 82       	std	Y+5, r1	; 0x05
+ 15e:	8d 81       	ldd	r24, Y+5	; 0x05
+ 160:	9e 81       	ldd	r25, Y+6	; 0x06
+ 162:	24 e0       	ldi	r18, 0x04	; 4
+ 164:	85 37       	cpi	r24, 0x75	; 117
+ 166:	92 07       	cpc	r25, r18
+ 168:	30 f4       	brcc	.+12     	; 0x176 <delayms+0x46>
+ 16a:	8d 81       	ldd	r24, Y+5	; 0x05
+ 16c:	9e 81       	ldd	r25, Y+6	; 0x06
+ 16e:	01 96       	adiw	r24, 0x01	; 1
+ 170:	9e 83       	std	Y+6, r25	; 0x06
+ 172:	8d 83       	std	Y+5, r24	; 0x05
+ 174:	f4 cf       	rjmp	.-24     	; 0x15e <delayms+0x2e>
+ 176:	8b 81       	ldd	r24, Y+3	; 0x03
+ 178:	9c 81       	ldd	r25, Y+4	; 0x04
+ 17a:	01 96       	adiw	r24, 0x01	; 1
+ 17c:	9c 83       	std	Y+4, r25	; 0x04
+ 17e:	8b 83       	std	Y+3, r24	; 0x03
+ 180:	e5 cf       	rjmp	.-54     	; 0x14c <delayms+0x1c>
+ 182:	26 96       	adiw	r28, 0x06	; 6
+ 184:	0f b6       	in	r0, 0x3f	; 63
+ 186:	f8 94       	cli
+ 188:	de bf       	out	0x3e, r29	; 62
+ 18a:	0f be       	out	0x3f, r0	; 63
+ 18c:	cd bf       	out	0x3d, r28	; 61
+ 18e:	df 91       	pop	r29
+ 190:	cf 91       	pop	r28
+ 192:	08 95       	ret
+
+00000194 <spi_init>:
+} 
+
+//------------------------------------------------------------------------------
+//spi标志
+#define DDR_SPI DDRB
+#define DD_MOSI 2
+#define DD_MISO 3
+#define DD_SCK 1
+#define DD_SS 0
+#define CE PB4
+#define IRQ PB5
+//--------------------------------NRF24L01接口定义--------------------------------
+//------------------------------------------------------------------------------
+//#define NRF24L01_MISO          PB3  //输入0 
+#define   Hign_24L01_MISO    PORTB|=(1 << PB3)
+#define   Low_24L01_MISO     PORTB &= ~(1 << PB3)
+#define   Read_24L01_MISO    PINB & (1 << PB3)
+
+//#define NRF24L01_MOSI         PB2       //输出1
+#define   Hign_24L01_MOSI    PORTB |= (1 << PB2) 
+#define   Low_24L01_MOSI     PORTB &= ~(1 << PB2)
+#define   Read_24L01_MOSI    PINB & (1 << PB2)
+
+//#define NRF24L01_SCK    PB1      //输出1
+#define   Hign_24L01_SCK    PORTB |= (1 << PB1)  
+#define   Low_24L01_SCK     PORTB &= ~(1 << PB1)   
+#define   Read_24L01_SCK    PINB & (1 << PB1);
+
+//#define NRF24L01_CSN       PB0       //输出1
+#define   Low_24L01_CSN     PORTB &= ~(1 << PB0)
+#define   Hign_24L01_CSN    PORTB |= (1 << PB0)
+
+//#define NRF24L01_CE         PB3       //输出1
+#define   Hign_24L01_CE    PORTB |= (1 << PB4) 
+#define   Low_24L01_CE     PORTB &= ~(1 << PB4)  
+#define   Read_24L01_CE    PINB & (1 << PB4)
+
+
+
+//*********************************************NRF24L01*************************************
+#define TX_ADR_WIDTH    5   	// 发送地址长度，最大长度为5 5*8=40 bit
+#define RX_ADR_WIDTH    5   	// 接收地址长度
+#define TX_PLOAD_WIDTH  32    	// 发送字节长度，
+#define RX_PLOAD_WIDTH  32  	// 接收字节长度
+ uchar TX_ADDRESS[TX_ADR_WIDTH]={0x34,0x43,0x10,0x10,0x01};  //发送地址
+ uchar RX_ADDRESS[RX_ADR_WIDTH]={0x34,0x43,0x10,0x10,0x01}; //接收地址
+//***************************************NRF24L01寄存器指令*******************************************************
+#define READ_REG        0x00  	// 读寄存器指令
+#define WRITE_REG       0x20 	// 写寄存器指令
+#define RD_RX_PLOAD     0x61  	// 读取接收数据指令
+#define WR_TX_PLOAD     0xA0  	// 写待发数据指令
+#define FLUSH_TX        0xE1 	// 冲洗发送 FIFO指令
+#define FLUSH_RX        0xE2  	// 冲洗接收 FIFO指令
+#define REUSE_TX_PL     0xE3  	// 定义重复装载数据指令
+#define NOP             0xFF  	// 保留
+//*************************************SPI(nRF24L01)寄存器地址****************************************************
+#define CONFIG          0x00  // 配置收发状态，CRC校验模式以及收发状态响应方式
+#define EN_AA           0x01  // 自动应答功能设置
+#define EN_RXADDR       0x02  // 可用信道设置
+#define SETUP_AW        0x03  // 收发地址宽度设置
+#define SETUP_RETR      0x04  // 自动重发功能设置
+#define RF_CH           0x05  // 工作频率设置
+#define RF_SETUP        0x06  // 发射速率、功耗功能设置
+#define STATUS          0x07  // 状态寄存器
+#define OBSERVE_TX      0x08  // 发送监测功能
+#define CD              0x09  // 地址检测           
+#define RX_ADDR_P0      0x0A  // 频道0接收数据地址
+#define RX_ADDR_P1      0x0B  // 频道1接收数据地址
+#define RX_ADDR_P2      0x0C  // 频道2接收数据地址
+#define RX_ADDR_P3      0x0D  // 频道3接收数据地址
+#define RX_ADDR_P4      0x0E  // 频道4接收数据地址
+#define RX_ADDR_P5      0x0F  // 频道5接收数据地址
+#define TX_ADDR         0x10  // 发送地址寄存器
+#define RX_PW_P0        0x11  // 接收频道0接收数据长度
+#define RX_PW_P1        0x12  // 接收频道0接收数据长度
+#define RX_PW_P2        0x13  // 接收频道0接收数据长度
+#define RX_PW_P3        0x14  // 接收频道0接收数据长度
+#define RX_PW_P4        0x15  // 接收频道0接收数据长度
+#define RX_PW_P5        0x16  // 接收频道0接收数据长度
+#define FIFO_STATUS     0x17  // FIFO栈入栈出状态寄存器设置
+//*************************************************************
+
+
+//*************************************************
+//*******  void spi_init()  初始化SPI
+//**************************************************
+void spi_init()
+{
+ 194:	cf 93       	push	r28
+ 196:	df 93       	push	r29
+ 198:	cd b7       	in	r28, 0x3d	; 61
+ 19a:	de b7       	in	r29, 0x3e	; 62
+ Hign_24L01_CSN;
+ 19c:	80 91 38 00 	lds	r24, 0x0038
+ 1a0:	81 60       	ori	r24, 0x01	; 1
+ 1a2:	80 93 38 00 	sts	0x0038, r24
+ DDR_SPI = (1<<DD_MOSI)|(1<<DD_SCK)|(1<<DD_SS)|(1 << CE);//设置MOSI,SCK,SS.CE 为OUTPUT,其它为INPUT
+ 1a6:	87 e1       	ldi	r24, 0x17	; 23
+ 1a8:	80 93 37 00 	sts	0x0037, r24
+ DDR_SPI&=~((1<<DD_MISO)|(1<<IRQ));
+ 1ac:	80 91 37 00 	lds	r24, 0x0037
+ 1b0:	87 7d       	andi	r24, 0xD7	; 215
+ 1b2:	80 93 37 00 	sts	0x0037, r24
+ SPCR=(1<<SPE)|(1<<MSTR)|(1<<SPR0);//使能SPI接口,主机模式,MSB低位在前,模式0,16分频,SPI时钟1MHZ
+ 1b6:	81 e5       	ldi	r24, 0x51	; 81
+ 1b8:	80 93 2d 00 	sts	0x002D, r24
+ SPSR=0;
+ 1bc:	10 92 2e 00 	sts	0x002E, r1
+ 1c0:	df 91       	pop	r29
+ 1c2:	cf 91       	pop	r28
+ 1c4:	08 95       	ret
+
+000001c6 <SPI_RW>:
+}
+
+
+//**************************************************
+//*******  uchar SPI_RW(uchar date)  读写SPI
+//**************************************************
+uchar SPI_RW(uchar date)
+{
+ 1c6:	cf 93       	push	r28
+ 1c8:	df 93       	push	r29
+ 1ca:	cd b7       	in	r28, 0x3d	; 61
+ 1cc:	de b7       	in	r29, 0x3e	; 62
+ 1ce:	21 97       	sbiw	r28, 0x01	; 1
+ 1d0:	0f b6       	in	r0, 0x3f	; 63
+ 1d2:	f8 94       	cli
+ 1d4:	de bf       	out	0x3e, r29	; 62
+ 1d6:	0f be       	out	0x3f, r0	; 63
+ 1d8:	cd bf       	out	0x3d, r28	; 61
+ 1da:	89 83       	std	Y+1, r24	; 0x01
+ SPDR=date;
+ 1dc:	89 81       	ldd	r24, Y+1	; 0x01
+ 1de:	80 93 2f 00 	sts	0x002F, r24
+    while(!(SPSR&(1<<SPIF)));
+ 1e2:	80 91 2e 00 	lds	r24, 0x002E
+ 1e6:	88 23       	and	r24, r24
+ 1e8:	0c f0       	brlt	.+2      	; 0x1ec <SPI_RW+0x26>
+ 1ea:	fb cf       	rjmp	.-10     	; 0x1e2 <SPI_RW+0x1c>
+    return SPDR;
+ 1ec:	80 91 2f 00 	lds	r24, 0x002F
+ 1f0:	99 27       	eor	r25, r25
+ 1f2:	21 96       	adiw	r28, 0x01	; 1
+ 1f4:	0f b6       	in	r0, 0x3f	; 63
+ 1f6:	f8 94       	cli
+ 1f8:	de bf       	out	0x3e, r29	; 62
+ 1fa:	0f be       	out	0x3f, r0	; 63
+ 1fc:	cd bf       	out	0x3d, r28	; 61
+ 1fe:	df 91       	pop	r29
+ 200:	cf 91       	pop	r28
+ 202:	08 95       	ret
+
+00000204 <SPI_Read>:
+}
+ 
+//**************************************************
+//*******uchar SPI_Read(uchar reg)  读24L01寄存器
+//**************************************************
+uchar SPI_Read(uchar reg)
+{
+ 204:	cf 93       	push	r28
+ 206:	df 93       	push	r29
+ 208:	cd b7       	in	r28, 0x3d	; 61
+ 20a:	de b7       	in	r29, 0x3e	; 62
+ 20c:	22 97       	sbiw	r28, 0x02	; 2
+ 20e:	0f b6       	in	r0, 0x3f	; 63
+ 210:	f8 94       	cli
+ 212:	de bf       	out	0x3e, r29	; 62
+ 214:	0f be       	out	0x3f, r0	; 63
+ 216:	cd bf       	out	0x3d, r28	; 61
+ 218:	89 83       	std	Y+1, r24	; 0x01
+ uchar reg_val;
+ 
+ Low_24L01_CSN;               
+ 21a:	80 91 38 00 	lds	r24, 0x0038
+ 21e:	8e 7f       	andi	r24, 0xFE	; 254
+ 220:	80 93 38 00 	sts	0x0038, r24
+ SPI_RW(reg);            
+ 224:	89 81       	ldd	r24, Y+1	; 0x01
+ 226:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ reg_val = SPI_RW(0);    
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
+ 22c:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 230:	8a 83       	std	Y+2, r24	; 0x02
+ Hign_24L01_CSN;               
+ 232:	80 91 38 00 	lds	r24, 0x0038
+ 236:	81 60       	ori	r24, 0x01	; 1
+ 238:	80 93 38 00 	sts	0x0038, r24
+ 
+ return(reg_val);       
+ 23c:	8a 81       	ldd	r24, Y+2	; 0x02
+ 23e:	99 27       	eor	r25, r25
+ 240:	22 96       	adiw	r28, 0x02	; 2
+ 242:	0f b6       	in	r0, 0x3f	; 63
+ 244:	f8 94       	cli
+ 246:	de bf       	out	0x3e, r29	; 62
+ 248:	0f be       	out	0x3f, r0	; 63
+ 24a:	cd bf       	out	0x3d, r28	; 61
+ 24c:	df 91       	pop	r29
+ 24e:	cf 91       	pop	r28
+ 250:	08 95       	ret
+
+00000252 <SPI_RW_Reg>:
+}
+
+//**************************************************
+//*******  uchar SPI_RW_Reg(uchar reg, uchar value) 
+//          写24L01寄存器
+//**************************************************
+
+uchar SPI_RW_Reg(uchar reg, uchar value)
+{
+ 252:	cf 93       	push	r28
+ 254:	df 93       	push	r29
+ 256:	cd b7       	in	r28, 0x3d	; 61
+ 258:	de b7       	in	r29, 0x3e	; 62
+ 25a:	23 97       	sbiw	r28, 0x03	; 3
+ 25c:	0f b6       	in	r0, 0x3f	; 63
+ 25e:	f8 94       	cli
+ 260:	de bf       	out	0x3e, r29	; 62
+ 262:	0f be       	out	0x3f, r0	; 63
+ 264:	cd bf       	out	0x3d, r28	; 61
+ 266:	89 83       	std	Y+1, r24	; 0x01
+ 268:	6a 83       	std	Y+2, r22	; 0x02
+ uchar status;
+ 
+ Low_24L01_CSN;                 
+ 26a:	80 91 38 00 	lds	r24, 0x0038
+ 26e:	8e 7f       	andi	r24, 0xFE	; 254
+ 270:	80 93 38 00 	sts	0x0038, r24
+ status = SPI_RW(reg);     
+ 274:	89 81       	ldd	r24, Y+1	; 0x01
+ 276:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 27a:	8b 83       	std	Y+3, r24	; 0x03
+ SPI_RW(value);            
+ 27c:	8a 81       	ldd	r24, Y+2	; 0x02
+ 27e:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ Hign_24L01_CSN;                   
+ 282:	80 91 38 00 	lds	r24, 0x0038
+ 286:	81 60       	ori	r24, 0x01	; 1
+ 288:	80 93 38 00 	sts	0x0038, r24
+ 
+ return(status);           
+ 28c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 28e:	99 27       	eor	r25, r25
+ 290:	23 96       	adiw	r28, 0x03	; 3
+ 292:	0f b6       	in	r0, 0x3f	; 63
+ 294:	f8 94       	cli
+ 296:	de bf       	out	0x3e, r29	; 62
+ 298:	0f be       	out	0x3f, r0	; 63
+ 29a:	cd bf       	out	0x3d, r28	; 61
+ 29c:	df 91       	pop	r29
+ 29e:	cf 91       	pop	r28
+ 2a0:	08 95       	ret
+
+000002a2 <SPI_Read_Buf>:
+}
+
+//**************************************************
+//*******  uchar SPI_Read_Buf(uchar reg, uchar *pBuf, uchar bites) 
+//          读24L01 寄存器BUFF
+//**************************************************
+uchar SPI_Read_Buf(uchar reg, uchar *pBuf, uchar bites)
+{
+ 2a2:	cf 93       	push	r28
+ 2a4:	df 93       	push	r29
+ 2a6:	cd b7       	in	r28, 0x3d	; 61
+ 2a8:	de b7       	in	r29, 0x3e	; 62
+ 2aa:	28 97       	sbiw	r28, 0x08	; 8
+ 2ac:	0f b6       	in	r0, 0x3f	; 63
+ 2ae:	f8 94       	cli
+ 2b0:	de bf       	out	0x3e, r29	; 62
+ 2b2:	0f be       	out	0x3f, r0	; 63
+ 2b4:	cd bf       	out	0x3d, r28	; 61
+ 2b6:	89 83       	std	Y+1, r24	; 0x01
+ 2b8:	7b 83       	std	Y+3, r23	; 0x03
+ 2ba:	6a 83       	std	Y+2, r22	; 0x02
+ 2bc:	4c 83       	std	Y+4, r20	; 0x04
+ uint status1,uchar_ctr;
+ 
+ Low_24L01_CSN;                     
+ 2be:	80 91 38 00 	lds	r24, 0x0038
+ 2c2:	8e 7f       	andi	r24, 0xFE	; 254
+ 2c4:	80 93 38 00 	sts	0x0038, r24
+ status1 = SPI_RW(reg);         
+ 2c8:	89 81       	ldd	r24, Y+1	; 0x01
+ 2ca:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 2ce:	99 27       	eor	r25, r25
+ 2d0:	9e 83       	std	Y+6, r25	; 0x06
+ 2d2:	8d 83       	std	Y+5, r24	; 0x05
+ 
+ for(uchar_ctr=0;uchar_ctr<bites;uchar_ctr++)
+ 2d4:	18 86       	std	Y+8, r1	; 0x08
+ 2d6:	1f 82       	std	Y+7, r1	; 0x07
+ 2d8:	8c 81       	ldd	r24, Y+4	; 0x04
+ 2da:	28 2f       	mov	r18, r24
+ 2dc:	33 27       	eor	r19, r19
+ 2de:	8f 81       	ldd	r24, Y+7	; 0x07
+ 2e0:	98 85       	ldd	r25, Y+8	; 0x08
+ 2e2:	82 17       	cp	r24, r18
+ 2e4:	93 07       	cpc	r25, r19
+ 2e6:	90 f4       	brcc	.+36     	; 0x30c <SPI_Read_Buf+0x6a>
+  pBuf[uchar_ctr] = SPI_RW(0);   
+ 2e8:	80 e0       	ldi	r24, 0x00	; 0
+ 2ea:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 2ee:	48 2f       	mov	r20, r24
+ 2f0:	2f 81       	ldd	r18, Y+7	; 0x07
+ 2f2:	38 85       	ldd	r19, Y+8	; 0x08
+ 2f4:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2f6:	9b 81       	ldd	r25, Y+3	; 0x03
+ 2f8:	f9 01       	movw	r30, r18
+ 2fa:	e8 0f       	add	r30, r24
+ 2fc:	f9 1f       	adc	r31, r25
+ 2fe:	40 83       	st	Z, r20
+ 300:	8f 81       	ldd	r24, Y+7	; 0x07
+ 302:	98 85       	ldd	r25, Y+8	; 0x08
+ 304:	01 96       	adiw	r24, 0x01	; 1
+ 306:	98 87       	std	Y+8, r25	; 0x08
+ 308:	8f 83       	std	Y+7, r24	; 0x07
+ 30a:	e6 cf       	rjmp	.-52     	; 0x2d8 <SPI_Read_Buf+0x36>
+ 
+ Hign_24L01_CSN;                          
+ 30c:	80 91 38 00 	lds	r24, 0x0038
+ 310:	81 60       	ori	r24, 0x01	; 1
+ 312:	80 93 38 00 	sts	0x0038, r24
+ 
+ return(status1);                    
+ 316:	8d 81       	ldd	r24, Y+5	; 0x05
+ 318:	99 27       	eor	r25, r25
+ 31a:	28 96       	adiw	r28, 0x08	; 8
+ 31c:	0f b6       	in	r0, 0x3f	; 63
+ 31e:	f8 94       	cli
+ 320:	de bf       	out	0x3e, r29	; 62
+ 322:	0f be       	out	0x3f, r0	; 63
+ 324:	cd bf       	out	0x3d, r28	; 61
+ 326:	df 91       	pop	r29
+ 328:	cf 91       	pop	r28
+ 32a:	08 95       	ret
+
+0000032c <SPI_Write_Buf>:
+}
+
+//**************************************************
+//*******  uchar SPI_Write_Buf(uchar reg, uchar *pBuf, uchar bites)
+//          写24L01 寄存器BUFF
+//**************************************************
+uchar SPI_Write_Buf(uchar reg, uchar *pBuf, uchar bites)
+{
+ 32c:	cf 93       	push	r28
+ 32e:	df 93       	push	r29
+ 330:	cd b7       	in	r28, 0x3d	; 61
+ 332:	de b7       	in	r29, 0x3e	; 62
+ 334:	26 97       	sbiw	r28, 0x06	; 6
+ 336:	0f b6       	in	r0, 0x3f	; 63
+ 338:	f8 94       	cli
+ 33a:	de bf       	out	0x3e, r29	; 62
+ 33c:	0f be       	out	0x3f, r0	; 63
+ 33e:	cd bf       	out	0x3d, r28	; 61
+ 340:	89 83       	std	Y+1, r24	; 0x01
+ 342:	7b 83       	std	Y+3, r23	; 0x03
+ 344:	6a 83       	std	Y+2, r22	; 0x02
+ 346:	4c 83       	std	Y+4, r20	; 0x04
+ uchar status1,uchar_ctr;
+ 
+ Low_24L01_CSN;             //SPI使能      
+ 348:	80 91 38 00 	lds	r24, 0x0038
+ 34c:	8e 7f       	andi	r24, 0xFE	; 254
+ 34e:	80 93 38 00 	sts	0x0038, r24
+ status1 = SPI_RW(reg);  
+ 352:	89 81       	ldd	r24, Y+1	; 0x01
+ 354:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 358:	8d 83       	std	Y+5, r24	; 0x05
+ for(uchar_ctr=0; uchar_ctr<bites; uchar_ctr++) //
+ 35a:	1e 82       	std	Y+6, r1	; 0x06
+ 35c:	9e 81       	ldd	r25, Y+6	; 0x06
+ 35e:	8c 81       	ldd	r24, Y+4	; 0x04
+ 360:	98 17       	cp	r25, r24
+ 362:	78 f4       	brcc	.+30     	; 0x382 <SPI_Write_Buf+0x56>
+ SPI_RW(*pBuf++);
+ 364:	de 01       	movw	r26, r28
+ 366:	12 96       	adiw	r26, 0x02	; 2
+ 368:	ed 91       	ld	r30, X+
+ 36a:	fc 91       	ld	r31, X
+ 36c:	11 97       	sbiw	r26, 0x01	; 1
+ 36e:	80 81       	ld	r24, Z
+ 370:	31 96       	adiw	r30, 0x01	; 1
+ 372:	ed 93       	st	X+, r30
+ 374:	fc 93       	st	X, r31
+ 376:	0e 94 e3 00 	call	0x1c6 <SPI_RW>
+ 37a:	8e 81       	ldd	r24, Y+6	; 0x06
+ 37c:	8f 5f       	subi	r24, 0xFF	; 255
+ 37e:	8e 83       	std	Y+6, r24	; 0x06
+ 380:	ed cf       	rjmp	.-38     	; 0x35c <SPI_Write_Buf+0x30>
+ Hign_24L01_CSN;           //关闭SPI
+ 382:	80 91 38 00 	lds	r24, 0x0038
+ 386:	81 60       	ori	r24, 0x01	; 1
+ 388:	80 93 38 00 	sts	0x0038, r24
+ return(status1);        //
+ 38c:	8d 81       	ldd	r24, Y+5	; 0x05
+ 38e:	99 27       	eor	r25, r25
+ 390:	26 96       	adiw	r28, 0x06	; 6
+ 392:	0f b6       	in	r0, 0x3f	; 63
+ 394:	f8 94       	cli
+ 396:	de bf       	out	0x3e, r29	; 62
+ 398:	0f be       	out	0x3f, r0	; 63
+ 39a:	cd bf       	out	0x3d, r28	; 61
+ 39c:	df 91       	pop	r29
+ 39e:	cf 91       	pop	r28
+ 3a0:	08 95       	ret
+
+000003a2 <SetRX_Mode>:
+}
+
+//**************************************************
+//*******  void SetRX_Mode(void)
+//          接收模式设置
+//**************************************************
+void SetRX_Mode(void)
+{
+ 3a2:	cf 93       	push	r28
+ 3a4:	df 93       	push	r29
+ 3a6:	cd b7       	in	r28, 0x3d	; 61
+ 3a8:	de b7       	in	r29, 0x3e	; 62
+ Low_24L01_CE;
+ 3aa:	80 91 38 00 	lds	r24, 0x0038
+ 3ae:	8f 7e       	andi	r24, 0xEF	; 239
+ 3b0:	80 93 38 00 	sts	0x0038, r24
+
+
+ SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, RX_ADDRESS, RX_ADR_WIDTH); //写接收地址
+ 3b4:	45 e0       	ldi	r20, 0x05	; 5
+ 3b6:	65 e0       	ldi	r22, 0x05	; 5
+ 3b8:	71 e0       	ldi	r23, 0x01	; 1
+ 3ba:	8a e2       	ldi	r24, 0x2A	; 42
+ 3bc:	0e 94 96 01 	call	0x32c <SPI_Write_Buf>
+ SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);      //0通道自动应答
+ 3c0:	61 e0       	ldi	r22, 0x01	; 1
+ 3c2:	81 e2       	ldi	r24, 0x21	; 33
+ 3c4:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);  //数据通道0
+ 3c8:	61 e0       	ldi	r22, 0x01	; 1
+ 3ca:	82 e2       	ldi	r24, 0x22	; 34
+ 3cc:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ SPI_RW_Reg(WRITE_REG + RF_CH,0);        //射频通道
+ 3d0:	60 e0       	ldi	r22, 0x00	; 0
+ 3d2:	85 e2       	ldi	r24, 0x25	; 37
+ 3d4:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ SPI_RW_Reg(WRITE_REG + RX_PW_P0, RX_PLOAD_WIDTH);//写通道0 接受数据长度
+ 3d8:	60 e2       	ldi	r22, 0x20	; 32
+ 3da:	81 e3       	ldi	r24, 0x31	; 49
+ 3dc:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x07); //0db 1M 
+ 3e0:	67 e0       	ldi	r22, 0x07	; 7
+ 3e2:	86 e2       	ldi	r24, 0x26	; 38
+ 3e4:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ SPI_RW_Reg(WRITE_REG + CONFIG, 0x0f); //接收模式
+ 3e8:	6f e0       	ldi	r22, 0x0F	; 15
+ 3ea:	80 e2       	ldi	r24, 0x20	; 32
+ 3ec:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+ Hign_24L01_CE;        //开始接收
+ 3f0:	80 91 38 00 	lds	r24, 0x0038
+ 3f4:	80 61       	ori	r24, 0x10	; 16
+ 3f6:	80 93 38 00 	sts	0x0038, r24
+ delayus(400);//注意不能太小
+ 3fa:	80 e9       	ldi	r24, 0x90	; 144
+ 3fc:	91 e0       	ldi	r25, 0x01	; 1
+ 3fe:	0e 94 65 00 	call	0xca <delayus>
+ 402:	df 91       	pop	r29
+ 404:	cf 91       	pop	r28
+ 406:	08 95       	ret
+
+00000408 <nRF24L01_RxPacket>:
+}
+
+//**************************************************
+//*******  uchar nRF24L01_RxPacket(uchar* rx_buf)
+//          接收数据包
+//**************************************************
+uchar nRF24L01_RxPacket(uchar* rx_buf)
+{
+ 408:	cf 93       	push	r28
+ 40a:	df 93       	push	r29
+ 40c:	cd b7       	in	r28, 0x3d	; 61
+ 40e:	de b7       	in	r29, 0x3e	; 62
+ 410:	24 97       	sbiw	r28, 0x04	; 4
+ 412:	0f b6       	in	r0, 0x3f	; 63
+ 414:	f8 94       	cli
+ 416:	de bf       	out	0x3e, r29	; 62
+ 418:	0f be       	out	0x3f, r0	; 63
+ 41a:	cd bf       	out	0x3d, r28	; 61
+ 41c:	9a 83       	std	Y+2, r25	; 0x02
+ 41e:	89 83       	std	Y+1, r24	; 0x01
+    uchar sta,flag=0;
+ 420:	1c 82       	std	Y+4, r1	; 0x04
+    sta=SPI_Read(STATUS);      // 读取状态寄存其来判断数据接收状况  
+ 422:	87 e0       	ldi	r24, 0x07	; 7
+ 424:	0e 94 02 01 	call	0x204 <SPI_Read>
+ 428:	8b 83       	std	Y+3, r24	; 0x03
+	//PORTA=sta;
+    if(sta&0x40)                 // 判断是否接收到数据RX_DR==1?
+ 42a:	8b 81       	ldd	r24, Y+3	; 0x03
+ 42c:	99 27       	eor	r25, r25
+ 42e:	80 74       	andi	r24, 0x40	; 64
+ 430:	90 70       	andi	r25, 0x00	; 0
+ 432:	00 97       	sbiw	r24, 0x00	; 0
+ 434:	69 f0       	breq	.+26     	; 0x450 <nRF24L01_RxPacket+0x48>
+    {
+       Low_24L01_CE;   // StandBy I模式
+ 436:	80 91 38 00 	lds	r24, 0x0038
+ 43a:	8f 7e       	andi	r24, 0xEF	; 239
+ 43c:	80 93 38 00 	sts	0x0038, r24
+       SPI_Read_Buf(RD_RX_PLOAD,rx_buf,TX_PLOAD_WIDTH);// read receive payload from RX_FIFO buffer
+ 440:	40 e2       	ldi	r20, 0x20	; 32
+ 442:	69 81       	ldd	r22, Y+1	; 0x01
+ 444:	7a 81       	ldd	r23, Y+2	; 0x02
+ 446:	81 e6       	ldi	r24, 0x61	; 97
+ 448:	0e 94 51 01 	call	0x2a2 <SPI_Read_Buf>
+       flag =1;   //读取数据完成标志
+ 44c:	81 e0       	ldi	r24, 0x01	; 1
+ 44e:	8c 83       	std	Y+4, r24	; 0x04
+    }
+    SPI_RW_Reg(WRITE_REG+STATUS,sta);   //接收到数据后RX_DR,TX_DS,MAX_PT都置高为1，通过写1来清楚中断标志
+ 450:	6b 81       	ldd	r22, Y+3	; 0x03
+ 452:	87 e2       	ldi	r24, 0x27	; 39
+ 454:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+    return (flag);
+ 458:	8c 81       	ldd	r24, Y+4	; 0x04
+ 45a:	99 27       	eor	r25, r25
+ 45c:	24 96       	adiw	r28, 0x04	; 4
+ 45e:	0f b6       	in	r0, 0x3f	; 63
+ 460:	f8 94       	cli
+ 462:	de bf       	out	0x3e, r29	; 62
+ 464:	0f be       	out	0x3f, r0	; 63
+ 466:	cd bf       	out	0x3d, r28	; 61
+ 468:	df 91       	pop	r29
+ 46a:	cf 91       	pop	r28
+ 46c:	08 95       	ret
+
+0000046e <nRF24L01_TxPacket>:
+}
+
+//**************************************************
+//*******  void nRF24L01_TxPacket(uchar * tx_buf)
+//          发送数据包
+//**************************************************
+void nRF24L01_TxPacket(  uchar * tx_buf)
+{ 
+ 46e:	cf 93       	push	r28
+ 470:	df 93       	push	r29
+ 472:	cd b7       	in	r28, 0x3d	; 61
+ 474:	de b7       	in	r29, 0x3e	; 62
+ 476:	22 97       	sbiw	r28, 0x02	; 2
+ 478:	0f b6       	in	r0, 0x3f	; 63
+ 47a:	f8 94       	cli
+ 47c:	de bf       	out	0x3e, r29	; 62
+ 47e:	0f be       	out	0x3f, r0	; 63
+ 480:	cd bf       	out	0x3d, r28	; 61
+ 482:	9a 83       	std	Y+2, r25	; 0x02
+ 484:	89 83       	std	Y+1, r24	; 0x01
+  // uchar sta=0;
+ //  uchar flag=0;
+   Low_24L01_CE;   //StandBy I模式 
+ 486:	80 91 38 00 	lds	r24, 0x0038
+ 48a:	8f 7e       	andi	r24, 0xEF	; 239
+ 48c:	80 93 38 00 	sts	0x0038, r24
+   SPI_Write_Buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH); 
+ 490:	45 e0       	ldi	r20, 0x05	; 5
+ 492:	60 e0       	ldi	r22, 0x00	; 0
+ 494:	71 e0       	ldi	r23, 0x01	; 1
+ 496:	80 e3       	ldi	r24, 0x30	; 48
+ 498:	0e 94 96 01 	call	0x32c <SPI_Write_Buf>
+   SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_WIDTH); // 装载接收端地址
+ 49c:	45 e0       	ldi	r20, 0x05	; 5
+ 49e:	60 e0       	ldi	r22, 0x00	; 0
+ 4a0:	71 e0       	ldi	r23, 0x01	; 1
+ 4a2:	8a e2       	ldi	r24, 0x2A	; 42
+ 4a4:	0e 94 96 01 	call	0x32c <SPI_Write_Buf>
+   SPI_Write_Buf(WR_TX_PLOAD, tx_buf, TX_PLOAD_WIDTH);     // 装载数据 
+ 4a8:	40 e2       	ldi	r20, 0x20	; 32
+ 4aa:	69 81       	ldd	r22, Y+1	; 0x01
+ 4ac:	7a 81       	ldd	r23, Y+2	; 0x02
+ 4ae:	80 ea       	ldi	r24, 0xA0	; 160
+ 4b0:	0e 94 96 01 	call	0x32c <SPI_Write_Buf>
+   SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);      //
+ 4b4:	61 e0       	ldi	r22, 0x01	; 1
+ 4b6:	81 e2       	ldi	r24, 0x21	; 33
+ 4b8:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);  //
+ 4bc:	61 e0       	ldi	r22, 0x01	; 1
+ 4be:	82 e2       	ldi	r24, 0x22	; 34
+ 4c0:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   SPI_RW_Reg(WRITE_REG + SETUP_RETR, 0x1f); //500+86us
+ 4c4:	6f e1       	ldi	r22, 0x1F	; 31
+ 4c6:	84 e2       	ldi	r24, 0x24	; 36
+ 4c8:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   SPI_RW_Reg(WRITE_REG + RF_CH, 0);        //
+ 4cc:	60 e0       	ldi	r22, 0x00	; 0
+ 4ce:	85 e2       	ldi	r24, 0x25	; 37
+ 4d0:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x07);   //
+ 4d4:	67 e0       	ldi	r22, 0x07	; 7
+ 4d6:	86 e2       	ldi	r24, 0x26	; 38
+ 4d8:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   SPI_RW_Reg(WRITE_REG + CONFIG, 0x0e);      // IRQ收发完成中断响应，16位CRC，主发送
+ 4dc:	6e e0       	ldi	r22, 0x0E	; 14
+ 4de:	80 e2       	ldi	r24, 0x20	; 32
+ 4e0:	0e 94 29 01 	call	0x252 <SPI_RW_Reg>
+   delayms(2);
+ 4e4:	82 e0       	ldi	r24, 0x02	; 2
+ 4e6:	90 e0       	ldi	r25, 0x00	; 0
+ 4e8:	0e 94 98 00 	call	0x130 <delayms>
+   Hign_24L01_CE;   //置高CE，激发数据发送
+ 4ec:	80 91 38 00 	lds	r24, 0x0038
+ 4f0:	80 61       	ori	r24, 0x10	; 16
+ 4f2:	80 93 38 00 	sts	0x0038, r24
+   delayus(10);
+ 4f6:	8a e0       	ldi	r24, 0x0A	; 10
+ 4f8:	90 e0       	ldi	r25, 0x00	; 0
+ 4fa:	0e 94 65 00 	call	0xca <delayus>
+   Low_24L01_CE;
+ 4fe:	80 91 38 00 	lds	r24, 0x0038
+ 502:	8f 7e       	andi	r24, 0xEF	; 239
+ 504:	80 93 38 00 	sts	0x0038, r24
+ 508:	22 96       	adiw	r28, 0x02	; 2
+ 50a:	0f b6       	in	r0, 0x3f	; 63
+ 50c:	f8 94       	cli
+ 50e:	de bf       	out	0x3e, r29	; 62
+ 510:	0f be       	out	0x3f, r0	; 63
+ 512:	cd bf       	out	0x3d, r28	; 61
+ 514:	df 91       	pop	r29
+ 516:	cf 91       	pop	r28
+ 518:	08 95       	ret
+
+0000051a <init_NRF24L01>:
+}
+
+void init_NRF24L01(void)
+{
+ 51a:	cf 93       	push	r28
+ 51c:	df 93       	push	r29
+ 51e:	cd b7       	in	r28, 0x3d	; 61
+ 520:	de b7       	in	r29, 0x3e	; 62
+  spi_init();
+ 522:	0e 94 ca 00 	call	0x194 <spi_init>
+  Low_24L01_CE;    // 空闲模式
+ 526:	80 91 38 00 	lds	r24, 0x0038
+ 52a:	8f 7e       	andi	r24, 0xEF	; 239
+ 52c:	80 93 38 00 	sts	0x0038, r24
+  Hign_24L01_CSN;   // SPI 关闭
+ 530:	80 91 38 00 	lds	r24, 0x0038
+ 534:	81 60       	ori	r24, 0x01	; 1
+ 536:	80 93 38 00 	sts	0x0038, r24
+  Low_24L01_SCK;   // 关闭时钟
+ 53a:	80 91 38 00 	lds	r24, 0x0038
+ 53e:	8d 7f       	andi	r24, 0xFD	; 253
+ 540:	80 93 38 00 	sts	0x0038, r24
+ 544:	df 91       	pop	r29
+ 546:	cf 91       	pop	r28
+ 548:	08 95       	ret
+
+0000054a <main>:
+#include"spi.H"
+
+
+int main()
+{
+ 54a:	cd ed       	ldi	r28, 0xDD	; 221
+ 54c:	d0 e1       	ldi	r29, 0x10	; 16
+ 54e:	de bf       	out	0x3e, r29	; 62
+ 550:	cd bf       	out	0x3d, r28	; 61
+  uchar i,sta;
+  uchar RX_BUF[32];
+  init_NRF24L01();
+ 552:	0e 94 8d 02 	call	0x51a <init_NRF24L01>
+// LcdIni();
+  DDRA=0XFF;
+ 556:	8f ef       	ldi	r24, 0xFF	; 255
+ 558:	80 93 3a 00 	sts	0x003A, r24
+  PORTA=0X55;
+ 55c:	85 e5       	ldi	r24, 0x55	; 85
+ 55e:	80 93 3b 00 	sts	0x003B, r24
+  while(1)
+   {
+     SetRX_Mode();
+ 562:	0e 94 d1 01 	call	0x3a2 <SetRX_Mode>
+
+	 // while(1);
+	 // while(1);
+	 if(nRF24L01_RxPacket(RX_BUF))
+ 566:	ce 01       	movw	r24, r28
+ 568:	03 96       	adiw	r24, 0x03	; 3
+ 56a:	0e 94 04 02 	call	0x408 <nRF24L01_RxPacket>
+ 56e:	88 23       	and	r24, r24
+ 570:	c1 f3       	breq	.-16     	; 0x562 <main+0x18>
+	  {
+
+//	 sta=SPI_Read(STATUS);      // 读取状态寄存其来判断数据接收状况  
+ //    PORTA=sta;
+//	  while(1);
+		for(i=0;i<5;i++)  
+ 572:	19 82       	std	Y+1, r1	; 0x01
+ 574:	89 81       	ldd	r24, Y+1	; 0x01
+ 576:	85 30       	cpi	r24, 0x05	; 5
+ 578:	a0 f7       	brcc	.-24     	; 0x562 <main+0x18>
+	    {
+	       //write_com(0x80+i);
+	       //write_data(RX_BUF[i]);
+		   PORTA=RX_BUF[i];
+ 57a:	89 81       	ldd	r24, Y+1	; 0x01
+ 57c:	28 2f       	mov	r18, r24
+ 57e:	33 27       	eor	r19, r19
+ 580:	ce 01       	movw	r24, r28
+ 582:	01 96       	adiw	r24, 0x01	; 1
+ 584:	82 0f       	add	r24, r18
+ 586:	93 1f       	adc	r25, r19
+ 588:	fc 01       	movw	r30, r24
+ 58a:	32 96       	adiw	r30, 0x02	; 2
+ 58c:	80 81       	ld	r24, Z
+ 58e:	80 93 3b 00 	sts	0x003B, r24
+		   delayms(50);
+ 592:	82 e3       	ldi	r24, 0x32	; 50
+ 594:	90 e0       	ldi	r25, 0x00	; 0
+ 596:	0e 94 98 00 	call	0x130 <delayms>
+ 59a:	89 81       	ldd	r24, Y+1	; 0x01
+ 59c:	8f 5f       	subi	r24, 0xFF	; 255
+ 59e:	89 83       	std	Y+1, r24	; 0x01
+ 5a0:	e9 cf       	rjmp	.-46     	; 0x574 <main+0x2a>

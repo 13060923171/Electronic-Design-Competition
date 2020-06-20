@@ -1,0 +1,206 @@
+#include<reg52.h>
+
+sbit rs=P0^0;
+sbit rw=P0^1;
+sbit en=P0^2;
+
+sbit sensera=P1^0;
+sbit senserb=P1^1;
+sbit senserc=P1^2;
+sbit senserd=P1^3;
+sbit in1=P1^4;
+sbit in2=P1^5;
+sbit in3=P1^6;
+sbit in4=P1^7;
+
+int left_low,left_high,right_low,right_high;
+
+unsigned char leftsign,rightsign;
+unsigned char leftback,rightback;
+void timer0init()
+{
+    TMOD=0x01;
+ TH0=0x00;
+ TL0=0x00;
+ EA=1;
+ ET0=1;
+ TR0=1;
+ 
+}
+void timer0(void) interrupt 1
+{
+ if(leftback)
+ {
+   leftsign=!leftsign;
+   if(!leftsign)
+   { 
+    TH0 =(65536-left_low)/256;
+    TL0 =(65536-left_low)%256;
+    in1=0;
+    in2=0;
+   }
+   if(leftsign)
+   {
+    TH0=(65536-left_high)/256;
+    TL0=(65536-left_high)%256;;
+    in1=1;           //倒转
+    in2=0;
+   }
+ }
+ else 
+ {
+   leftsign=!leftsign;
+   if(!leftsign)
+   {
+    TH0=(65536-left_low)/256;
+    TL0=(65536-left_low)%256;
+    in1=0;
+    in2=0;
+   }
+   if(leftsign)
+   {
+    TH0=(65536-left_high)/256;
+    TL0=(65536-left_high)%256;;
+    in1=0;
+    in2=1;
+   }
+ }  
+}
+void timer1init()
+{
+    TMOD=0x10;
+ TH1=0x00;
+ TL1=0x00;
+ EA=1;
+ ET1=1;
+ TR1=1; 
+}
+void timer1(void) interrupt 3
+{ if(rightback)
+ {
+   rightsign=!rightsign;
+   if(!rightsign)
+   {
+    TH1=(65536-right_low)/256;
+    TL1=(65536-right_low)%256;
+    in3=0;
+    in4=0;
+   }
+   if(rightsign)
+   {
+    TH1=(65536-right_high)/256;
+    TL1=(65536-right_high)%256; 
+    in3=1;
+    in4=0;
+   }
+ }
+ else
+ {
+   rightsign=!rightsign;
+   if(!rightsign)
+   {
+    TH1=(65536-right_low)/256;
+    TL1=(65536-right_low)%256;
+    in3=0;
+    in4=0;
+   }
+   if(rightsign)
+   {
+    TH1=(65536-right_high)/256;
+    TL1=(65536-right_high)%256; 
+    in3=0;
+    in4=1;
+   }
+ }  
+}
+void testsenser() //左 直 右 停 后（01234）大拐 小拐 无意义（310）
+{
+  if((sensera==0&&senserb==0&&senserc==0&&senserd==1)||(sensera==0&&senserb==1&&senserc==1&&senserd==1)) // 右大拐
+  {
+   leftback=0;
+  rightback=1;
+  ET0=1;
+  ET1=1;
+  left_high=20000;
+  left_low=40000;
+  right_high=20000;
+  right_low=40000;
+  }
+
+  else if((sensera==0&&senserb==0&&senserc==1&&senserd==1)||(sensera==0&&senserb==0&&senserc==1&&senserd==0))//  右小拐
+  {
+   leftback=0;
+  rightback=1;
+  ET0=1;
+  ET1=1;
+  left_high=20000;
+  left_low=40000;
+  right_high=10000;
+  right_low=40000;
+  }
+  else if((sensera==1&&senserb==0&&senserc==0&&senserd==0)||(sensera==1&&senserb==1&&senserc==1&&senserd==0))  // 左大拐
+  {
+   leftback=1;
+  rightback=0;
+  ET0=1;
+  ET1=1;
+   left_high=20000;
+  left_low=40000;
+  right_high=20000;
+  right_low=40000; 
+  }
+  else if((sensera==1&&senserb==1&&senserc==0&&senserd==0)||(sensera==0&&senserb==1&&senserc==0&&senserd==0))    // 左小拐
+  {
+   leftback=1;
+  rightback=0;
+  ET0=1;
+  ET1=1;
+   left_high=10000;
+  left_low=40000;
+  right_high=20000;
+  right_low=40000;
+  }
+  else if(sensera==1&&senserb==1&&senserc==1&&senserd==1)// 停
+  {
+   leftback=0;
+  rightback=0;
+  ET0=0;
+  ET1=0;
+     in1=0;
+     in2=0;
+     in3=0;
+  in4=0;
+  }
+  else if(sensera==0&&senserb==0&&senserc==0&&senserd==0)// 后退
+  {
+   leftback=1;
+  rightback=1;
+  ET0=1;
+  ET1=1;
+   left_high=10000;
+  left_low=50000;
+  right_high=10000;
+  right_low=50000;
+  }
+  else  //直走
+  {
+   leftback=0;
+  rightback=0;
+  ET0=1;
+  ET1=1;
+   left_high=10000;
+  left_low=50000;
+  right_high=20000;
+  right_low=50000;
+  }   
+}
+
+
+           
+void main()
+{ 
+ timer0init();
+ timer1init();
+ while(1)
+  testsenser();
+}

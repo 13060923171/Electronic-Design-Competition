@@ -1,0 +1,11 @@
+"STARTUP.obj",
+"Follow.obj",
+"IOCfg.obj",
+"LightDTC.obj",
+"MetalDTC.obj",
+"SegDisp.obj",
+"StepMot.obj",
+"System.obj",
+"TimeDLY.obj",
+"UltraDTC.obj" 
+TO "BrainCar" 

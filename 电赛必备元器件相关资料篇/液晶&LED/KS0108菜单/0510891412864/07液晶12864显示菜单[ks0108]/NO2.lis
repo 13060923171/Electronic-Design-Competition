@@ -1,0 +1,2033 @@
+                        .module NO2.C
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0000           _time_logo::
+ 0000                   .blkb 2
+                        .area idata
+ 0000 00FC              .byte 0,252
+                        .area data(ram, con, rel)
+ 0002                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0002                   .blkb 2
+                        .area idata
+ 0002 4444              .byte 'D,'D
+                        .area data(ram, con, rel)
+ 0004                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0004                   .blkb 2
+                        .area idata
+ 0004 44FC              .byte 'D,252
+                        .area data(ram, con, rel)
+ 0006                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0006                   .blkb 2
+                        .area idata
+ 0006 1090              .byte 16,144
+                        .area data(ram, con, rel)
+ 0008                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0008                   .blkb 2
+                        .area idata
+ 0008 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 000A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 000A                   .blkb 2
+                        .area idata
+ 000A 10FF              .byte 16,255
+                        .area data(ram, con, rel)
+ 000C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 000C                   .blkb 2
+                        .area idata
+ 000C 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 000E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 000E                   .blkb 2
+                        .area idata
+ 000E 1000              .byte 16,0
+                        .area data(ram, con, rel)
+ 0010                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0010                   .blkb 2
+                        .area idata
+ 0010 0007              .byte 0,7
+                        .area data(ram, con, rel)
+ 0012                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0012                   .blkb 2
+                        .area idata
+ 0012 0404              .byte 4,4
+                        .area data(ram, con, rel)
+ 0014                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0014                   .blkb 2
+                        .area idata
+ 0014 0407              .byte 4,7
+                        .area data(ram, con, rel)
+ 0016                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0016                   .blkb 2
+                        .area idata
+ 0016 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0018                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0018                   .blkb 2
+                        .area idata
+ 0018 0340              .byte 3,64
+                        .area data(ram, con, rel)
+ 001A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 001A                   .blkb 2
+                        .area idata
+ 001A 807F              .byte 128,127
+                        .area data(ram, con, rel)
+ 001C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 001C                   .blkb 2
+                        .area idata
+ 001C 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 001E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 001E                   .blkb 2
+                        .area idata
+ 001E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0020                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0020                   .blkb 2
+                        .area idata
+ 0020 40B0              .byte 64,176
+                        .area data(ram, con, rel)
+ 0022                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0022                   .blkb 2
+                        .area idata
+ 0022 9296              .byte 146,150
+                        .area data(ram, con, rel)
+ 0024                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0024                   .blkb 2
+                        .area idata
+ 0024 9A92              .byte 154,146
+                        .area data(ram, con, rel)
+ 0026                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0026                   .blkb 2
+                        .area idata
+ 0026 F29E              .byte 242,158
+                        .area data(ram, con, rel)
+ 0028                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0028                   .blkb 2
+                        .area idata
+ 0028 9291              .byte 146,145
+                        .area data(ram, con, rel)
+ 002A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 002A                   .blkb 2
+                        .area idata
+ 002A 9995              .byte 153,149
+                        .area data(ram, con, rel)
+ 002C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 002C                   .blkb 2
+                        .area idata
+ 002C 9150              .byte 145,'P
+                        .area data(ram, con, rel)
+ 002E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 002E                   .blkb 2
+                        .area idata
+ 002E 3000              .byte 48,0
+                        .area data(ram, con, rel)
+ 0030                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0030                   .blkb 2
+                        .area idata
+ 0030 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0032                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0032                   .blkb 2
+                        .area idata
+ 0032 4030              .byte 64,48
+                        .area data(ram, con, rel)
+ 0034                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0034                   .blkb 2
+                        .area idata
+ 0034 8C83              .byte 140,131
+                        .area data(ram, con, rel)
+ 0036                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0036                   .blkb 2
+                        .area idata
+ 0036 462A              .byte 'F,42
+                        .area data(ram, con, rel)
+ 0038                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0038                   .blkb 2
+                        .area idata
+ 0038 122A              .byte 18,42
+                        .area data(ram, con, rel)
+ 003A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 003A                   .blkb 2
+                        .area idata
+ 003A 2642              .byte 38,'B
+                        .area data(ram, con, rel)
+ 003C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 003C                   .blkb 2
+                        .area idata
+ 003C C040              .byte 192,64
+                        .area data(ram, con, rel)
+ 003E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 003E                   .blkb 2
+                        .area idata
+ 003E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0040                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0040                   .blkb 2
+                        .area idata
+ 0040 4020              .byte 64,32
+                        .area data(ram, con, rel)
+ 0042                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0042                   .blkb 2
+                        .area idata
+ 0042 F807              .byte 248,7
+                        .area data(ram, con, rel)
+ 0044                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0044                   .blkb 2
+                        .area idata
+ 0044 4020              .byte 64,32
+                        .area data(ram, con, rel)
+ 0046                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0046                   .blkb 2
+                        .area idata
+ 0046 180F              .byte 24,15
+                        .area data(ram, con, rel)
+ 0048                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0048                   .blkb 2
+                        .area idata
+ 0048 08C8              .byte 8,200
+                        .area data(ram, con, rel)
+ 004A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 004A                   .blkb 2
+                        .area idata
+ 004A 0808              .byte 8,8
+                        .area data(ram, con, rel)
+ 004C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 004C                   .blkb 2
+                        .area idata
+ 004C 2818              .byte 40,24
+                        .area data(ram, con, rel)
+ 004E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 004E                   .blkb 2
+                        .area idata
+ 004E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0050                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0050                   .blkb 2
+                        .area idata
+ 0050 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0052                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0052                   .blkb 2
+                        .area idata
+ 0052 FF00              .byte 255,0
+                        .area data(ram, con, rel)
+ 0054                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0054                   .blkb 2
+                        .area idata
+ 0054 0008              .byte 0,8
+                        .area data(ram, con, rel)
+ 0056                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0056                   .blkb 2
+                        .area idata
+ 0056 0443              .byte 4,'C
+                        .area data(ram, con, rel)
+ 0058                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0058                   .blkb 2
+                        .area idata
+ 0058 807F              .byte 128,127
+                        .area data(ram, con, rel)
+ 005A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 005A                   .blkb 2
+                        .area idata
+ 005A 0001              .byte 0,1
+                        .area data(ram, con, rel)
+ 005C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 005C                   .blkb 2
+                        .area idata
+ 005C 060C              .byte 6,12
+                        .area data(ram, con, rel)
+ 005E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 005E                   .blkb 2
+                        .area idata
+ 005E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0060                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0060                   .blkb 2
+                        .area idata
+ 0060 2024              .byte 32,36
+                        .area data(ram, con, rel)
+ 0062                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0062                   .blkb 2
+                        .area idata
+ 0062 2424              .byte 36,36
+                        .area data(ram, con, rel)
+ 0064                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0064                   .blkb 2
+                        .area idata
+ 0064 FE23              .byte 254,35
+                        .area data(ram, con, rel)
+ 0066                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0066                   .blkb 2
+                        .area idata
+ 0066 2220              .byte 34,32
+                        .area data(ram, con, rel)
+ 0068                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0068                   .blkb 2
+                        .area idata
+ 0068 FF20              .byte 255,32
+                        .area data(ram, con, rel)
+ 006A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 006A                   .blkb 2
+                        .area idata
+ 006A 22AC              .byte 34,172
+                        .area data(ram, con, rel)
+ 006C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 006C                   .blkb 2
+                        .area idata
+ 006C 2030              .byte 32,48
+                        .area data(ram, con, rel)
+ 006E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 006E                   .blkb 2
+                        .area idata
+ 006E 2000              .byte 32,0
+                        .area data(ram, con, rel)
+ 0070                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0070                   .blkb 2
+                        .area idata
+ 0070 0008              .byte 0,8
+                        .area data(ram, con, rel)
+ 0072                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0072                   .blkb 2
+                        .area idata
+ 0072 4884              .byte 'H,132
+                        .area data(ram, con, rel)
+ 0074                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0074                   .blkb 2
+                        .area idata
+ 0074 7F02              .byte 127,2
+                        .area data(ram, con, rel)
+ 0076                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0076                   .blkb 2
+                        .area idata
+ 0076 2110              .byte 33,16
+                        .area data(ram, con, rel)
+ 0078                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0078                   .blkb 2
+                        .area idata
+ 0078 0906              .byte 9,6
+                        .area data(ram, con, rel)
+ 007A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 007A                   .blkb 2
+                        .area idata
+ 007A 1A61              .byte 26,'a
+                        .area data(ram, con, rel)
+ 007C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 007C                   .blkb 2
+                        .area idata
+ 007C 80E0              .byte 128,224
+                        .area data(ram, con, rel)
+ 007E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 007E                   .blkb 2
+                        .area idata
+ 007E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0080                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0080                   .blkb 32
+                        .area idata
+ 0080 00000000000000000000      .word 0,0,0,0,0
+ 008A 00000000000000000000      .word 0,0,0,0,0
+ 0094 00000000000000000000      .word 0,0,0,0,0
+ 009E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00A0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00A0                   .dbsym e time_logo _time_logo A[160:5:32]c
+ 00A0           _menu::
+ 00A0                   .blkb 2
+                        .area idata
+ 00A0 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00A2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00A2                   .blkb 2
+                        .area idata
+ 00A2 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00A4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00A4                   .blkb 2
+                        .area idata
+ 00A4 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00A6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00A6                   .blkb 2
+                        .area idata
+ 00A6 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00A8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00A8                   .blkb 2
+                        .area idata
+ 00A8 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00AA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00AA                   .blkb 2
+                        .area idata
+ 00AA 8080              .byte 128,128
+                        .area data(ram, con, rel)
+ 00AC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00AC                   .blkb 2
+                        .area idata
+ 00AC 80C0              .byte 128,192
+                        .area data(ram, con, rel)
+ 00AE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00AE                   .blkb 2
+                        .area idata
+ 00AE 8000              .byte 128,0
+                        .area data(ram, con, rel)
+ 00B0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00B0                   .blkb 2
+                        .area idata
+ 00B0 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00B2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00B2                   .blkb 2
+                        .area idata
+ 00B2 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00B4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00B4                   .blkb 2
+                        .area idata
+ 00B4 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00B6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00B6                   .blkb 2
+                        .area idata
+ 00B6 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00B8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00B8                   .blkb 2
+                        .area idata
+ 00B8 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00BA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00BA                   .blkb 2
+                        .area idata
+ 00BA 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00BC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00BC                   .blkb 2
+                        .area idata
+ 00BC 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00BE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00BE                   .blkb 2
+                        .area idata
+ 00BE 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00C0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00C0                   .blkb 2
+                        .area idata
+ 00C0 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00C2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00C2                   .blkb 2
+                        .area idata
+ 00C2 0808              .byte 8,8
+                        .area data(ram, con, rel)
+ 00C4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00C4                   .blkb 2
+                        .area idata
+ 00C4 0808              .byte 8,8
+                        .area data(ram, con, rel)
+ 00C6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00C6                   .blkb 2
+                        .area idata
+ 00C6 0808              .byte 8,8
+                        .area data(ram, con, rel)
+ 00C8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00C8                   .blkb 2
+                        .area idata
+ 00C8 0808              .byte 8,8
+                        .area data(ram, con, rel)
+ 00CA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00CA                   .blkb 2
+                        .area idata
+ 00CA 080C              .byte 8,12
+                        .area data(ram, con, rel)
+ 00CC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00CC                   .blkb 2
+                        .area idata
+ 00CC 0800              .byte 8,0
+                        .area data(ram, con, rel)
+ 00CE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00CE                   .blkb 2
+                        .area idata
+ 00CE 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00D0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00D0                   .blkb 2
+                        .area idata
+ 00D0 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00D2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00D2                   .blkb 2
+                        .area idata
+ 00D2 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00D4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00D4                   .blkb 2
+                        .area idata
+ 00D4 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00D6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00D6                   .blkb 2
+                        .area idata
+ 00D6 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00D8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00D8                   .blkb 2
+                        .area idata
+ 00D8 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00DA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00DA                   .blkb 2
+                        .area idata
+ 00DA 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00DC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00DC                   .blkb 2
+                        .area idata
+ 00DC 1010              .byte 16,16
+                        .area data(ram, con, rel)
+ 00DE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00DE                   .blkb 2
+                        .area idata
+ 00DE 1000              .byte 16,0
+                        .area data(ram, con, rel)
+ 00E0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00E0                   .blkb 2
+                        .area idata
+ 00E0 0004              .byte 0,4
+                        .area data(ram, con, rel)
+ 00E2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00E2                   .blkb 2
+                        .area idata
+ 00E2 8484              .byte 132,132
+                        .area data(ram, con, rel)
+ 00E4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00E4                   .blkb 2
+                        .area idata
+ 00E4 8484              .byte 132,132
+                        .area data(ram, con, rel)
+ 00E6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00E6                   .blkb 2
+                        .area idata
+ 00E6 8484              .byte 132,132
+                        .area data(ram, con, rel)
+ 00E8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00E8                   .blkb 2
+                        .area idata
+ 00E8 8484              .byte 132,132
+                        .area data(ram, con, rel)
+ 00EA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00EA                   .blkb 2
+                        .area idata
+ 00EA 84C4              .byte 132,196
+                        .area data(ram, con, rel)
+ 00EC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00EC                   .blkb 2
+                        .area idata
+ 00EC 8604              .byte 134,4
+                        .area data(ram, con, rel)
+ 00EE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00EE                   .blkb 2
+                        .area idata
+ 00EE 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 00F0                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00F0                   .blkb 2
+                        .area idata
+ 00F0 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00F2                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00F2                   .blkb 2
+                        .area idata
+ 00F2 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00F4                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00F4                   .blkb 2
+                        .area idata
+ 00F4 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00F6                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00F6                   .blkb 2
+                        .area idata
+ 00F6 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00F8                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00F8                   .blkb 2
+                        .area idata
+ 00F8 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00FA                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00FA                   .blkb 2
+                        .area idata
+ 00FA 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 00FC                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00FC                   .blkb 2
+                        .area idata
+ 00FC 2030              .byte 32,48
+                        .area data(ram, con, rel)
+ 00FE                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 00FE                   .blkb 2
+                        .area idata
+ 00FE 2000              .byte 32,0
+                        .area data(ram, con, rel)
+ 0100                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0100                   .blkb 2
+                        .area idata
+ 0100 00FC              .byte 0,252
+                        .area data(ram, con, rel)
+ 0102                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0102                   .blkb 2
+                        .area idata
+ 0102 0404              .byte 4,4
+                        .area data(ram, con, rel)
+ 0104                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0104                   .blkb 2
+                        .area idata
+ 0104 04FC              .byte 4,252
+                        .area data(ram, con, rel)
+ 0106                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0106                   .blkb 2
+                        .area idata
+ 0106 0404              .byte 4,4
+                        .area data(ram, con, rel)
+ 0108                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0108                   .blkb 2
+                        .area idata
+ 0108 04FC              .byte 4,252
+                        .area data(ram, con, rel)
+ 010A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 010A                   .blkb 2
+                        .area idata
+ 010A 0404              .byte 4,4
+                        .area data(ram, con, rel)
+ 010C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 010C                   .blkb 2
+                        .area idata
+ 010C 04FE              .byte 4,254
+                        .area data(ram, con, rel)
+ 010E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 010E                   .blkb 2
+                        .area idata
+ 010E 0400              .byte 4,0
+                        .area data(ram, con, rel)
+ 0110                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0110                   .blkb 2
+                        .area idata
+ 0110 007F              .byte 0,127
+                        .area data(ram, con, rel)
+ 0112                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0112                   .blkb 2
+                        .area idata
+ 0112 2028              .byte 32,40
+                        .area data(ram, con, rel)
+ 0114                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0114                   .blkb 2
+                        .area idata
+ 0114 2423              .byte 36,35
+                        .area data(ram, con, rel)
+ 0116                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0116                   .blkb 2
+                        .area idata
+ 0116 2020              .byte 32,32
+                        .area data(ram, con, rel)
+ 0118                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0118                   .blkb 2
+                        .area idata
+ 0118 2021              .byte 32,33
+                        .area data(ram, con, rel)
+ 011A                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 011A                   .blkb 2
+                        .area idata
+ 011A 2022              .byte 32,34
+                        .area data(ram, con, rel)
+ 011C                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 011C                   .blkb 2
+                        .area idata
+ 011C 227F              .byte 34,127
+                        .area data(ram, con, rel)
+ 011E                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 011E                   .blkb 2
+                        .area idata
+ 011E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0120                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0120                   .blkb 32
+                        .area idata
+ 0120 00000000000000000000      .word 0,0,0,0,0
+ 012A 00000000000000000000      .word 0,0,0,0,0
+ 0134 00000000000000000000      .word 0,0,0,0,0
+ 013E 0000              .byte 0,0
+                        .area data(ram, con, rel)
+ 0140                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0140                   .dbsym e menu _menu A[160:5:32]c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\Proteus\Proteus练习\新建文件夹\NO2.C
+ 0000                   .dbfunc e delay_1us _delay_1us fV
+                        .even
+ 0000           _delay_1us::
+ 0000                   .dbline -1
+ 0000                   .dbline 71
+ 0000           ; #include <iom16v.h>
+ 0000           ; #include <macros.h>
+ 0000           ; 
+ 0000           ; #define uchar unsigned char
+ 0000           ; #define uint  unsigned int
+ 0000           ; #define LEFT 0
+ 0000           ; #define RIGHT 1
+ 0000           ; #define CMD 0
+ 0000           ; #define DATA 1
+ 0000           ; #define LCD_STATUS_BUSY 0x80
+ 0000           ; #define  START_LINE0   0xc0
+ 0000           ; #define  DISPLAY_ON    0x3f
+ 0000           ; #define  DISPLAY_OFF   0x3e
+ 0000           ; #define  PARA1         0x40
+ 0000           ; /*-----------------------------------------------------------------------
+ 0000           ; 延时函数
+ 0000           ; 系统时钟：8M
+ 0000           ; -----------------------------------------------------------------------*/
+ 0000           ; 
+ 0000           ; uchar  time_logo[5][32] = {
+ 0000           ; /*--  文字:  时  --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x00,0xFC,0x44,0x44,0x44,0xFC,0x10,0x90,0x10,0x10,0x10,0xFF,0x10,0x10,0x10,0x00,
+ 0000           ; 0x00,0x07,0x04,0x04,0x04,0x07,0x00,0x00,0x03,0x40,0x80,0x7F,0x00,0x00,0x00,0x00,
+ 0000           ; 
+ 0000           ; /*--  文字:  爱 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x40,0xB0,0x92,0x96,0x9A,0x92,0xF2,0x9E,0x92,0x91,0x99,0x95,0x91,0x50,0x30,0x00,
+ 0000           ; 0x00,0x00,0x40,0x30,0x8C,0x83,0x46,0x2A,0x12,0x2A,0x26,0x42,0xC0,0x40,0x00,0x00,
+ 0000           ; 
+ 0000           ; /*--  文字:  你 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x40,0x20,0xF8,0x07,0x40,0x20,0x18,0x0F,0x08,0xC8,0x08,0x08,0x28,0x18,0x00,0x00,
+ 0000           ; 0x00,0x00,0xFF,0x00,0x00,0x08,0x04,0x43,0x80,0x7F,0x00,0x01,0x06,0x0C,0x00,0x00,
+ 0000           ; /*--  文字:  我  --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x20,0x24,0x24,0x24,0xfe,0x23,0x22,0x20,0xFF,0x20,0x22,0xac,0x20,0x30,0x20,0x00,
+ 0000           ; 0x00,0x08,0x48,0x84,0x7F,0x02,0x21,0x10,0x09,0x06,0x1A,0x61,0x80,0xE0,0x00,0x00,
+ 0000           ; 
+ 0000           ; };
+ 0000           ; 
+ 0000           ; uchar  menu[5][32] = {
+ 0000           ; /*--  文字: 一 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,0xc0,0x80,0x00,
+ 0000           ; 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+ 0000           ; /*--  文字: 二 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x00,0x00,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x08,0x008,0x0c,0x08,0x00,0x00,0x00,
+ 0000           ; 0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x00,
+ 0000           ; /*--  文字: 三 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x00,0x04,0x84,0x84,0x84,0x84,0x84,0x84,0x84,0x84,0x084,0xc4,0x86,0x04,0x00,0x00,
+ 0000           ; 0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x30,0x20,0x00,
+ 0000           ; /*--  文字: 四 --*/
+ 0000           ; /*--  宋体12;  此字体下对应的点阵为：宽x高=16x16   --*/
+ 0000           ; 0x00,0xfc,0x04,0x04,0x04,0xfc,0x04,0x04,0x04,0xfc,0x004,0x04,0x04,0xfe,0x04,0x00,
+ 0000           ; 0x00,0x7f,0x20,0x28,0x24,0x23,0x20,0x20,0x20,0x21,0x20,0x22,0x22,0x7f,0x00,0x00,
+ 0000           ; 
+ 0000           ; };
+ 0000           ; 
+ 0000           ;  
+ 0000           ;  void delay_1us(void);                 //1us延时函数
+ 0000           ;  void delay_nus(unsigned int n);       //N us延时函数
+ 0000           ;  void delay_1ms(void) ;                //1ms延时函数
+ 0000           ;  void delay_nms(unsigned int n) ;      //N ms延时函数
+ 0000           ;  
+ 0000           ;  /***********************************************************************/
+ 0000           ;  /**********************************************************************/
+ 0000           ; void delay_1us(void)                 //1us延时函数
+ 0000           ;   {
+ 0000                   .dbline 72
+ 0000           ;    asm("nop");
+ 0000 0000              nop
+ 0002                   .dbline -2
+ 0002           L1:
+ 0002                   .dbline 0 ; func end
+ 0002 0895              ret
+ 0004                   .dbend
+ 0004                   .dbfunc e delay_nus _delay_nus fV
+ 0004           ;              i -> R10,R11
+ 0004           ;              n -> R12,R13
+                        .even
+ 0004           _delay_nus::
+ 0004 0E940000          xcall push_xgset003C
+ 0008 6801              movw R12,R16
+ 000A                   .dbline -1
+ 000A                   .dbline 76
+ 000A           ;   }
+ 000A           ; 
+ 000A           ; void delay_nus(unsigned int n)       //N us延时函数
+ 000A           ;   {
+ 000A                   .dbline 77
+ 000A           ;    unsigned int i=0;
+ 000A AA24              clr R10
+ 000C BB24              clr R11
+ 000E                   .dbline 78
+ 000E           ;    for (i=0;i<n;i++)
+ 000E 04C0              xjmp L6
+ 0010           L3:
+ 0010                   .dbline 79
+ 0010           ;    delay_1us();
+ 0010 F7DF              xcall _delay_1us
+ 0012           L4:
+ 0012                   .dbline 78
+ 0012 C501              movw R24,R10
+ 0014 0196              adiw R24,1
+ 0016 5C01              movw R10,R24
+ 0018           L6:
+ 0018                   .dbline 78
+ 0018 AC14              cp R10,R12
+ 001A BD04              cpc R11,R13
+ 001C C8F3              brlo L3
+ 001E           X0:
+ 001E                   .dbline -2
+ 001E           L2:
+ 001E                   .dbline 0 ; func end
+ 001E 0C940000          xjmp pop_xgset003C
+ 0022                   .dbsym r i 10 i
+ 0022                   .dbsym r n 12 i
+ 0022                   .dbend
+ 0022                   .dbfunc e delay_1ms _delay_1ms fV
+ 0022           ;              i -> R16,R17
+                        .even
+ 0022           _delay_1ms::
+ 0022                   .dbline -1
+ 0022                   .dbline 83
+ 0022           ;   }
+ 0022           ;   
+ 0022           ; void delay_1ms(void)                 //1ms延时函数
+ 0022           ;   {
+ 0022                   .dbline 85
+ 0022           ;    unsigned int i;
+ 0022           ;    for (i=0;i<1140;i++);
+ 0022 0027              clr R16
+ 0024 1127              clr R17
+ 0026 02C0              xjmp L11
+ 0028           L8:
+ 0028                   .dbline 85
+ 0028           L9:
+ 0028                   .dbline 85
+ 0028 0F5F              subi R16,255  ; offset = 1
+ 002A 1F4F              sbci R17,255
+ 002C           L11:
+ 002C                   .dbline 85
+ 002C 0437              cpi R16,116
+ 002E E4E0              ldi R30,4
+ 0030 1E07              cpc R17,R30
+ 0032 D0F3              brlo L8
+ 0034           X1:
+ 0034                   .dbline -2
+ 0034           L7:
+ 0034                   .dbline 0 ; func end
+ 0034 0895              ret
+ 0036                   .dbsym r i 16 i
+ 0036                   .dbend
+ 0036                   .dbfunc e delay_nms _delay_nms fV
+ 0036           ;              i -> R10,R11
+ 0036           ;              n -> R12,R13
+                        .even
+ 0036           _delay_nms::
+ 0036 0E940000          xcall push_xgset003C
+ 003A 6801              movw R12,R16
+ 003C                   .dbline -1
+ 003C                   .dbline 89
+ 003C           ;   }
+ 003C           ;   
+ 003C           ; void delay_nms(unsigned int n)       //N ms延时函数
+ 003C           ;   {
+ 003C                   .dbline 90
+ 003C           ;    unsigned int i=0;
+ 003C AA24              clr R10
+ 003E BB24              clr R11
+ 0040                   .dbline 91
+ 0040           ;    for (i=0;i<n;i++)
+ 0040 04C0              xjmp L16
+ 0042           L13:
+ 0042                   .dbline 92
+ 0042           ;    {
+ 0042                   .dbline 93
+ 0042           ;       delay_1ms();
+ 0042 EFDF              xcall _delay_1ms
+ 0044                   .dbline 94
+ 0044           ;    }   
+ 0044           L14:
+ 0044                   .dbline 91
+ 0044 C501              movw R24,R10
+ 0046 0196              adiw R24,1
+ 0048 5C01              movw R10,R24
+ 004A           L16:
+ 004A                   .dbline 91
+ 004A AC14              cp R10,R12
+ 004C BD04              cpc R11,R13
+ 004E C8F3              brlo L13
+ 0050           X2:
+ 0050                   .dbline -2
+ 0050           L12:
+ 0050                   .dbline 0 ; func end
+ 0050 0C940000          xjmp pop_xgset003C
+ 0054                   .dbsym r i 10 i
+ 0054                   .dbsym r n 12 i
+ 0054                   .dbend
+ 0054                   .dbfunc e delay _delay fV
+ 0054           ;              i -> R10,R11
+ 0054           ;              j -> R12,R13
+ 0054           ;             ms -> R16,R17
+                        .even
+ 0054           _delay::
+ 0054 0E940000          xcall push_xgset003C
+ 0058                   .dbline -1
+ 0058                   .dbline 98
+ 0058           ;   }
+ 0058           ;   
+ 0058           ;   void delay(uint ms)
+ 0058           ; {
+ 0058                   .dbline 100
+ 0058           ;         uint i,j;
+ 0058           ;       for(i=0;i<ms;i++)
+ 0058 AA24              clr R10
+ 005A BB24              clr R11
+ 005C 0EC0              xjmp L21
+ 005E           L18:
+ 005E                   .dbline 101
+ 005E           ;          {
+ 005E                   .dbline 102
+ 005E           ;          for(j=0;j<1141;j++);
+ 005E CC24              clr R12
+ 0060 DD24              clr R13
+ 0062 03C0              xjmp L25
+ 0064           L22:
+ 0064                   .dbline 102
+ 0064           L23:
+ 0064                   .dbline 102
+ 0064 C601              movw R24,R12
+ 0066 0196              adiw R24,1
+ 0068 6C01              movw R12,R24
+ 006A           L25:
+ 006A                   .dbline 102
+ 006A C601              movw R24,R12
+ 006C 8537              cpi R24,117
+ 006E E4E0              ldi R30,4
+ 0070 9E07              cpc R25,R30
+ 0072 C0F3              brlo L22
+ 0074           X3:
+ 0074                   .dbline 103
+ 0074           ;        }
+ 0074           L19:
+ 0074                   .dbline 100
+ 0074 C501              movw R24,R10
+ 0076 0196              adiw R24,1
+ 0078 5C01              movw R10,R24
+ 007A           L21:
+ 007A                   .dbline 100
+ 007A A016              cp R10,R16
+ 007C B106              cpc R11,R17
+ 007E 78F3              brlo L18
+ 0080           X4:
+ 0080                   .dbline -2
+ 0080           L17:
+ 0080                   .dbline 0 ; func end
+ 0080 0C940000          xjmp pop_xgset003C
+ 0084                   .dbsym r i 10 i
+ 0084                   .dbsym r j 12 i
+ 0084                   .dbsym r ms 16 i
+ 0084                   .dbend
+ 0084                   .dbfunc e Lcd_Write_Byte _Lcd_Write_Byte fV
+ 0084           ;           temp -> R16
+                        .even
+ 0084           _Lcd_Write_Byte::
+ 0084                   .dbline -1
+ 0084                   .dbline 106
+ 0084           ; }
+ 0084           ; void Lcd_Write_Byte(uchar temp)
+ 0084           ; {   
+ 0084                   .dbline 107
+ 0084           ;     PORTB|=BIT(0);
+ 0084 C09A              sbi 0x18,0
+ 0086                   .dbline 108
+ 0086           ;     PORTB&=~BIT(1);    //W
+ 0086 C198              cbi 0x18,1
+ 0088                   .dbline 109
+ 0088           ;     PORTB|=BIT(4); //E使能
+ 0088 C49A              sbi 0x18,4
+ 008A                   .dbline 110
+ 008A           ;     DDRA=0xff; //a输出
+ 008A 8FEF              ldi R24,255
+ 008C 8ABB              out 0x1a,R24
+ 008E                   .dbline 111
+ 008E           ;     PORTA=temp;
+ 008E 0BBB              out 0x1b,R16
+ 0090                   .dbline 112
+ 0090           ;     asm("nop");
+ 0090 0000              nop
+ 0092                   .dbline 113
+ 0092           ;     asm("nop");
+ 0092 0000              nop
+ 0094                   .dbline 114
+ 0094           ;     asm("nop");
+ 0094 0000              nop
+ 0096                   .dbline 115
+ 0096           ;     asm("nop");
+ 0096 0000              nop
+ 0098                   .dbline 116
+ 0098           ;     PORTB&=~BIT(4);    
+ 0098 C498              cbi 0x18,4
+ 009A                   .dbline 117
+ 009A           ;     PORTA=0xff;
+ 009A 8BBB              out 0x1b,R24
+ 009C                   .dbline -2
+ 009C           L26:
+ 009C                   .dbline 0 ; func end
+ 009C 0895              ret
+ 009E                   .dbsym r temp 16 c
+ 009E                   .dbend
+ 009E                   .dbfunc e Lcd_Write_COM _Lcd_Write_COM fV
+ 009E           ;            COL -> R16
+                        .even
+ 009E           _Lcd_Write_COM::
+ 009E                   .dbline -1
+ 009E                   .dbline 120
+ 009E           ; }
+ 009E           ; void Lcd_Write_COM(uchar COL)
+ 009E           ; {   
+ 009E                   .dbline 121
+ 009E           ;     PORTB&=~BIT(0);
+ 009E C098              cbi 0x18,0
+ 00A0                   .dbline 122
+ 00A0           ;     PORTB&=~BIT(1);    //W
+ 00A0 C198              cbi 0x18,1
+ 00A2                   .dbline 123
+ 00A2           ;     PORTB|=BIT(4); //E使能
+ 00A2 C49A              sbi 0x18,4
+ 00A4                   .dbline 124
+ 00A4           ;     DDRA=0xff; //a输出
+ 00A4 8FEF              ldi R24,255
+ 00A6 8ABB              out 0x1a,R24
+ 00A8                   .dbline 125
+ 00A8           ;     PORTA=COL;
+ 00A8 0BBB              out 0x1b,R16
+ 00AA                   .dbline 126
+ 00AA           ;     asm("nop");
+ 00AA 0000              nop
+ 00AC                   .dbline 127
+ 00AC           ;     asm("nop");
+ 00AC 0000              nop
+ 00AE                   .dbline 128
+ 00AE           ;     asm("nop");
+ 00AE 0000              nop
+ 00B0                   .dbline 129
+ 00B0           ;     asm("nop");
+ 00B0 0000              nop
+ 00B2                   .dbline 130
+ 00B2           ;     PORTB&=~BIT(4);    
+ 00B2 C498              cbi 0x18,4
+ 00B4                   .dbline -2
+ 00B4           L27:
+ 00B4                   .dbline 0 ; func end
+ 00B4 0895              ret
+ 00B6                   .dbsym r COL 16 c
+ 00B6                   .dbend
+ 00B6                   .dbfunc e set_page_L _set_page_L fV
+ 00B6           ;           page -> R10
+                        .even
+ 00B6           _set_page_L::
+ 00B6 AA92              st -y,R10
+ 00B8 A02E              mov R10,R16
+ 00BA                   .dbline -1
+ 00BA                   .dbline 136
+ 00BA           ;  
+ 00BA           ; }
+ 00BA           ; 
+ 00BA           ; 
+ 00BA           ; void set_page_L(unsigned char page)   /*设置X地址 设置页*/  //0-7
+ 00BA           ; {
+ 00BA                   .dbline 137
+ 00BA           ;    Lcd_Write_COM(0xb8|page);                     
+ 00BA 0A2D              mov R16,R10
+ 00BC 086B              ori R16,184
+ 00BE EFDF              xcall _Lcd_Write_COM
+ 00C0                   .dbline -2
+ 00C0           L28:
+ 00C0                   .dbline 0 ; func end
+ 00C0 A990              ld R10,y+
+ 00C2 0895              ret
+ 00C4                   .dbsym r page 10 c
+ 00C4                   .dbend
+ 00C4                   .dbfunc e set_page_R _set_page_R fV
+ 00C4           ;           page -> R10
+                        .even
+ 00C4           _set_page_R::
+ 00C4 AA92              st -y,R10
+ 00C6 A02E              mov R10,R16
+ 00C8                   .dbline -1
+ 00C8                   .dbline 140
+ 00C8           ; }
+ 00C8           ; void set_page_R(unsigned char page)   /*设置X地址 设置页*/ //0-7
+ 00C8           ; {
+ 00C8                   .dbline 141
+ 00C8           ;     Lcd_Write_COM(0xb8|page);                     
+ 00C8 0A2D              mov R16,R10
+ 00CA 086B              ori R16,184
+ 00CC E8DF              xcall _Lcd_Write_COM
+ 00CE                   .dbline -2
+ 00CE           L29:
+ 00CE                   .dbline 0 ; func end
+ 00CE A990              ld R10,y+
+ 00D0 0895              ret
+ 00D2                   .dbsym r page 10 c
+ 00D2                   .dbend
+ 00D2                   .dbfunc e set_col_addr_L _set_col_addr_L fV
+ 00D2           ;            col -> R10
+                        .even
+ 00D2           _set_col_addr_L::
+ 00D2 AA92              st -y,R10
+ 00D4 A02E              mov R10,R16
+ 00D6                   .dbline -1
+ 00D6                   .dbline 145
+ 00D6           ; }
+ 00D6           ; 
+ 00D6           ; void set_col_addr_L(unsigned char col) /*设置Y地址*/ //0-63
+ 00D6           ; {
+ 00D6                   .dbline 147
+ 00D6           ;      
+ 00D6           ;    Lcd_Write_COM(0x40|col);                     
+ 00D6 0A2D              mov R16,R10
+ 00D8 0064              ori R16,64
+ 00DA E1DF              xcall _Lcd_Write_COM
+ 00DC                   .dbline -2
+ 00DC           L30:
+ 00DC                   .dbline 0 ; func end
+ 00DC A990              ld R10,y+
+ 00DE 0895              ret
+ 00E0                   .dbsym r col 10 c
+ 00E0                   .dbend
+ 00E0                   .dbfunc e set_col_addr_R _set_col_addr_R fV
+ 00E0           ;            col -> R10
+                        .even
+ 00E0           _set_col_addr_R::
+ 00E0 AA92              st -y,R10
+ 00E2 A02E              mov R10,R16
+ 00E4                   .dbline -1
+ 00E4                   .dbline 151
+ 00E4           ; }
+ 00E4           ; 
+ 00E4           ; void set_col_addr_R(unsigned char col) /*设置Y地址*/ //0-63
+ 00E4           ; {
+ 00E4                   .dbline 152
+ 00E4           ;     Lcd_Write_COM(0x40|col);                        
+ 00E4 0A2D              mov R16,R10
+ 00E6 0064              ori R16,64
+ 00E8 DADF              xcall _Lcd_Write_COM
+ 00EA                   .dbline -2
+ 00EA           L31:
+ 00EA                   .dbline 0 ; func end
+ 00EA A990              ld R10,y+
+ 00EC 0895              ret
+ 00EE                   .dbsym r col 10 c
+ 00EE                   .dbend
+ 00EE                   .dbfunc e Lcd_Set_X_Y _Lcd_Set_X_Y fV
+ 00EE           ;              y -> R12
+ 00EE           ;              x -> R10
+                        .even
+ 00EE           _Lcd_Set_X_Y::
+ 00EE AA92              st -y,R10
+ 00F0 CA92              st -y,R12
+ 00F2 C22E              mov R12,R18
+ 00F4 A02E              mov R10,R16
+ 00F6                   .dbline -1
+ 00F6                   .dbline 163
+ 00F6           ; }
+ 00F6           ; 
+ 00F6           ; 
+ 00F6           ; /********************************************************************************************
+ 00F6           ; * 函数名称：Lcd_Set_X_Y(uchar x, uchar y )
+ 00F6           ; * 功    能：LCD设置x y坐标
+ 00F6           ; * 入口参数：x y
+ 00F6           ; * 出口参数：无
+ 00F6           ; *********************************************************************************************/
+ 00F6           ; void Lcd_Set_X_Y(uchar x, uchar y)
+ 00F6           ; {   
+ 00F6                   .dbline 164
+ 00F6           ;    if(y<64)
+ 00F6 8C2D              mov R24,R12
+ 00F8 8034              cpi R24,64
+ 00FA 28F4              brsh L33
+ 00FC           X5:
+ 00FC                   .dbline 165
+ 00FC           ;       {   PORTB&=~BIT(3);
+ 00FC                   .dbline 165
+ 00FC C398              cbi 0x18,3
+ 00FE                   .dbline 166
+ 00FE           ;             PORTB|=BIT(2);
+ 00FE C29A              sbi 0x18,2
+ 0100                   .dbline 168
+ 0100           ;          
+ 0100           ;               set_col_addr_L(y);
+ 0100 082F              mov R16,R24
+ 0102 E7DF              xcall _set_col_addr_L
+ 0104                   .dbline 169
+ 0104           ;         }
+ 0104 04C0              xjmp L34
+ 0106           L33:
+ 0106                   .dbline 171
+ 0106           ;    else
+ 0106           ;       {   
+ 0106                   .dbline 172
+ 0106           ;                  PORTB|=BIT(3);
+ 0106 C39A              sbi 0x18,3
+ 0108                   .dbline 173
+ 0108           ;           PORTB&=~BIT(2);
+ 0108 C298              cbi 0x18,2
+ 010A                   .dbline 174
+ 010A           ;               set_col_addr_R(y);
+ 010A 0C2D              mov R16,R12
+ 010C E9DF              xcall _set_col_addr_R
+ 010E                   .dbline 175
+ 010E           ;         }
+ 010E           L34:
+ 010E                   .dbline 176
+ 010E           ;    set_page_L( x);
+ 010E 0A2D              mov R16,R10
+ 0110 D2DF              xcall _set_page_L
+ 0112                   .dbline 177
+ 0112           ;    set_page_R( x);
+ 0112 0A2D              mov R16,R10
+ 0114 D7DF              xcall _set_page_R
+ 0116                   .dbline -2
+ 0116           L32:
+ 0116                   .dbline 0 ; func end
+ 0116 C990              ld R12,y+
+ 0118 A990              ld R10,y+
+ 011A 0895              ret
+ 011C                   .dbsym r y 12 c
+ 011C                   .dbsym r x 10 c
+ 011C                   .dbend
+ 011C                   .dbfunc e Lcd_Character_16X16 _Lcd_Character_16X16 fV
+ 011C           ;           temp -> y+0
+ 011C           ;              i -> R10
+ 011C           ;              j -> R12
+ 011C           ;          point -> y+11
+ 011C           ;              y -> R14
+ 011C           ;              x -> y+7
+ 011C           ;       bit_flag -> R10
+                        .even
+ 011C           _Lcd_Character_16X16::
+ 011C 3A93              st -y,r19
+ 011E 2A93              st -y,r18
+ 0120 0E940000          xcall push_xgset00FC
+ 0124 A02E              mov R10,R16
+ 0126 2197              sbiw R28,1
+ 0128 E984              ldd R14,y+9
+ 012A                   .dbline -1
+ 012A                   .dbline 188
+ 012A           ; }
+ 012A           ; 
+ 012A           ; /****************************************************************************
+ 012A           ; * 名称：Lcd_Character_16X16( bit bit_flag, uchar x, uchar y, uchar code *point )
+ 012A           ; * 功能：显示16*16字符（汉字）       
+ 012A           ; * 入口参数：x y data
+ 012A           ; * 出口参数：无
+ 012A           ; *说明:bit_flag = 1 正常显示 bit_flag = 0 黑白反相显示
+ 012A           ; ****************************************************************************/
+ 012A           ; void Lcd_Character_16X16( uchar bit_flag, uchar x, uchar y, uchar  *point )
+ 012A           ; {
+ 012A                   .dbline 190
+ 012A           ;    uchar i,j,temp ;
+ 012A           ;    temp=y;
+ 012A E882              std y+0,R14
+ 012C                   .dbline 191
+ 012C           ;    if( bit_flag )
+ 012C AA20              tst R10
+ 012E 11F1              breq L36
+ 0130           X6:
+ 0130                   .dbline 192
+ 0130           ;    {
+ 0130                   .dbline 193
+ 0130           ;       for( i=0; i<2; i++ )
+ 0130 AA24              clr R10
+ 0132 1CC0              xjmp L41
+ 0134           L38:
+ 0134                   .dbline 194
+ 0134           ;       {
+ 0134                   .dbline 195
+ 0134           ;          x+=i;
+ 0134 0F80              ldd R0,y+7
+ 0136 0A0C              add R0,R10
+ 0138 0F82              std y+7,R0
+ 013A                   .dbline 196
+ 013A           ;            y=temp;
+ 013A E880              ldd R14,y+0
+ 013C                   .dbline 197
+ 013C           ;          for( j=0;j<16;j++ )
+ 013C CC24              clr R12
+ 013E 12C0              xjmp L45
+ 0140           L42:
+ 0140                   .dbline 198
+ 0140           ;          {
+ 0140                   .dbline 199
+ 0140           ;             Lcd_Set_X_Y( x, y ); y++;
+ 0140 2E2D              mov R18,R14
+ 0142 0F81              ldd R16,y+7
+ 0144 D4DF              xcall _Lcd_Set_X_Y
+ 0146                   .dbline 199
+ 0146 E394              inc R14
+ 0148                   .dbline 200
+ 0148           ;             Lcd_Write_Byte( point[ i*16 + j] );  
+ 0148 80E1              ldi R24,16
+ 014A 8A9D              mul R24,R10
+ 014C F001              movw R30,R0
+ 014E 2C2C              mov R2,R12
+ 0150 3324              clr R3
+ 0152 E20D              add R30,R2
+ 0154 F31D              adc R31,R3
+ 0156 0B84              ldd R0,y+11
+ 0158 1C84              ldd R1,y+12
+ 015A E00D              add R30,R0
+ 015C F11D              adc R31,R1
+ 015E 0081              ldd R16,z+0
+ 0160 91DF              xcall _Lcd_Write_Byte
+ 0162                   .dbline 201
+ 0162           ;          } 
+ 0162           L43:
+ 0162                   .dbline 197
+ 0162 C394              inc R12
+ 0164           L45:
+ 0164                   .dbline 197
+ 0164 8C2D              mov R24,R12
+ 0166 8031              cpi R24,16
+ 0168 58F3              brlo L42
+ 016A           X7:
+ 016A                   .dbline 202
+ 016A           ;       }
+ 016A           L39:
+ 016A                   .dbline 193
+ 016A A394              inc R10
+ 016C           L41:
+ 016C                   .dbline 193
+ 016C 8A2D              mov R24,R10
+ 016E 8230              cpi R24,2
+ 0170 08F3              brlo L38
+ 0172           X8:
+ 0172                   .dbline 203
+ 0172           ;    }
+ 0172 22C0              xjmp L37
+ 0174           L36:
+ 0174                   .dbline 205
+ 0174           ;    else
+ 0174           ;    {
+ 0174                   .dbline 206
+ 0174           ;       for( i =0; i<2; i++ )
+ 0174 AA24              clr R10
+ 0176 1DC0              xjmp L49
+ 0178           L46:
+ 0178                   .dbline 207
+ 0178           ;       {
+ 0178                   .dbline 208
+ 0178           ;          x+=i;
+ 0178 0F80              ldd R0,y+7
+ 017A 0A0C              add R0,R10
+ 017C 0F82              std y+7,R0
+ 017E                   .dbline 209
+ 017E           ;          y=temp;
+ 017E E880              ldd R14,y+0
+ 0180                   .dbline 210
+ 0180           ;          for( j = 0; j < 16; j++ )
+ 0180 CC24              clr R12
+ 0182 13C0              xjmp L53
+ 0184           L50:
+ 0184                   .dbline 211
+ 0184           ;          {
+ 0184                   .dbline 212
+ 0184           ;             Lcd_Set_X_Y( x, y );
+ 0184 2E2D              mov R18,R14
+ 0186 0F81              ldd R16,y+7
+ 0188 B2DF              xcall _Lcd_Set_X_Y
+ 018A                   .dbline 213
+ 018A           ;                       y++;
+ 018A E394              inc R14
+ 018C                   .dbline 214
+ 018C           ;             Lcd_Write_Byte( ~ point[ i * 16 + j ] );
+ 018C 80E1              ldi R24,16
+ 018E 8A9D              mul R24,R10
+ 0190 F001              movw R30,R0
+ 0192 2C2C              mov R2,R12
+ 0194 3324              clr R3
+ 0196 E20D              add R30,R2
+ 0198 F31D              adc R31,R3
+ 019A 0B84              ldd R0,y+11
+ 019C 1C84              ldd R1,y+12
+ 019E E00D              add R30,R0
+ 01A0 F11D              adc R31,R1
+ 01A2 0081              ldd R16,z+0
+ 01A4 0095              com R16
+ 01A6 6EDF              xcall _Lcd_Write_Byte
+ 01A8                   .dbline 216
+ 01A8           ;                       
+ 01A8           ;          }
+ 01A8           L51:
+ 01A8                   .dbline 210
+ 01A8 C394              inc R12
+ 01AA           L53:
+ 01AA                   .dbline 210
+ 01AA 8C2D              mov R24,R12
+ 01AC 8031              cpi R24,16
+ 01AE 50F3              brlo L50
+ 01B0           X9:
+ 01B0                   .dbline 218
+ 01B0           ;               
+ 01B0           ;       }
+ 01B0           L47:
+ 01B0                   .dbline 206
+ 01B0 A394              inc R10
+ 01B2           L49:
+ 01B2                   .dbline 206
+ 01B2 8A2D              mov R24,R10
+ 01B4 8230              cpi R24,2
+ 01B6 00F3              brlo L46
+ 01B8           X10:
+ 01B8                   .dbline 219
+ 01B8           ;    }
+ 01B8           L37:
+ 01B8                   .dbline -2
+ 01B8           L35:
+ 01B8                   .dbline 0 ; func end
+ 01B8 2196              adiw R28,1
+ 01BA 0E940000          xcall pop_xgset00FC
+ 01BE 2296              adiw R28,2
+ 01C0 0895              ret
+ 01C2                   .dbsym l temp 0 c
+ 01C2                   .dbsym r i 10 c
+ 01C2                   .dbsym r j 12 c
+ 01C2                   .dbsym l point 11 pc
+ 01C2                   .dbsym r y 14 c
+ 01C2                   .dbsym l x 7 c
+ 01C2                   .dbsym r bit_flag 10 c
+ 01C2                   .dbend
+ 01C2                   .dbfunc e key_press _key_press fc
+ 01C2           ;              j -> R16
+                        .even
+ 01C2           _key_press::
+ 01C2                   .dbline -1
+ 01C2                   .dbline 222
+ 01C2           ; }
+ 01C2           ; uchar key_press()
+ 01C2           ; {
+ 01C2                   .dbline 224
+ 01C2           ;     uchar j;
+ 01C2           ;     DDRD|=0X0F;
+ 01C2 81B3              in R24,0x11
+ 01C4 8F60              ori R24,15
+ 01C6 81BB              out 0x11,R24
+ 01C8                   .dbline 225
+ 01C8           ;       PORTD|=0X0F;
+ 01C8 82B3              in R24,0x12
+ 01CA 8F60              ori R24,15
+ 01CC 82BB              out 0x12,R24
+ 01CE                   .dbline 227
+ 01CE           ;       
+ 01CE           ;       DDRD&=0XF0;
+ 01CE 81B3              in R24,0x11
+ 01D0 807F              andi R24,240
+ 01D2 81BB              out 0x11,R24
+ 01D4                   .dbline 229
+ 01D4           ;       
+ 01D4           ;       j=PIND;
+ 01D4 00B3              in R16,0x10
+ 01D6                   .dbline 230
+ 01D6           ;       j=j&0X0F;//00001111
+ 01D6 0F70              andi R16,15
+ 01D8                   .dbline 231
+ 01D8           ;       if(j==0X0F)
+ 01D8 0F30              cpi R16,15
+ 01DA 11F4              brne L55
+ 01DC           X11:
+ 01DC                   .dbline 232
+ 01DC           ;       {
+ 01DC                   .dbline 233
+ 01DC           ;         return 0;
+ 01DC 0027              clr R16
+ 01DE 01C0              xjmp L54
+ 01E0           L55:
+ 01E0                   .dbline 236
+ 01E0           ;       }
+ 01E0           ;       else
+ 01E0           ;       {
+ 01E0                   .dbline 237
+ 01E0           ;        return 1;
+ 01E0 01E0              ldi R16,1
+ 01E2                   .dbline -2
+ 01E2           L54:
+ 01E2                   .dbline 0 ; func end
+ 01E2 0895              ret
+ 01E4                   .dbsym r j 16 c
+ 01E4                   .dbend
+ 01E4                   .dbfunc e key_scan _key_scan fc
+ 01E4           ;            key -> R10
+                        .even
+ 01E4           _key_scan::
+ 01E4 0E940000          xcall push_xgset003C
+ 01E8                   .dbline -1
+ 01E8                   .dbline 243
+ 01E8           ;       }
+ 01E8           ;       
+ 01E8           ; }
+ 01E8           ; 
+ 01E8           ; uchar key_scan()
+ 01E8           ; {
+ 01E8                   .dbline 245
+ 01E8           ;     uchar key;
+ 01E8           ;     delay(10);
+ 01E8 0AE0              ldi R16,10
+ 01EA 10E0              ldi R17,0
+ 01EC 33DF              xcall _delay
+ 01EE                   .dbline 246
+ 01EE           ;       if(key_press())
+ 01EE E9DF              xcall _key_press
+ 01F0 0023              tst R16
+ 01F2 51F1              breq L58
+ 01F4           X12:
+ 01F4                   .dbline 247
+ 01F4           ;       {
+ 01F4                   .dbline 248
+ 01F4           ;       key=PIND;
+ 01F4 A0B2              in R10,0x10
+ 01F6                   .dbline 249
+ 01F6           ;       key&=0X0F;
+ 01F6 8A2D              mov R24,R10
+ 01F8 8F70              andi R24,15
+ 01FA A82E              mov R10,R24
+ 01FC                   .dbline 250
+ 01FC           ;       switch(key)
+ 01FC C82E              mov R12,R24
+ 01FE DD24              clr R13
+ 0200 C601              movw R24,R12
+ 0202 8730              cpi R24,7
+ 0204 E0E0              ldi R30,0
+ 0206 9E07              cpc R25,R30
+ 0208 B1F0              breq L66
+ 020A           X13:
+ 020A 8B30              cpi R24,11
+ 020C E0E0              ldi R30,0
+ 020E 9E07              cpc R25,R30
+ 0210 79F0              breq L65
+ 0212           X14:
+ 0212 8D30              cpi R24,13
+ 0214 E0E0              ldi R30,0
+ 0216 9E07              cpc R25,R30
+ 0218 41F0              breq L64
+ 021A           X15:
+ 021A 8E30              cpi R24,14
+ 021C E0E0              ldi R30,0
+ 021E 9E07              cpc R25,R30
+ 0220 09F0              breq L63
+ 0222           X16:
+ 0222 0CC0              xjmp L60
+ 0224           L63:
+ 0224                   .dbline 253
+ 0224           ;       {
+ 0224           ;          case 0X0E: 
+ 0224           ;              key=1;
+ 0224 AA24              clr R10
+ 0226 A394              inc R10
+ 0228                   .dbline 254
+ 0228           ;                  break;
+ 0228 0BC0              xjmp L68
+ 022A           L64:
+ 022A                   .dbline 256
+ 022A           ;          case 0X0D:
+ 022A           ;              key=2;
+ 022A 82E0              ldi R24,2
+ 022C A82E              mov R10,R24
+ 022E                   .dbline 257
+ 022E           ;                  break;
+ 022E 08C0              xjmp L68
+ 0230           L65:
+ 0230                   .dbline 259
+ 0230           ;                case 0X0B: 
+ 0230           ;              key=3;
+ 0230 83E0              ldi R24,3
+ 0232 A82E              mov R10,R24
+ 0234                   .dbline 260
+ 0234           ;                  break;
+ 0234 05C0              xjmp L68
+ 0236           L66:
+ 0236                   .dbline 262
+ 0236           ;          case 0X07:
+ 0236           ;              key=4;
+ 0236 84E0              ldi R24,4
+ 0238 A82E              mov R10,R24
+ 023A                   .dbline 263
+ 023A           ;                  break; 
+ 023A 02C0              xjmp L68
+ 023C           L60:
+ 023C                   .dbline 265
+ 023C           ;          default:     
+ 023C           ;              key=16;             
+ 023C 80E1              ldi R24,16
+ 023E A82E              mov R10,R24
+ 0240                   .dbline 266
+ 0240           ;       }
+ 0240           L67:
+ 0240                   .dbline 267
+ 0240           ;         while(key_press());
+ 0240           L68:
+ 0240                   .dbline 267
+ 0240 C0DF              xcall _key_press
+ 0242 0023              tst R16
+ 0244 E9F7              brne L67
+ 0246           X17:
+ 0246                   .dbline 268
+ 0246           ;       }
+ 0246 02C0              xjmp L59
+ 0248           L58:
+ 0248                   .dbline 270
+ 0248           ;       else
+ 0248           ;       {
+ 0248                   .dbline 271
+ 0248           ;         key=16;
+ 0248 80E1              ldi R24,16
+ 024A A82E              mov R10,R24
+ 024C                   .dbline 272
+ 024C           ;       }
+ 024C           L59:
+ 024C                   .dbline 273
+ 024C           ;       return key;
+ 024C 0A2D              mov R16,R10
+ 024E                   .dbline -2
+ 024E           L57:
+ 024E                   .dbline 0 ; func end
+ 024E 0C940000          xjmp pop_xgset003C
+ 0252                   .dbsym r key 10 c
+ 0252                   .dbend
+ 0252                   .dbfunc e Lcd_Function _Lcd_Function fV
+ 0252           ;              n -> R10
+ 0252           ;              m -> R12
+ 0252           ;     alarm_flag -> y+5
+ 0252           ;      time_flag -> y+4
+ 0252           ;           temp -> R14
+                        .even
+ 0252           _Lcd_Function::
+ 0252 0E940000          xcall push_xgset00FC
+ 0256 E02E              mov R14,R16
+ 0258 2697              sbiw R28,6
+ 025A                   .dbline -1
+ 025A                   .dbline 277
+ 025A           ; }
+ 025A           ; 
+ 025A           ; void Lcd_Function( uchar temp )
+ 025A           ; {
+ 025A                   .dbline 278
+ 025A           ;    uchar time_flag = 0;
+ 025A 0024              clr R0
+ 025C 0C82              std y+4,R0
+ 025E                   .dbline 279
+ 025E           ;    uchar alarm_flag = 0;
+ 025E 0D82              std y+5,R0
+ 0260                   .dbline 280
+ 0260           ;    uchar m=0;
+ 0260 CC24              clr R12
+ 0262                   .dbline 281
+ 0262           ;    uchar n=0;
+ 0262 AA24              clr R10
+ 0264                   .dbline 282
+ 0264           ;     switch(temp)
+ 0264 FF24              clr R15
+ 0266 C701              movw R24,R14
+ 0268 8130              cpi R24,1
+ 026A E0E0              ldi R30,0
+ 026C 9E07              cpc R25,R30
+ 026E 69F0              breq L74
+ 0270           X18:
+ 0270 8230              cpi R24,2
+ 0272 E0E0              ldi R30,0
+ 0274 9E07              cpc R25,R30
+ 0276 69F0              breq L75
+ 0278           X19:
+ 0278 8330              cpi R24,3
+ 027A E0E0              ldi R30,0
+ 027C 9E07              cpc R25,R30
+ 027E 69F0              breq L76
+ 0280           X20:
+ 0280 8430              cpi R24,4
+ 0282 E0E0              ldi R30,0
+ 0284 9E07              cpc R25,R30
+ 0286 61F0              breq L77
+ 0288           X21:
+ 0288 0DC0              xjmp L71
+ 028A           L74:
+ 028A                   .dbline 284
+ 028A           ;       {case 1:
+ 028A           ;         time_flag = 1; break;
+ 028A 0024              clr R0
+ 028C 0394              inc R0
+ 028E 0C82              std y+4,R0
+ 0290                   .dbline 284
+ 0290 09C0              xjmp L72
+ 0292           L75:
+ 0292                   .dbline 286
+ 0292           ;        case 2:
+ 0292           ;         alarm_flag= 1; break;
+ 0292 0024              clr R0
+ 0294 0394              inc R0
+ 0296 0D82              std y+5,R0
+ 0298                   .dbline 286
+ 0298 05C0              xjmp L72
+ 029A           L76:
+ 029A                   .dbline 288
+ 029A           ;        case 3:
+ 029A           ;          m=1; break;
+ 029A CC24              clr R12
+ 029C C394              inc R12
+ 029E                   .dbline 288
+ 029E 02C0              xjmp L72
+ 02A0           L77:
+ 02A0                   .dbline 290
+ 02A0           ;        case 4:
+ 02A0           ;          n=1; break;
+ 02A0 AA24              clr R10
+ 02A2 A394              inc R10
+ 02A4                   .dbline 290
+ 02A4           L71:
+ 02A4                   .dbline 292
+ 02A4           ;        default:
+ 02A4           ;         ;
+ 02A4                   .dbline 294
+ 02A4           ; 
+ 02A4           ;       }
+ 02A4           L72:
+ 02A4                   .dbline 297
+ 02A4           ; 
+ 02A4           ;    //时间设置
+ 02A4           ;    Lcd_Character_16X16( time_flag, 0, 0, time_logo[3] );
+ 02A4 80E0              ldi R24,<_time_logo+96
+ 02A6 90E0              ldi R25,>_time_logo+96
+ 02A8 9B83              std y+3,R25
+ 02AA 8A83              std y+2,R24
+ 02AC 2224              clr R2
+ 02AE 2882              std y+0,R2
+ 02B0 2227              clr R18
+ 02B2 0C81              ldd R16,y+4
+ 02B4 33DF              xcall _Lcd_Character_16X16
+ 02B6                   .dbline 298
+ 02B6           ;    Lcd_Character_16X16( time_flag, 0, 16, time_logo[1] );
+ 02B6 80E0              ldi R24,<_time_logo+32
+ 02B8 90E0              ldi R25,>_time_logo+32
+ 02BA 9B83              std y+3,R25
+ 02BC 8A83              std y+2,R24
+ 02BE 80E1              ldi R24,16
+ 02C0 8883              std y+0,R24
+ 02C2 2227              clr R18
+ 02C4 0C81              ldd R16,y+4
+ 02C6 2ADF              xcall _Lcd_Character_16X16
+ 02C8                   .dbline 299
+ 02C8           ;    Lcd_Character_16X16( time_flag, 0, 32, time_logo[2] );
+ 02C8 80E0              ldi R24,<_time_logo+64
+ 02CA 90E0              ldi R25,>_time_logo+64
+ 02CC 9B83              std y+3,R25
+ 02CE 8A83              std y+2,R24
+ 02D0 80E2              ldi R24,32
+ 02D2 8883              std y+0,R24
+ 02D4 2227              clr R18
+ 02D6 0C81              ldd R16,y+4
+ 02D8 21DF              xcall _Lcd_Character_16X16
+ 02DA                   .dbline 300
+ 02DA           ;    Lcd_Character_16X16( time_flag, 0, 48, menu[0] );
+ 02DA 80E0              ldi R24,<_menu
+ 02DC 90E0              ldi R25,>_menu
+ 02DE 9B83              std y+3,R25
+ 02E0 8A83              std y+2,R24
+ 02E2 80E3              ldi R24,48
+ 02E4 8883              std y+0,R24
+ 02E6 2227              clr R18
+ 02E8 0C81              ldd R16,y+4
+ 02EA 18DF              xcall _Lcd_Character_16X16
+ 02EC                   .dbline 302
+ 02EC           ;    //闹钟设置
+ 02EC           ;    Lcd_Character_16X16( alarm_flag, 2, 0, time_logo[3] );
+ 02EC 80E0              ldi R24,<_time_logo+96
+ 02EE 90E0              ldi R25,>_time_logo+96
+ 02F0 9B83              std y+3,R25
+ 02F2 8A83              std y+2,R24
+ 02F4 2224              clr R2
+ 02F6 2882              std y+0,R2
+ 02F8 22E0              ldi R18,2
+ 02FA 0D81              ldd R16,y+5
+ 02FC 0FDF              xcall _Lcd_Character_16X16
+ 02FE                   .dbline 303
+ 02FE           ;    Lcd_Character_16X16( alarm_flag, 2, 16, time_logo[1] );
+ 02FE 80E0              ldi R24,<_time_logo+32
+ 0300 90E0              ldi R25,>_time_logo+32
+ 0302 9B83              std y+3,R25
+ 0304 8A83              std y+2,R24
+ 0306 80E1              ldi R24,16
+ 0308 8883              std y+0,R24
+ 030A 22E0              ldi R18,2
+ 030C 0D81              ldd R16,y+5
+ 030E 06DF              xcall _Lcd_Character_16X16
+ 0310                   .dbline 304
+ 0310           ;    Lcd_Character_16X16( alarm_flag, 2, 32, time_logo[2] );
+ 0310 80E0              ldi R24,<_time_logo+64
+ 0312 90E0              ldi R25,>_time_logo+64
+ 0314 9B83              std y+3,R25
+ 0316 8A83              std y+2,R24
+ 0318 80E2              ldi R24,32
+ 031A 8883              std y+0,R24
+ 031C 22E0              ldi R18,2
+ 031E 0D81              ldd R16,y+5
+ 0320 FDDE              xcall _Lcd_Character_16X16
+ 0322                   .dbline 305
+ 0322           ;    Lcd_Character_16X16( alarm_flag, 2, 48, menu[1] );
+ 0322 80E0              ldi R24,<_menu+32
+ 0324 90E0              ldi R25,>_menu+32
+ 0326 9B83              std y+3,R25
+ 0328 8A83              std y+2,R24
+ 032A 80E3              ldi R24,48
+ 032C 8883              std y+0,R24
+ 032E 22E0              ldi R18,2
+ 0330 0D81              ldd R16,y+5
+ 0332 F4DE              xcall _Lcd_Character_16X16
+ 0334                   .dbline 307
+ 0334           ;    
+ 0334           ;    Lcd_Character_16X16( m, 4, 0, time_logo[3] );
+ 0334 80E0              ldi R24,<_time_logo+96
+ 0336 90E0              ldi R25,>_time_logo+96
+ 0338 9B83              std y+3,R25
+ 033A 8A83              std y+2,R24
+ 033C 2224              clr R2
+ 033E 2882              std y+0,R2
+ 0340 24E0              ldi R18,4
+ 0342 0C2D              mov R16,R12
+ 0344 EBDE              xcall _Lcd_Character_16X16
+ 0346                   .dbline 308
+ 0346           ;    Lcd_Character_16X16( m, 4, 16, time_logo[1] );
+ 0346 80E0              ldi R24,<_time_logo+32
+ 0348 90E0              ldi R25,>_time_logo+32
+ 034A 9B83              std y+3,R25
+ 034C 8A83              std y+2,R24
+ 034E 80E1              ldi R24,16
+ 0350 8883              std y+0,R24
+ 0352 24E0              ldi R18,4
+ 0354 0C2D              mov R16,R12
+ 0356 E2DE              xcall _Lcd_Character_16X16
+ 0358                   .dbline 309
+ 0358           ;    Lcd_Character_16X16( m, 4, 32, time_logo[2] );
+ 0358 80E0              ldi R24,<_time_logo+64
+ 035A 90E0              ldi R25,>_time_logo+64
+ 035C 9B83              std y+3,R25
+ 035E 8A83              std y+2,R24
+ 0360 80E2              ldi R24,32
+ 0362 8883              std y+0,R24
+ 0364 24E0              ldi R18,4
+ 0366 0C2D              mov R16,R12
+ 0368 D9DE              xcall _Lcd_Character_16X16
+ 036A                   .dbline 310
+ 036A           ;    Lcd_Character_16X16( m, 4, 48, menu[2] );
+ 036A 80E0              ldi R24,<_menu+64
+ 036C 90E0              ldi R25,>_menu+64
+ 036E 9B83              std y+3,R25
+ 0370 8A83              std y+2,R24
+ 0372 80E3              ldi R24,48
+ 0374 8883              std y+0,R24
+ 0376 24E0              ldi R18,4
+ 0378 0C2D              mov R16,R12
+ 037A D0DE              xcall _Lcd_Character_16X16
+ 037C                   .dbline 312
+ 037C           ;    
+ 037C           ;    Lcd_Character_16X16( n, 6, 0, time_logo[3] );
+ 037C 80E0              ldi R24,<_time_logo+96
+ 037E 90E0              ldi R25,>_time_logo+96
+ 0380 9B83              std y+3,R25
+ 0382 8A83              std y+2,R24
+ 0384 2224              clr R2
+ 0386 2882              std y+0,R2
+ 0388 26E0              ldi R18,6
+ 038A 0A2D              mov R16,R10
+ 038C C7DE              xcall _Lcd_Character_16X16
+ 038E                   .dbline 313
+ 038E           ;    Lcd_Character_16X16( n, 6, 16, time_logo[1] );
+ 038E 80E0              ldi R24,<_time_logo+32
+ 0390 90E0              ldi R25,>_time_logo+32
+ 0392 9B83              std y+3,R25
+ 0394 8A83              std y+2,R24
+ 0396 80E1              ldi R24,16
+ 0398 8883              std y+0,R24
+ 039A 26E0              ldi R18,6
+ 039C 0A2D              mov R16,R10
+ 039E BEDE              xcall _Lcd_Character_16X16
+ 03A0                   .dbline 314
+ 03A0           ;    Lcd_Character_16X16( n, 6, 32, time_logo[2] );
+ 03A0 80E0              ldi R24,<_time_logo+64
+ 03A2 90E0              ldi R25,>_time_logo+64
+ 03A4 9B83              std y+3,R25
+ 03A6 8A83              std y+2,R24
+ 03A8 80E2              ldi R24,32
+ 03AA 8883              std y+0,R24
+ 03AC 26E0              ldi R18,6
+ 03AE 0A2D              mov R16,R10
+ 03B0 B5DE              xcall _Lcd_Character_16X16
+ 03B2                   .dbline 315
+ 03B2           ;    Lcd_Character_16X16( n, 6, 48, menu[3] );
+ 03B2 80E0              ldi R24,<_menu+96
+ 03B4 90E0              ldi R25,>_menu+96
+ 03B6 9B83              std y+3,R25
+ 03B8 8A83              std y+2,R24
+ 03BA 80E3              ldi R24,48
+ 03BC 8883              std y+0,R24
+ 03BE 26E0              ldi R18,6
+ 03C0 0A2D              mov R16,R10
+ 03C2 ACDE              xcall _Lcd_Character_16X16
+ 03C4                   .dbline -2
+ 03C4           L70:
+ 03C4                   .dbline 0 ; func end
+ 03C4 2696              adiw R28,6
+ 03C6 0C940000          xjmp pop_xgset00FC
+ 03CA                   .dbsym r n 10 c
+ 03CA                   .dbsym r m 12 c
+ 03CA                   .dbsym l alarm_flag 5 c
+ 03CA                   .dbsym l time_flag 4 c
+ 03CA                   .dbsym r temp 14 c
+ 03CA                   .dbend
+ 03CA                   .dbfunc e main _main fV
+ 03CA           ;              j -> R12,R13
+ 03CA           ;              i -> R12,R13
+ 03CA           ;              k -> R10,R11
+                        .even
+ 03CA           _main::
+ 03CA                   .dbline -1
+ 03CA                   .dbline 318
+ 03CA           ; }
+ 03CA           ; void main()
+ 03CA           ; {
+ 03CA                   .dbline 319
+ 03CA           ;     unsigned int i,j,k=1;
+ 03CA 81E0              ldi R24,1
+ 03CC 90E0              ldi R25,0
+ 03CE 5C01              movw R10,R24
+ 03D0                   .dbline 321
+ 03D0           ;    //init_port();//自己加,主要是控制线所在端口为输出
+ 03D0           ;     DDRB = 0xff; 
+ 03D0 8FEF              ldi R24,255
+ 03D2 87BB              out 0x17,R24
+ 03D4                   .dbline 322
+ 03D4           ;       Lcd_Function(1);
+ 03D4 01E0              ldi R16,1
+ 03D6 3DDF              xcall _Lcd_Function
+ 03D8 2CC0              xjmp L95
+ 03DA           L94:
+ 03DA                   .dbline 325
+ 03DA           ;       
+ 03DA           ;       while(1)
+ 03DA           ;       {   i=key_press();
+ 03DA                   .dbline 325
+ 03DA F3DE              xcall _key_press
+ 03DC C02E              mov R12,R16
+ 03DE DD24              clr R13
+ 03E0                   .dbline 326
+ 03E0           ;       if(i)
+ 03E0 CC20              tst R12
+ 03E2 11F4              brne X22
+ 03E4 DD20              tst R13
+ 03E6 29F1              breq L97
+ 03E8           X22:
+ 03E8                   .dbline 327
+ 03E8           ;       {
+ 03E8                   .dbline 328
+ 03E8           ;        j=key_scan();
+ 03E8 FDDE              xcall _key_scan
+ 03EA C02E              mov R12,R16
+ 03EC DD24              clr R13
+ 03EE                   .dbline 329
+ 03EE           ;       switch(j)
+ 03EE C601              movw R24,R12
+ 03F0 8130              cpi R24,1
+ 03F2 E0E0              ldi R30,0
+ 03F4 9E07              cpc R25,R30
+ 03F6 29F0              breq L101
+ 03F8           X23:
+ 03F8 8230              cpi R24,2
+ 03FA E0E0              ldi R30,0
+ 03FC 9E07              cpc R25,R30
+ 03FE 29F0              breq L102
+ 0400           X24:
+ 0400 07C0              xjmp L99
+ 0402           L101:
+ 0402                   .dbline 332
+ 0402           ;         {
+ 0402           ;          case 1: 
+ 0402           ;              k=k+1;
+ 0402 C501              movw R24,R10
+ 0404 0196              adiw R24,1
+ 0406 5C01              movw R10,R24
+ 0408                   .dbline 333
+ 0408           ;                  break;
+ 0408 03C0              xjmp L100
+ 040A           L102:
+ 040A                   .dbline 335
+ 040A           ;          case 2:
+ 040A           ;              k=k-1;
+ 040A C501              movw R24,R10
+ 040C 0197              sbiw R24,1
+ 040E 5C01              movw R10,R24
+ 0410                   .dbline 336
+ 0410           ;                  break;
+ 0410           L99:
+ 0410                   .dbline 338
+ 0410           ;               default:
+ 0410           ;               ;
+ 0410                   .dbline 340
+ 0410           ;               
+ 0410           ;         }  
+ 0410           L100:
+ 0410                   .dbline 342
+ 0410           ;         
+ 0410           ;        if(k>4) k=1;
+ 0410 84E0              ldi R24,4
+ 0412 90E0              ldi R25,0
+ 0414 8A15              cp R24,R10
+ 0416 9B05              cpc R25,R11
+ 0418 10F4              brsh L103
+ 041A           X25:
+ 041A                   .dbline 342
+ 041A 81E0              ldi R24,1
+ 041C 5C01              movw R10,R24
+ 041E           L103:
+ 041E                   .dbline 343
+ 041E           ;        if(k<1) k=4;
+ 041E C501              movw R24,R10
+ 0420 8130              cpi R24,1
+ 0422 E0E0              ldi R30,0
+ 0424 9E07              cpc R25,R30
+ 0426 18F4              brsh L105
+ 0428           X26:
+ 0428                   .dbline 343
+ 0428 84E0              ldi R24,4
+ 042A 90E0              ldi R25,0
+ 042C 5C01              movw R10,R24
+ 042E           L105:
+ 042E                   .dbline 345
+ 042E           ;      
+ 042E           ;       Lcd_Function(k);
+ 042E 0A2D              mov R16,R10
+ 0430 10DF              xcall _Lcd_Function
+ 0432                   .dbline 346
+ 0432           ;       }
+ 0432           L97:
+ 0432                   .dbline 348
+ 0432           ;        
+ 0432           ;    }
+ 0432           L95:
+ 0432                   .dbline 324
+ 0432 D3CF              xjmp L94
+ 0434           X27:
+ 0434                   .dbline -2
+ 0434           L93:
+ 0434                   .dbline 0 ; func end
+ 0434 0895              ret
+ 0436                   .dbsym r j 12 i
+ 0436                   .dbsym r i 12 i
+ 0436                   .dbsym r k 10 i
+ 0436                   .dbend
+ 0436           ; }

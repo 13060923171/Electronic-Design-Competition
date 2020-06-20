@@ -1,0 +1,116 @@
+C51 COMPILER V8.02   SYSTEM                                                                07/30/2009 09:42:20 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE SYSTEM
+OBJECT MODULE PLACED IN System.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE System.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"IOCfg.c"
+   4          #include"TimeDLY.h"
+   5          #include"StepMot.h"
+   6          #include"Follow.h"
+   7          #include"LightDTC.h"
+   8          #include"MetalDTC.h"
+   9          #include"SegDisp.h"
+  10          #include"UltraDTC.h"
+  11          
+  12          INT32U  RunTime=0;  //运行时间
+  13          INT8U   MetalNum=0; //直道的金属块数目
+  14          
+  15          void InitIO()
+  16          {
+  17   1              LMot_AP=0;LMot_AN=0;LMot_BP=0;LMot_BN=0;
+  18   1              RMot_AP=0;RMot_AN=0;RMot_BP=0;RMot_BN=0;
+  19   1              Follow_L=1;Follow_M=1;Follow_R=1;
+  20   1              Metal_DTC=1;
+  21   1              UltraDTC_TR=0;UltraDTC_RE=1;
+  22   1              LightDTC_L=1;LightDTC_M=1;LightDTC_R=1;
+  23   1              Guide=0;
+  24   1              DS1CS=0;DS0CS=0;P2=0x00;
+  25   1              }
+  26                  
+  27          void main()
+  28          {
+  29   1              INT8U i;
+  30   1              InitIO();
+  31   1              LMotRun(LSPEED);
+  32   1              RMotRun(LSPEED);
+  33   1              TMOD = TMOD | 0x20 ;        //T1 工作在方式2（8位计数器,自动重载）
+  34   1              TH1 = 0x00;
+  35   1              TL1 = 0x9B;
+  36   1              EA  = 1;
+  37   1              ET1 = 1;
+  38   1              TR1 = 1;
+  39   1              while(1)
+  40   1              {
+  41   2                      do //直道运行时间小于20秒，实际约为15秒
+  42   2                      {
+  43   3                              Follow();
+  44   3                              if(Metal_Detec()) MetalNum++;
+  45   3                              Seg_Disp((INT8U)(RunTime/10000));
+  46   3                              }
+  47   2                      while(RunTime<200000);
+  48   2                      do
+  49   2                      { 
+  50   3                              Follow();
+  51   3                              Seg_Disp((INT8U)(RunTime/10000));
+  52   3                              }
+  53   2                      while(Metal_DTC != 1);
+  54   2                      //达到C点,停留5s，断续声光指示
+  55   2                      LMotStop();
+C51 COMPILER V8.02   SYSTEM                                                                07/30/2009 09:42:20 PAGE 2   
+
+  56   2                      RMotStop();
+  57   2                      for(i=0;i<5;i++)
+  58   2                      {
+  59   3                              Guide = 1;
+  60   3                              T0_Delay(5000);
+  61   3                              Guide = 0;
+  62   3                              T0_Delay(5000);
+  63   3                              }
+  64   2                      do //进入障碍区
+  65   2                      {
+  66   3                              Ultra_DTC();
+  67   3                              Seg_Disp((INT8U)(RunTime/10000));
+  68   3                              }
+  69   2                      while(RunTime<500000);
+  70   2                      do //进入停车区
+  71   2                      {
+  72   3                              Light_DTC();
+  73   3                              Seg_Disp((INT8U)(RunTime/10000));
+  74   3                              }
+  75   2                      while(RunTime<800000);
+  76   2                              //停车
+  77   2                      LMotRun(HSPEED);
+  78   2                      RMotRun(HSPEED);
+  79   2                      LDelay(20000);
+  80   2                      LMotStop();
+  81   2                      RMotStop();
+  82   2                      for(i=0;i<100;i++)
+  83   2                              Seg_Disp((INT8U)(RunTime/10000));                                       
+  84   2                      }
+  85   1              }
+  86                  
+  87                  
+  88          void Time1_IT(void) interrupt 3 
+  89          {
+  90   1              RunTime ++;
+  91   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    379    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

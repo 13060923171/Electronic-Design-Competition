@@ -1,0 +1,50 @@
+C51 COMPILER V8.05a   1                                                                    02/13/2009 23:57:59 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          sbit d0=P0^0;
+   5          unsigned char a[16]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x88,0x83,0xc6,0xa1,0x86,0x8e};
+   6          void delay( uint z)
+   7          { uint j;
+   8   1        while( z--)
+   9   1        { for(j=110;j>0;j--);}
+  10   1      }
+  11          void main()
+  12          { uchar i;
+  13   1        EA=1;
+  14   1        EX0=1;
+  15   1        //IT0=0;//
+  16   1        IT0=1;//Ìø±ä
+  17   1       while(1)
+  18   1        {  for(i=0;i<8;i++)
+  19   2           { d0=1;
+  20   3                 P0=a[i];
+  21   3                 P2=i;
+  22   3                 delay(300);
+  23   3                }
+  24   2        }
+  25   1      }
+  26          void exter0() interrupt 1
+  27          { P0=0xff; d0=0;}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     69    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

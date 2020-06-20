@@ -1,0 +1,82 @@
+C51 COMPILER V8.05a   1                                                                    02/27/2009 21:16:50 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint unsigned int
+   4          uchar x3,x4;
+   5          
+   6          sbit P20=P3^6;
+   7          sbit P21=P3^7;
+   8          sbit P22=P1^3;
+   9          sbit P23=P1^4;
+  10          sbit P24=P1^5;
+  11          sbit P25=P1^6;
+  12          
+  13          void ds(uchar x1,uchar x2)
+  14          {
+  15   1              TMOD=0X01;
+  16   1              TH0=x1;
+  17   1              TL0=x2;
+  18   1              x3=x1;
+  19   1              x4=x2;
+  20   1      
+  21   1              EA=1;ET0=1;
+  22   1              TR0=1;  
+  23   1      }
+  24          
+  25          
+  26          void main()
+  27          {
+  28   1      
+  29   1              while(1)
+  30   1              {
+  31   2              
+  32   2              ds(0xff,0xff);    //全速前进
+  33   2              ds(0xff,0xec);    //减速
+  34   2              P20=1;
+  35   2              P21=1;
+  36   2              P22=1;
+  37   2              P23=1; 
+  38   2              P24=1;
+  39   2              P25=1;  
+  40   2              }       
+  41   1      }
+  42          void time0()interrupt 1
+  43          {
+  44   1              TH0=x3;
+  45   1              TL0=x4;
+  46   1              
+  47   1              if(x4==0xff)    //左边亮
+  48   1              {
+  49   2                      P23=0;           //右边走
+  50   2                      P25=1;
+  51   2              }
+  52   1                      if(x4==0xec) //右边亮
+  53   1              {
+  54   2                      P23=1;           //左边走
+  55   2                      P25=0;
+C51 COMPILER V8.05a   1                                                                    02/27/2009 21:16:50 PAGE 2   
+
+  56   2              }
+  57   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     77    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

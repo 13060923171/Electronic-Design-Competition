@@ -1,0 +1,96 @@
+BL51 BANKED LINKER/LOCATER V5.11                                                        03/15/2009  08:57:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.11, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE D:\步进电机\步进电机.OBJ TO D:\步进电机\步进电机 RS (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  D:\步进电机\步进电机.OBJ (_浇缁_)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  D:\步进电机\步进电机 (_浇缁_)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0016H     UNIT         ?PR?MAIN?_浇缁_
+            CODE    0019H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0025H     000AH     UNIT         ?PR?_DELAY?_浇缁_
+            CODE    002FH     0008H     UNIT         ?CO?_浇缁_
+
+
+
+OVERLAY MAP OF MODULE:   D:\步进电机\步进电机 (_浇缁_)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?_浇缁_
+
+?PR?MAIN?_浇缁_
+  +--> ?CO?_浇缁_
+  +--> ?PR?_DELAY?_浇缁_
+
+
+
+SYMBOL TABLE OF MODULE:  D:\步进电机\步进电机 (_浇缁_)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        _浇缁_
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V5.11                                                      03/15/2009  08:57:04  PAGE 2
+
+
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0025H         PUBLIC        _Delay
+  D:00C8H         PUBLIC        T2CON
+  C:0033H         PUBLIC        B_Rotation
+  D:00D0H         PUBLIC        PSW
+  C:002FH         PUBLIC        F_Rotation
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:0025H         LINE#         14
+  C:0025H         LINE#         15
+  C:0025H         LINE#         16
+  C:002EH         LINE#         17
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         19
+  C:0003H         LINE#         20
+  C:0003H         LINE#         24
+  C:0003H         LINE#         25
+  C:0003H         LINE#         26
+  C:0005H         LINE#         27
+  C:0005H         LINE#         28
+  C:000CH         LINE#         29
+  C:0013H         LINE#         30
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        _浇缁_
+
+Program Size: data=9.0 xdata=0 code=55
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,89 @@
+C51 COMPILER V7.07   BIZHANG1                                                              08/02/2009 10:12:41 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE BIZHANG1
+OBJECT MODULE PLACED IN bizhang1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE bizhang1.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          #include<turnrun.c>
+   3          #include<delay1ms.c>
+   4          
+   5          bizhang()
+   6          {               unsigned int k;
+   7   1                      int zai ,p22;
+   8   1                      for(zai=0;zai==0;)                      /*判断前方是否有障碍物，有障碍物则左转直到无障碍物*/
+   9   1                      {       if(p3_2==0)                     /*如果K1键按下则返回主函数*/
+*** ERROR C202 IN LINE 9 OF BIZHANG1.C: 'p3_2': undefined identifier
+  10   2                              {       delay1ms(1000);
+  11   3                                      return;
+  12   3                              }
+  13   2                              leftrun();                      
+  14   2                              zai=p2_7;
+  15   2                      }
+  16   1                      xianshi();                              /*调用显示函数*/
+  17   1                      for (k=0;k<8000;k++)                    /*再左转一定的余量，考虑车身的大小*/
+  18   1                      {       if(p3_2==0)                     /*如果K1键按下则返回主函数*/
+  19   2                              {       delay1ms(1000);
+  20   3                                      return;
+  21   3                              }
+  22   2                              leftrun();
+  23   2                      }
+  24   1                      xianshi();                              /*调用显示函数*/
+  25   1                      for(k=0;k<15000;k++)                    /*前进一定的距离*/
+  26   1                      {       if(p3_2==0)
+  27   2                              {       delay1ms(1000);
+  28   3                                      return;
+  29   3                              }
+  30   2                              forwordrun();
+  31   2                              zai=p2_7;
+  32   2                              if(zai==0)                      /*如果再次碰到障碍物，则返回主函数重新避障*/
+  33   2                              return;
+  34   2                      }
+  35   1                      xianshi();                              /*调用显示函数*/
+  36   1                      for(k=0;k<10000;k++)                    //右转直到碰到障碍物，但限定了最大的右转量//
+  37   1                      {       if(p3_2==0)                     /*如果K1键按下则返回主函数*/
+  38   2                              {       delay1ms(1000);
+  39   3                                      return;
+  40   3                              }
+  41   2                              zai=p2_7;
+  42   2                              if (zai)
+  43   2                              rightrun();
+  44   2                              else
+  45   2                              break;
+  46   2                      }
+  47   1                      xianshi();                              /*调用显示函数*/
+  48   1                      for(k=0;k<1000;k++)                     //左转一定余量//
+  49   1                      {       if(p3_2==0)
+  50   2                              {       delay1ms(1000);
+  51   3                                      return;
+  52   3                              }
+  53   2                              leftrun();
+  54   2                      }               
+C51 COMPILER V7.07   BIZHANG1                                                              08/02/2009 10:12:41 PAGE 2   
+
+  55   1                      xianshi();
+  56   1                      for(p22=0;p22==0;)                      //前进直到寻到迹//
+  57   1                      {       if(p3_2==0)                     /*如果K1键按下则返回主函数*/
+  58   2                              {       delay1ms(1000);
+  59   3                                      return;
+  60   3                              }
+  61   2                              zai=p2_7;
+  62   2                              p22=p2_2;
+  63   2                              if (!zai)                       //如果碰到障碍物则左转一定量//
+  64   2                              {       for(k=0;k<20000;k++)
+  65   3                                              {       if(p3_2==0)
+  66   4                                                      {       delay1ms(1000);
+  67   5                                                              return;
+  68   5                                                      }
+  69   4                                      leftrun();
+  70   4                              }
+  71   3                 forwordrun();
+  72   3                 xianshi();           //显示//
+  73   3                      }               
+  74   2              return;
+  75   2      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

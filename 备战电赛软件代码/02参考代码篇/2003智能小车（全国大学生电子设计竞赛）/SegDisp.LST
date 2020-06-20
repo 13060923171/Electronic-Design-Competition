@@ -1,0 +1,55 @@
+C51 COMPILER V8.02   SEGDISP                                                               07/29/2009 23:40:26 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE SEGDISP
+OBJECT MODULE PLACED IN SegDisp.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE SegDisp.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"IOCfg.c"
+   4          #include"TimeDLY.h"
+   5          #include"SegDisp.h"
+   6          
+   7          INT8U table[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+   8          
+   9          //数码管显示函数：Seg_Disp()
+  10          void  Seg_Disp(INT8U temp)
+  11          {
+  12   1              INT8U X1,X2,X3;
+  13   1              if((temp<100)&(temp>10)) //两位显示
+  14   1              {
+  15   2                      X1 = temp/10;
+  16   2                      X2 = temp - 10*X1;
+  17   2                      DS1CS = 0;
+  18   2                      DS0CS = 1;
+  19   2                      DispData = table[X1];
+  20   2                      LDelay(20);
+  21   2                      DS1CS = 1;
+  22   2                      DS0CS = 0;
+  23   2                      DispData = table[X2];
+  24   2                      }
+  25   1              else if(temp<10)   //一位显示
+  26   1              {
+  27   2                      X3 = temp;
+  28   2                      DS1CS = 1;
+  29   2                      DS0CS = 0;
+  30   2                      DispData = table[X3];
+  31   2                      }
+  32   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

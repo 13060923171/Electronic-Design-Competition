@@ -1,0 +1,24 @@
+C51 COMPILER V7.07   TURNRUN                                                               08/02/2009 10:12:44 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE TURNRUN
+OBJECT MODULE PLACED IN turnrun.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE turnrun.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg51.h>
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,143 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        02/27/2009  23:04:45  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE 1.obj TO 1 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  1.obj (1)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  1 (1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?1
+            DATA    000AH     0002H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     000DH                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+                    001EH     07E2H                  *** GAP ***
+            CODE    0800H     005FH     UNIT         ?PR?TIMER0?1
+            CODE    085FH     002EH     UNIT         ?PR?MAIN?1
+            CODE    088DH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0899H     000BH     UNIT         ?PR?TIMER1?1
+
+
+
+OVERLAY MAP OF MODULE:   1 (1)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?PR?TIMER0?1                   000AH    0002H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?1
+
+
+
+SYMBOL TABLE OF MODULE:  1 (1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/27/2009  23:04:45  PAGE 2
+
+
+  -------         MODULE        1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:085FH         PUBLIC        main
+  B:0090H.0       PUBLIC        P10
+  B:0090H.1       PUBLIC        P11
+  B:0090H.2       PUBLIC        P12
+  B:0090H.3       PUBLIC        P13
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:0800H         PUBLIC        timer0
+  C:0899H         PUBLIC        timer1
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        PWM
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:085FH         LINE#         9
+  C:085FH         LINE#         10
+  C:085FH         LINE#         11
+  C:0867H         LINE#         12
+  C:086AH         LINE#         13
+  C:086DH         LINE#         14
+  C:0870H         LINE#         15
+  C:0881H         LINE#         16
+  C:0883H         LINE#         17
+  C:0885H         LINE#         18
+  C:0887H         LINE#         19
+  C:0889H         LINE#         20
+  C:088BH         LINE#         21
+  C:088BH         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0
+  -------         DO            
+  D:000AH         SYMBOL        k
+  -------         ENDDO         
+  C:0800H         LINE#         27
+  C:0804H         LINE#         29
+  C:0806H         LINE#         30
+  C:0809H         LINE#         31
+  C:080CH         LINE#         32
+  C:0814H         LINE#         33
+  C:081FH         LINE#         34
+  C:082CH         LINE#         35
+  C:083CH         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/27/2009  23:04:45  PAGE 3
+
+
+  C:084DH         LINE#         37
+  C:0850H         LINE#         38
+  C:0852H         LINE#         39
+  C:085AH         LINE#         40
+  -------         ENDPROC       TIMER0
+  -------         PROC          TIMER1
+  C:0899H         LINE#         45
+  C:0899H         LINE#         47
+  C:089BH         LINE#         48
+  C:08A3H         LINE#         49
+  -------         ENDPROC       TIMER1
+  -------         ENDMOD        1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 009EH BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=173
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"控制系统.obj" 
+TO "控制系统" 
+RAMSIZE(256) 

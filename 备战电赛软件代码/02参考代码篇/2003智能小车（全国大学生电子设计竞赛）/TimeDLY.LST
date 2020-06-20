@@ -1,0 +1,54 @@
+C51 COMPILER V8.02   TIMEDLY                                                               07/29/2009 23:40:27 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE TIMEDLY
+OBJECT MODULE PLACED IN TimeDLY.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE TimeDLY.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"TimeDLY.h"
+   4          
+   5          //短延时
+   6          void nNop(INT8U i)
+   7          {
+   8   1              for(;i>0;i--) ;
+   9   1              }
+  10                  
+  11          //长延时
+  12          void LDelay(INT16U i)
+  13          {
+  14   1              INT16U j;
+  15   1              for(;i>0;i--)
+  16   1                      { for(j=80;j>0;j--);}
+  17   1              }
+  18          
+  19          //定时器T0溢出做延时函数：T0_Delay()
+  20          void T0_Delay(INT16U temp)
+  21          {
+  22   1              INT16U cnt;
+  23   1              cnt = 65536 - 100*temp;     //晶振：12MHz
+  24   1              TMOD = TMOD | 0x01 ;        //T1 工作在方式1（16位计数器）
+  25   1              TH0 = (INT8U)(cnt >> 8);
+  26   1              TL0 = cnt & 0xff;
+  27   1              TR0 = 1;
+  28   1              while(TF0 != 1);
+  29   1              TF0 = 0;
+  30   1              TR0 = 0;
+  31   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     71    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

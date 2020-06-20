@@ -1,0 +1,76 @@
+C51 COMPILER V8.05a   1                                                                    02/27/2009 23:04:45 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include < reg52.h >
+   2          #include < intrins.h >
+   3          sbit P10=P1^0;
+   4          sbit P11=P1^1;
+   5          sbit P12=P1^2;
+   6          sbit P13=P1^3;
+   7          unsigned int PWM;
+   8          /*********************************************************/
+   9          void main()
+  10          {  
+  11   1              P10=1;P11=1;P10=1;P11=1;
+  12   1          TMOD=0x21 ;
+  13   1          TH0=(65536-50000)/256;//1ms延时常数 12M
+  14   1          TL0=(65536-50000)%256; //频率调节
+  15   1          TH1=(256-(250-PWM))/256;
+  16   1          TL1=(256-(250-PWM))/256;  //脉宽调节
+  17   1              EA=1;
+  18   1          ET0=1;
+  19   1          ET1=1;
+  20   1          TR0=1 ;
+  21   1              while(1)
+  22   1              {}
+  23   1      }
+  24          /*********************************************************/
+  25          // 定时器0中断服务程序.
+  26          /*********************************************************/
+  27          void timer0() interrupt 1 
+  28          {       unsigned int k;
+  29   1          TR1=0 ;
+  30   1          TH0=(65536-50000)/256;//1ms延时常数 12M
+  31   1          TL0=(65536-50000)%256;//频率调节
+  32   1          k++;
+  33   1         if(k==100){PWM=250;}
+  34   1         if(k==200){PWM=125;} 
+  35   1         if(k==300){PWM=0;}
+  36   1          if(k>300){k=0;}     
+  37   1          TH1=PWM ;
+  38   1          TR1=1 ;
+  39   1          P10=1;P11=0;P12=1;P13=0;
+  40   1      }
+  41          
+  42          /*********************************************************/
+  43          // 定时器1中断服务程序
+  44          /*********************************************************/
+  45          void timer1() interrupt 3 
+  46          { 
+  47   1          TR1=0 ;
+  48   1         P10=0;P11=1;P12=0;P13=1;
+  49   1      }  
+  50          
+  51          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    152    ----
+C51 COMPILER V8.05a   1                                                                    02/27/2009 23:04:45 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,274 @@
+C51 COMPILER V8.05a   TEST                                                                 02/05/2008 23:27:41 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE TEST
+OBJECT MODULE PLACED IN test.OBJ
+COMPILER INVOKED BY: D:\Progam Files\kei c\C51\BIN\C51.EXE test.c ROM(COMPACT) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <asc.h>
+   3          #include <12864.h>
+   4          #include <imag.h>
+   5          
+   6          #define uchar unsigned char
+   7          #define uint  unsigned int
+   8          
+   9          //菜单的实现
+  10          /*-------------------------------------------------------------*/
+  11          #define MENU_SIZE 18             //菜单长度
+  12          
+  13          unsigned char KeyFuncIndex=0;    //存放当前的菜单索引
+  14          
+  15          void (*KeyFuncPtr)();            //定义按键功能指针
+  16          //定义类型 
+  17          typedef struct 
+  18          {
+  19             unsigned char KeyStateIndex;   //当前的状态索引号
+  20             unsigned char KeyDownState;    //按下向下键时的状态索引号
+  21             unsigned char KeyUpState;      //按下向上键时的状态索引号
+  22             unsigned char KeyEnterState;   //按下回车键时的状态索引号
+  23             void (*CurrentOperate)();      //当前状态应该执行的功能操作
+  24          }  StateTab;
+  25          //
+  26          //
+  27          unsigned char code s0[]="MenuTest        ";
+  28          unsigned char code s1[]="Contact         ";
+  29          unsigned char code s2[]="LineTest        ";
+  30          unsigned char code s3[]="RectTest        ";
+  31          unsigned char code s4[]="ImagTest        ";
+  32          unsigned char code s5[]="Cancel          ";
+  33          unsigned char code s6[]="Univercity      ";
+  34          unsigned char code s7[]="E-Mail          ";
+  35          unsigned char code s8[]="QQ Number       ";
+  36          unsigned char code s9[]="Cancel          ";
+  37          unsigned char code s10[]="                ";
+  38          /*-------------------------------------------------------------*/
+  39          void Stat0(void)
+  40          {
+  41   1          en_disp(0,0,16,Asc,s0,0);
+  42   1              en_disp(2,0,16,Asc,s1,1); 
+  43   1              en_disp(4,0,16,Asc,s10,1);
+  44   1              en_disp(6,0,16,Asc,s10,1);
+  45   1      }
+  46          /*-------------------------------------------------------------*/
+  47          void Stat1(void)
+  48          {       
+  49   1          en_disp(0,0,16,Asc,s0,1);
+  50   1              en_disp(2,0,16,Asc,s1,0);
+  51   1              en_disp(4,0,16,Asc,s10,1);
+  52   1              en_disp(6,0,16,Asc,s10,1);
+  53   1      }
+  54          /*-------------------------------------------------------------*/
+  55          void Stat2(void)
+C51 COMPILER V8.05a   TEST                                                                 02/05/2008 23:27:41 PAGE 2   
+
+  56          {
+  57   1          en_disp(0,0,16,Asc,s2,0);
+  58   1              en_disp(2,0,16,Asc,s3,1);
+  59   1              en_disp(4,0,16,Asc,s4,1);
+  60   1              en_disp(6,0,16,Asc,s5,1);
+  61   1      }
+  62          /*-------------------------------------------------------------*/
+  63          void Stat3(void)
+  64          {
+  65   1          en_disp(0,0,16,Asc,s2,1);
+  66   1              en_disp(2,0,16,Asc,s3,0);
+  67   1              en_disp(4,0,16,Asc,s4,1);
+  68   1              en_disp(6,0,16,Asc,s5,1);
+  69   1      }
+  70          /*-------------------------------------------------------------*/
+  71          void Stat4(void)
+  72          {
+  73   1          en_disp(0,0,16,Asc,s2,1);
+  74   1              en_disp(2,0,16,Asc,s3,1);
+  75   1              en_disp(4,0,16,Asc,s4,0);
+  76   1              en_disp(6,0,16,Asc,s5,1);
+  77   1      }
+  78          /*-------------------------------------------------------------*/
+  79          void Stat5(void)
+  80          {
+  81   1          en_disp(0,0,16,Asc,s2,1);
+  82   1              en_disp(2,0,16,Asc,s3,1);
+  83   1              en_disp(4,0,16,Asc,s4,1);
+  84   1              en_disp(6,0,16,Asc,s5,0);
+  85   1      }
+  86          /*-------------------------------------------------------------*/
+  87          void Stat6(void)
+  88          {
+  89   1              en_disp(0,0,16,Asc,s6,0);
+  90   1              en_disp(2,0,16,Asc,s7,1);
+  91   1              en_disp(4,0,16,Asc,s8,1);
+  92   1              en_disp(6,0,16,Asc,s9,1);
+  93   1      }
+  94          /*-------------------------------------------------------------*/
+  95          void Stat7(void)
+  96          {
+  97   1          en_disp(0,0,16,Asc,s6,1);
+  98   1              en_disp(2,0,16,Asc,s7,0);
+  99   1              en_disp(4,0,16,Asc,s8,1);
+ 100   1              en_disp(6,0,16,Asc,s9,1);
+ 101   1      }
+ 102          /*-------------------------------------------------------------*/
+ 103          void Stat8(void)
+ 104          {
+ 105   1          en_disp(0,0,16,Asc,s6,1);
+ 106   1              en_disp(2,0,16,Asc,s7,1);
+ 107   1              en_disp(4,0,16,Asc,s8,0);
+ 108   1              en_disp(6,0,10,Asc,s9,1);
+ 109   1      }
+ 110          /*-------------------------------------------------------------*/
+ 111          void Stat9(void)
+ 112          {
+ 113   1          en_disp(0,0,16,Asc,s6,1);
+ 114   1              en_disp(2,0,16,Asc,s7,1);
+ 115   1              en_disp(4,0,16,Asc,s8,1);
+ 116   1              en_disp(6,0,16,Asc,s9,0);
+ 117   1      }        
+C51 COMPILER V8.05a   TEST                                                                 02/05/2008 23:27:41 PAGE 3   
+
+ 118          /*-------------------------------------------------------------*/
+ 119          void Stat10(void)
+ 120          {
+ 121   1          ClearLCD();
+ 122   1          Line(10,10,100,48,1);
+ 123   1      }
+ 124          /*-------------------------------------------------------------*/
+ 125          void Stat11(void)
+ 126          {
+ 127   1          ClearLCD();
+ 128   1          Rect(0,0,127,63,1);
+ 129   1              Rect(10,10,67,43,1);
+ 130   1      }
+ 131          /*-------------------------------------------------------------*/
+ 132          void Stat12(void)
+ 133          {
+ 134   1      //    ClearLCD();
+ 135   1          img_disp(1,10,70,56,img2);
+ 136   1      }
+ 137          /*-------------------------------------------------------------*/
+ 138          void Stat13(void)
+ 139          {
+ 140   1          img12864_disp(img);
+ 141   1      }
+ 142          /*-------------------------------------------------------------*/
+ 143          void Stat14(void)
+ 144          {
+ 145   1              en_disp(0,0,16,Asc,s10,1);
+ 146   1          en_disp(2,0,16,Asc,"E-Mail:         ",1);
+ 147   1              en_disp(4,0,16,Asc," shehun12505669 ",1);
+ 148   1              en_disp(6,0,16,Asc,"     @126.com   ",1);
+ 149   1      }
+ 150          /*-------------------------------------------------------------*/
+ 151          void Stat15(void)
+ 152          {
+ 153   1          en_disp(0,0,16,Asc,s10,1);
+ 154   1          en_disp(2,0,16,Asc,"QQ Number:      ",1);
+ 155   1              en_disp(4,0,16,Asc,"   12505669     ",1);
+ 156   1              en_disp(6,0,16,Asc,s10,1);
+ 157   1      
+ 158   1      }
+ 159          /*-------------------------------------------------------------*/
+ 160           //数据结构数组
+ 161          StateTab code KeyTab[MENU_SIZE]=
+ 162          {
+ 163                  {0,1,1,2,   (*Stat0)},    //顶层
+ 164                  {1,0,0,6,   (*Stat1)},     //顶层
+ 165          
+ 166                  {2,3,5,10,  (*Stat2)},     //二层
+ 167                  {3,4,2,11,  (*Stat3)},     //二层
+ 168                  {4,5,3,12,  (*Stat4)},     //二层
+ 169                  {5,2,4,0,   (*Stat5)},     //二层
+ 170          
+ 171                  {6,7,9,13,  (*Stat6)},     //二层
+ 172                  {7,8,6,14,  (*Stat7)},     //
+ 173                  {8,9,7,15,  (*Stat8)},   
+ 174                  {9,6,8,1 ,  (*Stat9)},     //二层
+ 175          
+ 176                  {10,2,2,2,(*Stat10)},    //三              LineTest
+ 177                  {11,3,3,3,(*Stat11)},      //              RectTest
+ 178                  {12,4,4,4,(*Stat12)},      //          ImgTest
+ 179          
+C51 COMPILER V8.05a   TEST                                                                 02/05/2008 23:27:41 PAGE 4   
+
+ 180                  {13,6,6,6,(*Stat13)},       //三                Univercity
+ 181                  {14,7,7,7,(*Stat14)},           //          E-Mail
+ 182                  {15,8,8,8,(*Stat15)}            //          QQ Numeber 
+ 183          };
+ 184          /*-------------------------------------------------------------*/
+ 185          void MenuOperate(unsigned char key)
+ 186          {
+ 187   1          switch(key)
+ 188   1              {
+ 189   2                  case  0x30:                //向上的键
+ 190   2                      {
+ 191   3                          KeyFuncIndex=KeyTab[KeyFuncIndex].KeyUpState;
+ 192   3                              break; 
+ 193   3                      }
+ 194   2                      case  0x28:                       //回车键
+ 195   2                      {
+ 196   3                              KeyFuncIndex=KeyTab[KeyFuncIndex].KeyEnterState;
+ 197   3                              break; 
+ 198   3                      }
+ 199   2                      case  0x18:                       //向下的键
+ 200   2                      {
+ 201   3                              KeyFuncIndex=KeyTab[KeyFuncIndex].KeyDownState;
+ 202   3                              break; 
+ 203   3                      }
+ 204   2                      //此处添加按键错误代码
+ 205   2              }
+ 206   1              //下面是执行按键的操作
+ 207   1              KeyFuncPtr=KeyTab[KeyFuncIndex].CurrentOperate;
+ 208   1      
+ 209   1              (*KeyFuncPtr)();     //执行当前的按键操作
+ 210   1      }        //*/
+ 211          /*-------------------------------------------------------------*/
+ 212          unsigned char keyscan()
+ 213          {
+ 214   1          unsigned char key;
+ 215   1              P2=0xFF;
+ 216   1              key=P2&0x38;
+ 217   1              delayms(8);
+ 218   1              //在这里加去抖动
+ 219   1              return key;
+ 220   1      }                
+ 221          /*--------------------------------------------------------------*/
+ 222          void int_0(void) interrupt 0   using 0
+ 223          {
+ 224   1               unsigned char key;
+ 225   1               key=keyscan();
+ 226   1               MenuOperate(key);
+ 227   1      }
+ 228          /*-------------------------------------------------------------*/
+ 229          void main (void)
+ 230          {
+ 231   1          LCD12864_init();
+ 232   1              ClearLCD();
+ 233   1              //开中断
+ 234   1              EX0=1;
+ 235   1              //设置成低电平触发方式
+ 236   1              IT0=0;
+ 237   1              //开所有中断
+ 238   1              EA=1;
+ 239   1              MenuOperate(0);
+ 240   1          while(1)
+ 241   1              {
+C51 COMPILER V8.05a   TEST                                                                 02/05/2008 23:27:41 PAGE 5   
+
+ 242   2              }
+ 243   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2863    ----
+   CONSTANT SIZE    =   3456    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4      31
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       4
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

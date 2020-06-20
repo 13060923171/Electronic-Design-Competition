@@ -1,0 +1,124 @@
+C51 COMPILER V7.07   XIANSHI                                                               08/02/2009 10:12:43 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE XIANSHI
+OBJECT MODULE PLACED IN xianshi.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE xianshi.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg51.h>
+   2          
+   3          
+   4               //串行发送一字节数据
+   5          void SendByte(unsigned char dat)
+   6              {   unsigned char i;
+   7   1              for(i=0;i<8;i++)
+   8   1                 {    E_CLK=0;
+*** ERROR C202 IN LINE 8 OF XIANSHI.C: 'E_CLK': undefined identifier
+   9   2                      if(dat&0x80)RW_SID=1;
+*** ERROR C202 IN LINE 9 OF XIANSHI.C: 'RW_SID': undefined identifier
+  10   2                                      else RW_SID=0;
+*** ERROR C202 IN LINE 10 OF XIANSHI.C: 'RW_SID': undefined identifier
+  11   2                      E_CLK=1;
+*** ERROR C202 IN LINE 11 OF XIANSHI.C: 'E_CLK': undefined identifier
+  12   2                      dat=dat<<1;
+  13   2                  }
+  14   1          }
+  15          void SendCMD(unsigned char dat)
+  16              {   SendByte(0xF8);//11111,00,0     RW=0,RS=0     同步标志
+  17   1              SendByte(dat&0xF0);//高四位
+  18   1              SendByte((dat&0x0F)<<4);//低四位
+  19   1          }
+  20          //写显示数据或单字节字符
+  21          void SendDat(unsigned char dat)
+  22              {   SendByte(0xFA);//11111,01,0     RW=0,RS=1
+  23   1              SendByte(dat&0xF0);//高四位
+  24   1              SendByte((dat&0x0F)<<4);//低四位
+  25   1          }
+  26              /*               写汉字到LCD     指定的位置
+  27                        x_add显示RAM的地址
+  28                        dat1/dat2显示汉字编码
+  29              */
+  30          
+  31          
+  32              //初始化     LCM
+  33          void initlcm(void)
+  34              {   SendCMD(0x30);//功能设置，一次送8位数据，基本指令集
+  35   1              SendCMD(0x0C);//0000,1100       整体显示，游标off，游标位置off
+  36   1              SendCMD(0x01);//0000,0001     清DDRAM
+  37   1              SendCMD(0x02);//0000,0010     DDRAM地址归位
+  38   1              SendCMD(0x80);//1000,0000     设定DDRAM     7位地址000，0000到地址计数器AC
+  39   1          }
+  40          void set_wenzi(void)
+  41          {    SendCMD(0x80);//1000,0001     设定DDRAM     7位地址000，0001到地址计数器AC.
+  42   1           SendDat(0xd0);    //将ASCII码调出来,显示在液晶屏幕上.下同
+  43   1           SendDat(0xa1);//小
+  44   1           SendDat(0xb3);
+  45   1           SendDat(0xb5);//车
+  46   1           SendDat(0xd7);
+  47   1           SendDat(0xb4);//状
+  48   1           SendDat(0xcc);
+  49   1           SendDat(0xac);//态
+  50   1           SendDat(0xa3);
+  51   1           SendDat(0xba);
+C51 COMPILER V7.07   XIANSHI                                                               08/02/2009 10:12:43 PAGE 2   
+
+  52   1           SendCMD(0x90); //设置液晶屏的显示地址,下同.
+  53   1           SendDat(0xca);
+  54   1           SendDat(0xb1);//时
+  55   1           SendDat(0xbc);
+  56   1           SendDat(0xe4); //间
+  57   1           SendDat(0x3a);
+  58   1           SendDat(sec4);
+*** ERROR C202 IN LINE 58 OF XIANSHI.C: 'sec4': undefined identifier
+  59   1           SendDat(sec3);
+*** ERROR C202 IN LINE 59 OF XIANSHI.C: 'sec3': undefined identifier
+  60   1           SendDat(sec2);
+*** ERROR C202 IN LINE 60 OF XIANSHI.C: 'sec2': undefined identifier
+  61   1           SendDat(0x2e);
+  62   1           SendDat(sec1);
+*** ERROR C202 IN LINE 62 OF XIANSHI.C: 'sec1': undefined identifier
+  63   1           SendDat(0x73);
+  64   1           SendCMD(0x88);
+  65   1           SendDat(0xcb);
+  66   1           SendDat(0xd9); //速
+  67   1           SendDat(0xb6);
+  68   1           SendDat(0xc8); //度
+  69   1           SendDat(0x3a); //：
+  70   1           SendDat(sd4);
+*** ERROR C202 IN LINE 70 OF XIANSHI.C: 'sd4': undefined identifier
+  71   1           SendDat(sd3);
+*** ERROR C202 IN LINE 71 OF XIANSHI.C: 'sd3': undefined identifier
+  72   1           SendDat(sd2);
+*** ERROR C202 IN LINE 72 OF XIANSHI.C: 'sd2': undefined identifier
+  73   1           SendDat(0x2e);
+  74   1           SendDat(sd1);
+*** ERROR C202 IN LINE 74 OF XIANSHI.C: 'sd1': undefined identifier
+  75   1      SendDat(0x63);
+  76   1      SendDat(0x6d);
+  77   1           SendDat(0x2f);
+  78   1           SendDat(0x73);
+  79   1           SendCMD(0x98);
+  80   1           SendDat(0xc2);
+  81   1           SendDat(0xb7); //路
+  82   1           SendDat(0xb3);
+  83   1           SendDat(0xcc); // 程
+  84   1           SendDat(0x3a);
+  85   1           SendDat(lc4);
+*** ERROR C202 IN LINE 85 OF XIANSHI.C: 'lc4': undefined identifier
+  86   1           SendDat(lc3);
+*** ERROR C202 IN LINE 86 OF XIANSHI.C: 'lc3': undefined identifier
+  87   1           SendDat(0x2e);
+  88   1           SendDat(lc2);
+*** ERROR C202 IN LINE 88 OF XIANSHI.C: 'lc2': undefined identifier
+  89   1           SendDat(lc1);
+*** ERROR C202 IN LINE 89 OF XIANSHI.C: 'lc1': undefined identifier
+  90   1           SendDat(0x6d);
+  91   1      }
+  92          xianshi()
+  93              {   set_wenzi();    //将想要设置的文字显示在液晶屏幕上。
+  94   1              return;
+  95   1              }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  16 ERROR(S)

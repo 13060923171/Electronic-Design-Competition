@@ -1,0 +1,37 @@
+
+C51 COMPILER V7.07 - SN: K1DZP-5IUSHE
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2003
+*** ERROR C202 IN LINE 4 OF E:\XC1\XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 5 OF E:\XC1\XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 6 OF E:\XC1\XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 7 OF E:\XC1\XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 8 OF E:\XC1\XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 9 OF E:\XC1\XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 14 OF E:\XC1\XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 15 OF E:\XC1\XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 16 OF E:\XC1\XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 17 OF E:\XC1\XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 18 OF E:\XC1\XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 19 OF E:\XC1\XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 25 OF E:\XC1\XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 26 OF E:\XC1\XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 27 OF E:\XC1\XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 28 OF E:\XC1\XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 29 OF E:\XC1\XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 30 OF E:\XC1\XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 34 OF E:\XC1\XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 35 OF E:\XC1\XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 36 OF E:\XC1\XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 37 OF E:\XC1\XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 38 OF E:\XC1\XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 39 OF E:\XC1\XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 43 OF E:\XC1\XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 44 OF E:\XC1\XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 46 OF E:\XC1\XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 51 OF E:\XC1\XUNJI.C: 'p2_2': undefined identifier
+*** ERROR C202 IN LINE 52 OF E:\XC1\XUNJI.C: 'p2_2': undefined identifier
+*** ERROR C202 IN LINE 54 OF E:\XC1\XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 59 OF E:\XC1\XUNJI.C: 'p2_1': undefined identifier
+*** ERROR C202 IN LINE 64 OF E:\XC1\XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 66 OF E:\XC1\XUNJI.C: 'a': undefined identifier
+C51 COMPILATION COMPLETE.  0 WARNING(S),  33 ERROR(S)

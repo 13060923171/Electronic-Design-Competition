@@ -1,0 +1,333 @@
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE PHENG
+OBJECT MODULE PLACED IN pheng.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE pheng.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg51.h>
+   2          #include<xunji.c>
+*** ERROR C202 IN LINE 4 OF XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 5 OF XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 6 OF XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 7 OF XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 8 OF XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 9 OF XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 14 OF XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 15 OF XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 16 OF XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 17 OF XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 18 OF XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 19 OF XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 25 OF XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 26 OF XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 27 OF XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 28 OF XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 29 OF XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 30 OF XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 34 OF XUNJI.C: 'b': undefined identifier
+*** ERROR C202 IN LINE 35 OF XUNJI.C: 'p1_0': undefined identifier
+*** ERROR C202 IN LINE 36 OF XUNJI.C: 'p1_1': undefined identifier
+*** ERROR C202 IN LINE 37 OF XUNJI.C: 'p1_3': undefined identifier
+*** ERROR C202 IN LINE 38 OF XUNJI.C: 'p1_4': undefined identifier
+*** ERROR C202 IN LINE 39 OF XUNJI.C: 'a': undefined identifier
+*** ERROR C202 IN LINE 43 OF XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 44 OF XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 46 OF XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 51 OF XUNJI.C: 'p2_2': undefined identifier
+*** ERROR C202 IN LINE 52 OF XUNJI.C: 'p2_2': undefined identifier
+*** ERROR C202 IN LINE 54 OF XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 59 OF XUNJI.C: 'p2_1': undefined identifier
+*** ERROR C202 IN LINE 64 OF XUNJI.C: 'p2_0': undefined identifier
+*** ERROR C202 IN LINE 66 OF XUNJI.C: 'a': undefined identifier
+   3          
+   4          void pheng()
+   5          {if(phzt==0)
+*** ERROR C202 IN LINE 5 OF PHENG.C: 'phzt': undefined identifier
+   6   1              if(p2_4==0||(p2_3&&p2_5))//平衡了
+*** ERROR C202 IN LINE 6 OF PHENG.C: 'p2_4': undefined identifier
+   7   1                      {   TC=1;       //准备电机运行
+*** ERROR C202 IN LINE 7 OF PHENG.C: 'TC': undefined identifier
+   8   2                              if(cf)
+*** ERROR C202 IN LINE 8 OF PHENG.C: 'cf': undefined identifier
+   9   2                                      cfsj=cfsj+3;
+*** ERROR C202 IN LINE 9 OF PHENG.C: 'cfsj': undefined identifier
+  10   2                              tz++;   //停止状态次数累加
+*** ERROR C202 IN LINE 10 OF PHENG.C: 'tz': undefined identifier
+  11   2                              fy=0;   //可能进入平衡态,不需电机转动,反应参数清零
+*** ERROR C202 IN LINE 11 OF PHENG.C: 'fy': undefined identifier
+  12   2      
+  13   2                              if(cf==0&&tz>=100)//若无冲锋信号,平衡状态>100,跷跷板翻滚次数置到最大
+*** ERROR C202 IN LINE 13 OF PHENG.C: 'cf': undefined identifier
+  14   2                              cs=8;             //直接进入微调
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 2   
+
+*** ERROR C202 IN LINE 14 OF PHENG.C: 'cs': undefined identifier
+  15   2                              if(cf==0&&tz>=5)//若无冲锋号,则可以进入平衡状态
+*** ERROR C202 IN LINE 15 OF PHENG.C: 'cf': undefined identifier
+  16   2                              {       if(tz>=300)
+*** ERROR C202 IN LINE 16 OF PHENG.C: 'tz': undefined identifier
+  17   3                                      tz=300;  //停止态标志置到最大
+*** ERROR C202 IN LINE 17 OF PHENG.C: 'tz': undefined identifier
+  18   3                                      ph++;   //平衡态系数自加1
+*** ERROR C202 IN LINE 18 OF PHENG.C: 'ph': undefined identifier
+  19   3                                      if(tz>=100)
+*** ERROR C202 IN LINE 19 OF PHENG.C: 'tz': undefined identifier
+  20   3                                      {qj=10;ht=10;
+*** ERROR C202 IN LINE 20 OF PHENG.C: 'qj': undefined identifier
+*** ERROR C202 IN LINE 20 OF PHENG.C: 'ht': undefined identifier
+  21   4                                              }
+  22   3                                      if(ph>=3)
+*** ERROR C202 IN LINE 22 OF PHENG.C: 'ph': undefined identifier
+  23   3                                      bc=0;
+*** ERROR C202 IN LINE 23 OF PHENG.C: 'bc': undefined identifier
+  24   3                                      if(ph>=12&&setnumber>4)//若平衡态系数>=10,则前进、后退系数初值置为10,使其判断时间加长
+*** ERROR C202 IN LINE 24 OF PHENG.C: 'ph': undefined identifier
+  25   3                                      {tz=tz+10;
+*** ERROR C202 IN LINE 25 OF PHENG.C: 'tz': undefined identifier
+  26   4                                      ph=0;
+*** ERROR C202 IN LINE 26 OF PHENG.C: 'ph': undefined identifier
+  27   4                                      setnumber--;}
+*** ERROR C202 IN LINE 27 OF PHENG.C: 'setnumber': undefined identifier
+  28   3                                      if(ph>=500)//若平衡系数>=500,已经平衡.关闭中断,显示当前时间
+*** ERROR C202 IN LINE 28 OF PHENG.C: 'ph': undefined identifier
+  29   3                                      phzt=1;
+*** ERROR C202 IN LINE 29 OF PHENG.C: 'phzt': undefined identifier
+  30   3                                      if(ph>=2&&fdd<=30)
+*** ERROR C202 IN LINE 30 OF PHENG.C: 'ph': undefined identifier
+  31   3                                      //防抖动参数,逐渐增加,加长判断时间
+  32   3                                      fdd=fdd+1;
+*** ERROR C202 IN LINE 32 OF PHENG.C: 'fdd': undefined identifier
+  33   3                              }//增大防抖动参数
+  34   2                              TC=0;//关闭电机
+*** ERROR C202 IN LINE 34 OF PHENG.C: 'TC': undefined identifier
+  35   2                              fx=0;//方向为无
+*** ERROR C202 IN LINE 35 OF PHENG.C: 'fx': undefined identifier
+  36   2                      p1_2=1;//关闭电机使能
+*** ERROR C202 IN LINE 36 OF PHENG.C: 'p1_2': undefined identifier
+  37   2                          p1_5=1;//关闭电机使能
+*** ERROR C202 IN LINE 37 OF PHENG.C: 'p1_5': undefined identifier
+  38   2                      }
+  39   1      
+  40   1                      else if((p2_3==0||phzt==4)&&phzt!=2)//前倾了
+*** ERROR C202 IN LINE 40 OF PHENG.C: 'p2_3': undefined identifier
+  41   1      
+  42   1                      {       if(cf)
+*** ERROR C202 IN LINE 42 OF PHENG.C: 'cf': undefined identifier
+  43   2                                      cfsj=cfsj+4;
+*** ERROR C202 IN LINE 43 OF PHENG.C: 'cfsj': undefined identifier
+  44   2                                      fy++;   //反应系数自加一
+*** ERROR C202 IN LINE 44 OF PHENG.C: 'fy': undefined identifier
+  45   2                              if(phzt==4)
+*** ERROR C202 IN LINE 45 OF PHENG.C: 'phzt': undefined identifier
+  46   2                                      ht=fdd*qj;      /****************还需要加程序********************/////////////////////////////////////////
+*** ERROR C202 IN LINE 46 OF PHENG.C: 'ht': undefined identifier
+  47   2                              if(fy>=50&&cf)//若在冲锋,等待反应系数到100时,自动退出冲锋状态
+*** ERROR C202 IN LINE 47 OF PHENG.C: 'fy': undefined identifier
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 3   
+
+  48   2                              {       cf=0;
+*** ERROR C202 IN LINE 48 OF PHENG.C: 'cf': undefined identifier
+  49   3                                      fy=0;
+*** ERROR C202 IN LINE 49 OF PHENG.C: 'fy': undefined identifier
+  50   3                                      bc=1;
+*** ERROR C202 IN LINE 50 OF PHENG.C: 'bc': undefined identifier
+  51   3                                      setnumber=5;   //通过PWM调节前进的速度
+*** ERROR C202 IN LINE 51 OF PHENG.C: 'setnumber': undefined identifier
+  52   3                              }
+  53   2                              else if(!cf&&bc==0)//若没有冲锋,当防抖动系数<=15时,直接使后退参数满足后退条件
+*** ERROR C202 IN LINE 53 OF PHENG.C: 'cf': undefined identifier
+  54   2                                      ht=fdd*qj;
+*** ERROR C202 IN LINE 54 OF PHENG.C: 'ht': undefined identifier
+  55   2                              ht++;           //后退（前倾）参数自加一。
+*** ERROR C202 IN LINE 55 OF PHENG.C: 'ht': undefined identifier
+  56   2                              TC=1;           //打开电电机
+*** ERROR C202 IN LINE 56 OF PHENG.C: 'TC': undefined identifier
+  57   2                              if(fy>=250)//若反应参数到200则自动对前进后退参数,自动置一
+*** ERROR C202 IN LINE 57 OF PHENG.C: 'fy': undefined identifier
+  58   2                              {fy=0;
+*** ERROR C202 IN LINE 58 OF PHENG.C: 'fy': undefined identifier
+  59   3                              qj=1;
+*** ERROR C202 IN LINE 59 OF PHENG.C: 'qj': undefined identifier
+  60   3                              ht=1;}
+*** ERROR C202 IN LINE 60 OF PHENG.C: 'ht': undefined identifier
+  61   2                              if(fy>=333&&tz<=4)
+*** ERROR C202 IN LINE 61 OF PHENG.C: 'fy': undefined identifier
+  62   2                              tz=0;
+*** ERROR C202 IN LINE 62 OF PHENG.C: 'tz': undefined identifier
+  63   2                              if(ht>=fdd*qj&&(tz>=10)&&cf==0)//防平衡器抖动；
+*** ERROR C202 IN LINE 63 OF PHENG.C: 'ht': undefined identifier
+  64   2                              {       ph=0;//电机启动,平衡态系数,自动归零
+*** ERROR C202 IN LINE 64 OF PHENG.C: 'ph': undefined identifier
+  65   3                                      fx=1;//方向为后
+*** ERROR C202 IN LINE 65 OF PHENG.C: 'fx': undefined identifier
+  66   3                                      for(i=0;i<=bf;i++)
+*** ERROR C202 IN LINE 66 OF PHENG.C: 'i': undefined identifier
+  67   3                                      {
+  68   4      //////////////////////////////////////////////////////////////////////后退循迹程序段
+  69   4      
+  70   4      /*                                              if(p2_0==1)
+  71   4                                              {       if(p2_0==1&&p2_1==1)
+  72   4                                                      {       brightrun();
+  73   4                                                      }
+  74   4                                                      else if(p2_0==1&&p2_1==0&&p2_2==0)
+  75   4                                                      {       brightrun();
+  76   4                                                      }
+  77   4                                              }
+  78   4                                              else if(p2_2==1)
+  79   4                                              {       if(p2_2==1&&p2_1==1)
+  80   4                                                      {       bleftrun();
+  81   4                                                      }
+  82   4                                                      else if(p2_0==0&&p2_1==0&&p2_2==1)
+  83   4                                                      {       bleftrun();
+  84   4                                                      }
+  85   4                                              }
+  86   4                                      else if(p2_1==1)
+  87   4                                              backrun();
+  88   4                                              else */backrun();
+  89   4      /////////////////////////////////////////////////////////////////////////////
+  90   4      
+  91   4                                              if(wt==1||cs>=3)//若打开微调或当跷跷板翻滚次数达到3以上则调小步进
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 4   
+
+*** ERROR C202 IN LINE 91 OF PHENG.C: 'wt': undefined identifier
+  92   4                                              {
+  93   5                                                      if(bf!=400)
+*** ERROR C202 IN LINE 93 OF PHENG.C: 'bf': undefined identifier
+  94   5                                                              bf=400;//首次调小步进
+*** ERROR C202 IN LINE 94 OF PHENG.C: 'bf': undefined identifier
+  95   5                                                      else bf=200;//再次调小步进
+*** ERROR C202 IN LINE 95 OF PHENG.C: 'bf': undefined identifier
+  96   5      
+  97   5                                                      if(!(cs%2)&&(cs<=10))//记录翻滚次数
+*** ERROR C202 IN LINE 97 OF PHENG.C: 'cs': undefined identifier
+  98   5                                                      {       cs++;
+*** ERROR C202 IN LINE 98 OF PHENG.C: 'cs': undefined identifier
+  99   6      
+ 100   6                                                      }
+ 101   5                                              }
+ 102   4                                      }
+ 103   3                              ht=1;//后退完毕,后退参数置一
+*** ERROR C202 IN LINE 103 OF PHENG.C: 'ht': undefined identifier
+ 104   3                              if(tz<=100||(qj<2))//没有进入过平衡态时或前进参数小于2时,前进参数置一,否则,除以2
+*** ERROR C202 IN LINE 104 OF PHENG.C: 'tz': undefined identifier
+ 105   3                              qj=1;
+*** ERROR C202 IN LINE 105 OF PHENG.C: 'qj': undefined identifier
+ 106   3                              else qj=6;
+*** ERROR C202 IN LINE 106 OF PHENG.C: 'qj': undefined identifier
+ 107   3                              }//重新设置前进后退参数
+ 108   2                              TC=0;
+*** ERROR C202 IN LINE 108 OF PHENG.C: 'TC': undefined identifier
+ 109   2                      p1_2=1;
+*** ERROR C202 IN LINE 109 OF PHENG.C: 'p1_2': undefined identifier
+ 110   2                          p1_5=1;//使电机停止
+*** ERROR C202 IN LINE 110 OF PHENG.C: 'p1_5': undefined identifier
+ 111   2              }
+ 112   1      
+ 113   1      ////////////////////////////////////////////////////////////////
+ 114   1      
+ 115   1      ////////////////////////////////////////////////////////////////
+ 116   1       if((p2_5==0||phzt==2)&&phzt!=4)//后仰了
+*** ERROR C202 IN LINE 116 OF PHENG.C: 'p2_5': undefined identifier
+ 117   1                      {       fy++;//反应参数自加一
+*** ERROR C202 IN LINE 117 OF PHENG.C: 'fy': undefined identifier
+ 118   2                              qj++;//前进（后仰）参数；
+*** ERROR C202 IN LINE 118 OF PHENG.C: 'qj': undefined identifier
+ 119   2                              TC=1;//打开电机
+*** ERROR C202 IN LINE 119 OF PHENG.C: 'TC': undefined identifier
+ 120   2                              if(bc==1)
+*** ERROR C202 IN LINE 120 OF PHENG.C: 'bc': undefined identifier
+ 121   2                              {       
+ 122   3                                      qj=fdd*ht;
+*** ERROR C202 IN LINE 122 OF PHENG.C: 'qj': undefined identifier
+ 123   3                                      bc=2;
+*** ERROR C202 IN LINE 123 OF PHENG.C: 'bc': undefined identifier
+ 124   3      
+ 125   3                              }
+ 126   2                              if(cf||phzt==1)
+*** ERROR C202 IN LINE 126 OF PHENG.C: 'cf': undefined identifier
+ 127   2                              {       //若在冲锋,反应参数到达20,自动满足前进条件
+ 128   3                                      qj=fdd*ht;
+*** ERROR C202 IN LINE 128 OF PHENG.C: 'qj': undefined identifier
+ 129   3                                      if(cf&&tk>=30)
+*** ERROR C202 IN LINE 129 OF PHENG.C: 'cf': undefined identifier
+ 130   3                                          setnumber=3;
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 5   
+
+*** ERROR C202 IN LINE 130 OF PHENG.C: 'setnumber': undefined identifier
+ 131   3                                                                      if(phzt==2)
+*** ERROR C202 IN LINE 131 OF PHENG.C: 'phzt': undefined identifier
+ 132   3                                                                              if(p2_0&&p2_1&&p2_2)
+*** ERROR C202 IN LINE 132 OF PHENG.C: 'p2_0': undefined identifier
+ 133   3                                                                                      phzt=3;
+*** ERROR C202 IN LINE 133 OF PHENG.C: 'phzt': undefined identifier
+ 134   3                               }
+ 135   2                              if(!cf&&fy>=250)//若没有冲锋,则反应参数到200后,自动对前进后退参数置一,并且打开微调
+*** ERROR C202 IN LINE 135 OF PHENG.C: 'cf': undefined identifier
+ 136   2                              {fy=0;
+*** ERROR C202 IN LINE 136 OF PHENG.C: 'fy': undefined identifier
+ 137   3                              qj=1;
+*** ERROR C202 IN LINE 137 OF PHENG.C: 'qj': undefined identifier
+ 138   3                              ht=1;
+*** ERROR C202 IN LINE 138 OF PHENG.C: 'ht': undefined identifier
+ 139   3                              wt=1;
+*** ERROR C202 IN LINE 139 OF PHENG.C: 'wt': undefined identifier
+ 140   3                              }
+ 141   2      
+ 142   2                              if(qj>=fdd*ht)//防平衡器抖动；
+*** ERROR C202 IN LINE 142 OF PHENG.C: 'qj': undefined identifier
+ 143   2                              {       ph=0;//电机打开,平衡态系数置零
+*** ERROR C202 IN LINE 143 OF PHENG.C: 'ph': undefined identifier
+ 144   3                                      fx=2;//方向为前
+*** ERROR C202 IN LINE 144 OF PHENG.C: 'fx': undefined identifier
+ 145   3      
+ 146   3      
+ 147   3                                      for(i=0;i<=(bf*(bc%2+1)-100)/*步进补偿*/;i++)
+*** ERROR C202 IN LINE 147 OF PHENG.C: 'i': undefined identifier
+ 148   3                                      {
+ 149   4      
+ 150   4      //////////////////////////////////前进循迹程序段///////////////////////////
+ 151   4                                      xunji();
+ 152   4      
+ 153   4      /////////////////////////////////////////////////////////
+ 154   4      
+ 155   4                                              if((cs%2)&&(cs<=10))//跷跷板过平衡点次数
+*** ERROR C202 IN LINE 155 OF PHENG.C: 'cs': undefined identifier
+ 156   4                                              {       cs++;
+*** ERROR C202 IN LINE 156 OF PHENG.C: 'cs': undefined identifier
+ 157   5                                              }
+ 158   4                                               qj=1;//前进参数置一
+*** ERROR C202 IN LINE 158 OF PHENG.C: 'qj': undefined identifier
+ 159   4                                              if (cf||bc==2)
+*** ERROR C202 IN LINE 159 OF PHENG.C: 'cf': undefined identifier
+ 160   4                                              {       ht=30;
+*** ERROR C202 IN LINE 160 OF PHENG.C: 'ht': undefined identifier
+ 161   5                                                      if(bc==2)
+*** ERROR C202 IN LINE 161 OF PHENG.C: 'bc': undefined identifier
+ 162   5                                                      bc=4;
+*** ERROR C202 IN LINE 162 OF PHENG.C: 'bc': undefined identifier
+ 163   5                                              }//若在冲锋,后退参数置为30
+ 164   4                                              else if(tz<=100||(ht<2))//若没有冲锋,且没有进入平衡状态或后退参数<2时,就将其置一,否则除以2
+*** ERROR C202 IN LINE 164 OF PHENG.C: 'tz': undefined identifier
+ 165   4                                                      ht=1;
+*** ERROR C202 IN LINE 165 OF PHENG.C: 'ht': undefined identifier
+ 166   4                                              else ht=6;
+*** ERROR C202 IN LINE 166 OF PHENG.C: 'ht': undefined identifier
+ 167   4      
+ 168   4                                              }
+ 169   3                              }
+C51 COMPILER V7.07   PHENG                                                                 08/02/2009 10:12:42 PAGE 6   
+
+ 170   2                              TC=0;
+*** ERROR C202 IN LINE 170 OF PHENG.C: 'TC': undefined identifier
+ 171   2                      p1_2=1;
+*** ERROR C202 IN LINE 171 OF PHENG.C: 'p1_2': undefined identifier
+ 172   2                          p1_5=1;//使电机停止
+*** ERROR C202 IN LINE 172 OF PHENG.C: 'p1_5': undefined identifier
+ 173   2                              }
+ 174   1      }
+ 175          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  137 ERROR(S)

@@ -1,0 +1,767 @@
+//SMG12864A标准图形点阵型液晶显示模块的演示程序[C51编程语言][MCS51模拟口线接口方式]
+//应用产品: SMG12864A SMG12864BV SMG12864C SMG12864D3 标准图形点阵型液晶显示模块
+//  本演示程序适用于SMG12864A液晶显示模块与MCS51系列单片机采用MCS51模拟口线的
+//硬件连线方式。
+//  本演示程序包括KS0108B兼容芯片的MCS51模拟口线接口子程序集,KS0108B兼容芯片的12864
+//液晶显示模块的基本子程序,12864系列绘图子程序集,12864系列图形子程序集,12864系列
+//精简中英文字库子程序集,以及SMG12864A系列标准图形点阵型液晶显示的演示子程序.
+//  本演示的内容为,在128列X64行的点阵液晶显示屏上清屏,图片演示,英文字符串演示,
+//中文字符串演示,反白显示字符串,绘制矩形,写点,绘制直线,全屏显示.
+//-------------------------------------------------------------------------------
+//创建日期: 2009.10.30
+//软件环境: VW For Windows
+//硬件环境: AT89C52 MCU,MCS-51系列 MCU,etc.
+//创建人: 褚建军(chujianjun@sunman.cn),谭超(tanchao@sunman.cn).
+//技术支持: 电话(0731-84167806,84167807),传真(0731-84167807),网址(www.sunman.cn)
+//版权信息: 长沙太阳人电子有限公司版权所有,转载请指明出处.
+//参考网页: http:/www.sunman.cn/lcm/product/SMG12864A.html
+//-------------------------------------------------------------------------------
+#include <reg51.h>
+#include <intrins.h>
+//以下为演示程序的函数定义
+void exsample(void);                    //演示程序
+void exdelay(void);                     //演示延时子程序
+void putchar(unsigned int c);           //定位写字符子程序
+void putstr(unsigned char code *s);     //显示字符串子程序,字符码为0时退出
+unsigned char code *getchinesecodepos(unsigned int ac);
+unsigned char code *getenglishcodepos(unsigned char ac);
+void putimage(unsigned char code *s);   //显示图形子程序
+void putsizeimage(unsigned char XSIZE,unsigned char YSIZE,unsigned char code *s);
+                                        //显示指定大小的图形子程序
+void point(bit b);
+void line(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b);
+void lineto(unsigned char x1,unsigned char y1,bit b);//绘制(XPOS,YPOS)-(X1,Y1)的直线
+void rect(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b);
+void lcdfill(unsigned char d);          //整屏显示d代表的字节数据子程序
+void lcdpos(void);                      //设置坐标点(XPOS,YPOS)内部RAM地址的子程序
+void lcdreset(void);                    //液晶显示控制器初始化子程序
+void setlcdvoltage(unsigned char vol);   //LCD电压设置
+void lcdwd(unsigned char d);            //送图形数据子程序
+unsigned char lcdrd(void);              //读图形数据子程序
+void lcdwc(unsigned char c);            //送指令子程序
+void lcdwaitidle(void);                 //忙检测子程序
+
+void lcdwd1(unsigned char d);           //送图形数据子程序
+unsigned char lcdrd1(void);             //读图形数据子程序
+void lcdwc1(unsigned char c);           //送指令子程序
+void lcdwaitidle1(void);                //忙检测子程序
+void lcdwd2(unsigned char d);           //送图形数据子程序
+unsigned char lcdrd2(void);             //读图形数据子程序
+void lcdwc2(unsigned char c);           //送指令子程序
+void lcdwaitidle2(void);                //忙检测子程序
+//-------------------------------------------------------------------------------
+//SMG12864A产品引脚说明及演示连线
+//PIN1: VSS  [电源地]
+//PIN2: VDD  [电源正极]
+//PIN3: Vo   [LCD偏压输入]
+//PIN4: RS   [数据/命令选择端 1:数据 0:命令]
+//PIN5: RW   [读写信号选择端 1:读操作 0:写操作]
+//PIN6: E    [使能信号输入 高有效]
+//PIN7: DB0  [Data I/O]
+//PIN8: DB1  [Data I/O]
+//PIN9: DB2  [Data I/O]
+//PIN10:DB3  [Data I/O]
+//PIN11:DB4  [Data I/O]
+//PIN12:DB5  [Data I/O]
+//PIN13:DB6  [Data I/O]
+//PIN14:DB7  [Data I/O]
+//PIN15:CS1  [片选1信号输入 高有效]
+//PIN16:CS2  [片选2信号输入 高有效]
+//PIN17:RST  [复位信号输入(H：正常工作,L:复位)]
+//PIN18:VEE  [LCD驱动负压输出(-5V)]
+//PIN19:BLA  [背光源正极]
+//PIN20:BLK  [背光源负极]
+//注:8031的晶振频率为12MHz.
+//请参见http://download.sunman.cn/lcm/product/1/SMG12864A.pdf
+//-------------------------------------------------------------------------------
+//以下为产品接口引脚在演示程序中的预定义
+//用户在编写应用程序时,需按自己的实际硬件连线来重新定义
+sbit RSPIN=P3^0;                        // RS对应单片机引脚
+sbit RWPIN=P3^3;                        // RW对应单片机引脚
+sbit EPIN =P3^4;                        // E对应单片机引脚
+sbit CS1PIN=P3^1;                       // CS1对应单片机引脚
+sbit CS2PIN=P3^2;                       // CS2对应单片机引脚
+//-------------------------------------------------------------------------------
+//以下XPOS,YPOS变量用于指示当前操作点的位置的预定义
+//用户在编写应用程序时,需按自己的实际软件程序需要来重新定义
+unsigned char XPOS;                     //列方向LCD点阵位置指针
+unsigned char YPOS;                     //行方向LCD点阵位置指针
+bit CharImageReverse;                   //字符及图形的反显控制,0(正常显示),1(反显)
+
+#define XDOTS   128                     //图形空间X方向大小
+#define YDOTS   64                      //图形空间X方向大小
+//-------------------------------------------------------------------------------
+//以下为精简版中英文字库
+//实际使用时请包含由Sunman精简版中英文字符库代码生成器.exe自动生成的charlib.c文
+//文件来替换该部分
+#define ENGLISHCHARNUMBER  5       //精简版英文字符库中的英文字符的个数
+#define CHINESECHARNUMBER  5       //精简版中文字符库中的中文字符的个数
+#define ENGLISHCHARSIZE    8       //英文字符X方向显示点的个数
+#define CHINESECHARSIZE    16      //中文字符X方向及中英文字符Y方向显示点的个数
+#define ENGLISHCHARDOTSIZE 16      //单个英文字符点阵的字节数
+#define CHINESECHARDOTSIZE 32      //单个中文字符点阵的字节数
+
+unsigned int code EnglishCode[]={
+0x41,    //字符001:[A]
+0x4d,    //字符002:[M]
+0x4e,    //字符003:[N]
+0x53,    //字符004:[S]
+0x55     //字符005:[U]
+};
+
+unsigned int code ChineseCode[]={
+0xb5e7,  //字符001:[电]
+0xc8cb,  //字符002:[人]
+0xccab,  //字符003:[太]
+0xd1f4,  //字符004:[阳]
+0xd7d3   //字符005:[子]
+};
+
+unsigned char code EnglishCharDot[]={
+0x00,0x20,0x00,0x3c,0xc0,0x23,0x38,0x02,   //字符001:[A]
+0xe0,0x02,0x00,0x27,0x00,0x38,0x00,0x00,
+0x08,0x20,0xf8,0x3f,0xf8,0x00,0x00,0x3f,   //字符002:[M]
+0xf8,0x00,0xf8,0x3f,0x08,0x20,0x00,0x00,
+0x08,0x20,0xf8,0x3f,0x30,0x20,0xc0,0x00,   //字符003:[N]
+0x00,0x07,0x08,0x18,0xf8,0x3f,0x00,0x00,
+0x00,0x00,0x70,0x38,0x88,0x20,0x08,0x21,   //字符004:[S]
+0x08,0x21,0x08,0x22,0x38,0x1c,0x00,0x00,
+0x08,0x00,0xf8,0x1f,0x08,0x20,0x00,0x20,   //字符005:[U]
+0x00,0x20,0x08,0x20,0xf8,0x1f,0x00,0x00
+};
+
+unsigned char code ChineseCharDot[]={
+0x00,0x00,0x00,0x00,0xf8,0x0f,0x48,0x04,   //字符001:[电]
+0x48,0x04,0x48,0x04,0x48,0x04,0xff,0x3f,
+0x48,0x44,0x48,0x44,0x48,0x44,0x48,0x44,
+0xf8,0x4f,0x00,0x40,0x00,0x70,0x00,0x00,
+0x00,0x00,0x00,0x40,0x00,0x20,0x00,0x10,   //字符002:[人]
+0x00,0x0c,0x00,0x03,0xc0,0x00,0x3f,0x00,
+0xc2,0x01,0x00,0x06,0x00,0x0c,0x00,0x18,
+0x00,0x30,0x00,0x60,0x00,0x20,0x00,0x00,
+0x00,0x00,0x10,0x80,0x10,0x40,0x10,0x20,   //字符003:[太]
+0x10,0x10,0x10,0x0c,0x10,0x03,0xff,0x08,
+0x10,0x71,0x10,0x22,0x10,0x04,0x10,0x18,
+0x10,0x30,0x10,0xe0,0x10,0x40,0x00,0x00,
+0x00,0x00,0xfe,0xff,0x02,0x04,0x22,0x08,   //字符004:[阳]
+0x5a,0x04,0x86,0x03,0x00,0x00,0xfe,0x3f,
+0x42,0x10,0x42,0x10,0x42,0x10,0x42,0x10,
+0x42,0x10,0xfe,0x3f,0x00,0x00,0x00,0x00,
+0x00,0x01,0x00,0x01,0x02,0x01,0x02,0x01,   //字符005:[子]
+0x02,0x01,0x02,0x41,0x02,0x81,0xe2,0x7f,
+0x12,0x01,0x0a,0x01,0x06,0x01,0x02,0x01,
+0x00,0x01,0x80,0x01,0x00,0x01,0x00,0x00
+};
+//-------------------------------------------------------------------------------
+//以下为图片库点阵代码
+//实际使用时请包含由SUNMAN图形点阵代码生成器.EXE自动生成的imagelib.c文件来替换该
+//部分
+unsigned char code Img_sunman_32[]={32,32,
+0x00,0xf0,0x0f,0x00,
+0x00,0xfe,0x7f,0x00,
+0x80,0x0f,0xf6,0x01,
+0xc0,0x03,0xc6,0x03,
+0xe0,0x70,0x0e,0x07,
+0x70,0x7c,0x3e,0x0e,
+0x38,0x7f,0xfe,0x1c,
+0x9c,0x7f,0xfe,0x39,
+0xcc,0x7f,0xfe,0x33,
+0xce,0x7f,0xfe,0x73,
+0xe6,0x7f,0xfe,0x67,
+0xe6,0x07,0xe0,0x67,
+0xf3,0x07,0xe0,0xcf,
+0xf3,0xcf,0xff,0xcf,
+0x73,0x9e,0xff,0xcf,
+0x33,0x3c,0xff,0xcf,
+0x33,0x3c,0xff,0xcf,
+0x73,0x9e,0xff,0xcf,
+0xf3,0xcf,0xff,0xcf,
+0xf3,0x07,0xe0,0xcf,
+0xe6,0x07,0xe0,0x67,
+0xe6,0x7f,0xfe,0x67,
+0xce,0x7f,0xfe,0x73,
+0xcc,0x7f,0xfe,0x33,
+0x9c,0x7f,0xfe,0x39,
+0x38,0x7f,0xfe,0x1c,
+0x70,0x7c,0x3e,0x0e,
+0xe0,0x70,0x0e,0x07,
+0xc0,0x63,0xc0,0x03,
+0x80,0x6f,0xf0,0x01,
+0x00,0xfe,0x7f,0x00,
+0x00,0xf0,0x0f,0x00
+};
+//-------------------------------------------------------------------------------
+
+void main(void)
+{   while(1)
+    {   lcdreset();                     //初始化液晶显示控制器
+        exsample();                     //演示程序
+    }
+}
+void exsample(void)                     //演示程序
+{
+//0.演示前的准备,将LCD液晶显示全部清空
+    CharImageReverse=0;                 //反显关闭
+    lcdfill(0);                         //清屏
+
+//1.图片测试: 在(8,16)位置显示32点阵SUNMAN图标
+    XPOS=8;
+    YPOS=16;
+    putimage(Img_sunman_32);            //写数据到当前LCDRAM地址中
+    exdelay();                          //延时约600mS
+
+//2.字符串测试: 在(56,16)位置显示"SUNMAN"字符串.
+    XPOS=56;
+    YPOS=16;
+    putstr("SUNMAN");
+    exdelay();                          //延时约600mS
+
+//3.字符串测试: 在(40,32)位置显示"太阳人电子"字符串.
+    XPOS=40;
+    YPOS=32;
+    putstr("太阳人电子");
+    exdelay();                          //延时约600mS
+
+//4.反显测试: 在(40,32)位置反显"太阳人电子"字符串.
+    XPOS=40;
+    YPOS=32;
+    CharImageReverse=1;
+    putstr("太阳人电子");
+    CharImageReverse=0;
+    exdelay();                          //延时约600mS
+
+//5.绘图测试: RECT(6,14)-(122,50),画矩形.
+    rect(6,14,122,50,1);
+    exdelay();                          //延时约600mS
+
+//6.绘图测试: POINT(6,52),画点.
+    XPOS=6;
+    YPOS=52;
+    point(1);
+    exdelay();                          //延时约600mS
+
+//7.绘图测试: LINE(6,52)-(63,63),画线.
+    line(6,52,63,63,1);
+    exdelay();                          //延时约600mS
+
+//8.绘图测试: lineto(122,52),画线.
+    lineto(122,52,1);
+    exdelay();                          //延时约600mS
+
+//9.绘图测试: lineto(6,52),画线.
+    lineto(6,52,1);
+    exdelay();                          //延时约600mS
+
+//13.全屏测试: 所有坐标点全部显示.
+    lcdfill(0xff);                      //全显
+    exdelay();                          //延时约600mS
+
+}
+void exdelay(void)                      //演示延时子程序
+{ unsigned char i,j,k;                  //延时约600mS
+  for(i=0;i<60;i++)
+    for(j=0;j<64;j++)
+      for(k=0;k<51;k++);
+}
+//-------------------------------------------------------------------------------
+//以下putchar为字符对象的基本子程序,putstr为字符对象的扩充子程序,getchinesecodepos,
+//getenglishcodepos为字符对象的辅助子程序.
+//-------------------------------------------------------------------------------
+//子程序名称:void putchar(unsigned int c).
+//功能:在(XPOS,YPOS)位置写单个字符点阵,若c>128 表示为中文字符,否则为西文字符
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void putchar(unsigned int c)            //定位写字符子程序
+{   if(c>128)
+        putsizeimage(CHINESECHARSIZE,CHINESECHARSIZE,getchinesecodepos(c));
+    else
+        putsizeimage(ENGLISHCHARSIZE,CHINESECHARSIZE,getenglishcodepos(c));
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void putstr(unsigned char code *s).
+//功能:写字符串点阵,若*s=0 表示字符串结束.
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void putstr(unsigned char code *s)      //显示字符串子程序,字符码为0时退出
+{   unsigned int c;
+    while(1)
+    {   c=*s;
+        s++;
+        if(c==0) break;
+        if(c<128)
+            putchar(c);
+        else
+        {   putchar(c*256+*s);
+            s++;
+        }
+    }
+}
+//-------------------------------------------------------------------------------
+//子程序名称:unsigned char code *getchinesecodepos(unsigned char ac).
+//功能:根据当前中文字符码查表后计算得到当前中文字符码的字库点阵位置.
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+unsigned char code *getchinesecodepos(unsigned int ac)
+{   unsigned int min,max,mid,midc;
+    min=0;
+    max=CHINESECHARNUMBER-1;
+    while(1)
+    {   if(max-min<2)
+        {   if(ChineseCode[min]==ac)
+                mid=min;
+            else if(ChineseCode[max]==ac)
+                mid=max;
+            else
+                mid=0;
+            break;
+        }
+        mid=(max+min)/2;
+        midc=ChineseCode[mid];
+        if(midc==ac)
+            break;
+        else if(midc>ac)
+            max=mid-1;
+        else
+            min=mid+1;
+    }
+    return ChineseCharDot+mid*CHINESECHARDOTSIZE;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:unsigned char code *getenglishcodepos(unsigned char ac).
+//功能:根据当前ASCII字符码查表后计算得到当前ASCII字符码的字库点阵位置.
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+unsigned char code *getenglishcodepos(unsigned char ac)
+{   unsigned char min,max,mid,midc;
+    min=0;
+    max=ENGLISHCHARNUMBER-1;
+    while(1)
+    {   if(max-min<2)
+        {   if(EnglishCode[min]==ac)
+                mid=min;
+            else if(EnglishCode[max]==ac)
+                mid=max;
+            else
+                mid=0;
+            break;
+        }
+        mid=(max+min)/2;
+        midc=EnglishCode[mid];
+        if(midc==ac)
+            break;
+        else if(midc>ac)
+            max=mid-1;
+        else
+            min=mid+1;
+    }
+    return EnglishCharDot+mid*ENGLISHCHARDOTSIZE;
+}
+//-------------------------------------------------------------------------------
+//以下putsizeimage为图形对象的基本子程序,putimage为图形对象的扩充子程序
+//-------------------------------------------------------------------------------
+//子程序名称:void putsizeimage(unsigned char XSIZE,unsigned YSIZE,
+//                             unsigned char code *s)
+//功能:在(XPOS,YPOS)位置绘制XSIZE列及YISZE行点阵的图形*S.
+//修改日期:2009.8.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void putsizeimage(unsigned char XSIZE,unsigned char YSIZE,unsigned char code *s)
+{  unsigned char k,lx,ly,a1,a2,y,Lcd_Mask;
+   k=YPOS&0x7;
+   YSIZE+=k;
+   y=YPOS;
+   s--;
+   for(lx=0;lx<XSIZE;lx++,XPOS++)
+   {  for(YPOS=y,ly=k;ly<YSIZE;)
+      {  unsigned char p;
+         a1=*s;
+         s++;
+         a2=*s;
+         if(CharImageReverse)
+         {   a1=~a1;
+             a2=~a2;
+         }
+         for(p=0;p<k;p++)
+         {  a2>>=1;
+            if((a1&0x1)==1)
+               a2+=0x80;
+            a1>>=1;
+         }
+         if((k==0) && (YSIZE<ly+8))
+         {   lcdpos();
+             ly+=8;
+             YPOS+=8;
+         }
+         else
+         {   lcdpos();
+             a1=lcdrd();
+             lcdpos();
+             ly+=8;
+             YPOS+=8;
+             Lcd_Mask=0xff;
+             p=YSIZE&0x7;
+             while(p>0)
+             {   Lcd_Mask>>=1;
+                 YPOS--;
+                 p--;
+             }
+             p=0xff;
+             while(YSIZE<ly)
+             {   ly--;
+                 YPOS--;
+                 p<<=1;
+             }
+             Lcd_Mask&=p;
+             a2&=Lcd_Mask;
+             a2|=a1&(~Lcd_Mask);
+         }
+         lcdwd(a2);
+      }
+      if((k!=0) && (YSIZE&0x7 != 0) && (k >= YSIZE&0x7)) s--;
+   }
+   YPOS=y;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void putimage(unsigned char code *s).
+//功能:在(XPOS,YPOS)位置绘制XSIZE[*s]列及YISZE[*(s+1)]行点阵的图形[*(s+2)].
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void putimage(unsigned char code *s)    //显示图形子程序
+{   unsigned char XSIZE,YSIZE;
+    XSIZE=*s;
+    s++;
+    YSIZE=*s;
+    s++;
+    putsizeimage(XSIZE,YSIZE,s);
+}
+//-------------------------------------------------------------------------------
+//以下point为绘图操作的基本子程序,line,lineto,rect为绘图操作的扩充子程序.
+//-------------------------------------------------------------------------------
+//子程序名称:void point(bit b).
+//功能:按b的数据在(XPOS,YPOS)位置绘制点.
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void point(bit b)
+{   unsigned char i,Lcd_Mask,j;
+    Lcd_Mask=0x01;
+    i=YPOS&0x7;
+    while(i>0)
+    {   Lcd_Mask<<=1;
+        i--;
+    }
+    lcdpos();
+    j=lcdrd();
+    lcdpos();
+    if(b)
+        lcdwd(j|Lcd_Mask);
+    else
+        lcdwd(j&(~Lcd_Mask));
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void line(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b)
+//功能:按b的数据绘制(x0,y0)-(x1,y1)的直线
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void line(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b)
+{   unsigned char dx,dy;
+    unsigned int dk;
+    XPOS=x0;
+    YPOS=y0;
+    point(b);
+    dx=(x1>=x0)?x1-x0:x0-x1;
+    dy=(y1>=y0)?y1-y0:y0-y1;
+    if(dx==dy)
+    {   while(XPOS!=x1)
+        {   if(x1>x0) XPOS++;else XPOS--;
+            if(y1>y0) YPOS++;else YPOS--;
+            point(b);
+        }
+    }
+    else if (dx>dy)
+    {   dk=dy;
+        dy=0;
+        while(XPOS!=x1)
+        {   if(x1>x0) XPOS++;else XPOS--;
+            dy++;
+            if(y1>y0) YPOS=y0+(dk*dy+dx/2)/dx;else YPOS=y0-(dk*dy+dx/2)/dx;
+            point(b);
+        }
+    }
+    else
+    {   dk=dx;
+        dx=0;
+        while(YPOS!=y1)
+        {   if(y1>y0) YPOS++;else YPOS--;
+            dx++;
+            if(x1>x0) XPOS=x0+(dk*dx+dy/2)/dy;else XPOS=x0-(dk*dx+dy/2)/dy;
+            point(b);
+        }
+    }
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lineto(unsigned char x1,unsigned char y1,bit b)
+//功能:按b的数据绘制(XPOS,YPOS)-(x1,y1)的直线
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lineto(unsigned char x1,unsigned char y1,bit b)//绘制(XPOS,YPOS)-(X1,Y1)的直线
+{   line(XPOS,YPOS,x1,y1,b);
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void rect(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b)
+//功能:按b的数据绘制(x0,y0)-(x1,y1)的矩形
+//修改日期:2009.8.18
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void rect(unsigned char x0,unsigned char y0,unsigned char x1,unsigned char y1,bit b)
+{   line(x0,y0,x1,y0,b);
+    line(x1,y0,x1,y1,b);
+    line(x1,y1,x0,y1,b);
+    line(x0,y1,x0,y0,b);
+}
+//-------------------------------------------------------------------------------
+//以下lcdfill,lcdpos,lcdreset为KS0108B型硬件接口的12864液晶显示模块的基本子程序
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdfill(unsigned char d).
+//功能:整屏显示d表示的字节数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdfill(unsigned char d)           //整屏显示d代表的字节数据子程序
+{   unsigned char j;
+    for(YPOS=0;YPOS<64;YPOS+=8)         //8页
+    {   XPOS=0;
+        lcdpos();
+        for(j=0;j<64;j++)              //64列
+            lcdwd1(d);                 //送图形数据
+        XPOS=64;
+        lcdpos();
+        for(j=0;j<64;j++)              //64列
+            lcdwd2(d);                 //送图形数据
+    }
+    XPOS=0;
+    YPOS=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdpos(void).
+//功能:设置坐标点(XPOS,YPOS)位置对应的内部RAM地址.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdpos(void)                       //设置坐标点(XPOS,YPOS)内部RAM地址的子程序
+{  unsigned char Column;
+   if(XPOS<64)
+   {   lcdwc1(0xB8|((YPOS/8)&0x7));     //页地址设置
+       lcdwc1(0x40|XPOS);               //列地址设置
+   }
+   else
+   {   lcdwc2(0xB8|((YPOS/8)&0x7));     //页地址设置
+       lcdwc2(0x40|(XPOS&0x3F));        //列地址设置
+   }
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdreset(void)
+//功能:液晶显示控制器初始化
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdreset(void)                     //液晶显示控制器初始化子程序
+{
+    lcdwc1(0xC0);                       //设置显示初始行
+    lcdwc2(0xC0);                       //设置显示初始行
+    lcdwc1(0x3F);                       //开显示
+    lcdwc2(0x3F);                       //开显示
+}
+//-------------------------------------------------------------------------------
+//以下lcdwc1,lcdwc2,lcdwd,lcdrd为MCS51模拟口线接口的KS0108B液晶显示控制器的基本
+//子程序,lcdwd1,lcdwd2,lcdrd1,lcdrd2,lcdwaitidle1,lcdwaitidle2为内部子程序.
+//-------------------------------------------------------------------------------
+//子程序名称:unsigned char lcdrd(void).
+//功能:从液晶显示控制器中读图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+unsigned char lcdrd(void)
+{unsigned char d;
+    if(XPOS<64)
+    {    d=lcdrd1();
+         d=lcdrd1();
+    }
+    else
+    {    d=lcdrd2();
+         d=lcdrd2();
+    }
+    return d;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdwd(unsigned char d).
+//功能:向液晶显示控制器写图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwd(unsigned char d)
+{   if(XPOS<64)
+        lcdwd1(d);
+    else
+        lcdwd2(d);
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdwd1(unsigned char d).
+//功能:向液晶显示控制器1写图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwd1(unsigned char d)
+{   lcdwaitidle1();
+    P1=d;
+    RSPIN=1;
+    RWPIN=0;
+    CS1PIN=1;
+    CS2PIN=0;
+    EPIN=1;
+    _nop_();
+    EPIN=0;
+    CS1PIN=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:void lcdwd2(unsigned char d).
+//功能:向液晶显示控制器2写图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwd2(unsigned char d)
+{   lcdwaitidle2();
+    P1=d;
+    RSPIN=1;
+    RWPIN=0;
+    CS1PIN=0;
+    CS2PIN=1;
+    EPIN=1;
+    _nop_();
+    EPIN=0;
+    CS2PIN=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:unsigned char lcdrd1(void).
+//功能:从液晶显示控制器1中读图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+unsigned char lcdrd1(void)              //读图形数据子程序
+{   unsigned char d;
+    lcdwaitidle1();                     //检测液晶显示控制器是否空闲
+    P1=0xff;
+    RSPIN=1;
+    RWPIN=1;
+    CS1PIN=1;
+    CS2PIN=0;
+    EPIN=1;
+    _nop_();
+    d=P1;
+    EPIN=0;
+    CS1PIN=0;
+    return d;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:unsigned char lcdrd2(void).
+//功能:从液晶显示控制器2中读图形数据.
+//修改日期:2009.08.31
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+unsigned char lcdrd2(void)              //读图形数据子程序
+{   unsigned char d;
+    lcdwaitidle2();                     //检测液晶显示控制器是否空闲
+    P1=0xff;
+    RSPIN=1;                            //DUMMY READ
+    RWPIN=1;
+    CS1PIN=0;
+    CS2PIN=1;
+    EPIN=1;
+    _nop_();
+    d=P1;
+    EPIN=0;
+    CS2PIN=0;
+    return d;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:lcdwc1(unsigned char c).
+//功能:向液晶显示控制器1送指令.
+//修改日期:2009.10.30
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwc1(unsigned char c)            //向液晶显示控制器1送指令
+{   lcdwaitidle1();
+    P1=c;
+    RSPIN=0;
+    RWPIN=0;
+    CS1PIN=1;
+    CS2PIN=0;
+    EPIN=1;
+    _nop_();
+    EPIN=0;
+    CS1PIN=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:lcdwc2(unsigned char c).
+//功能:向液晶显示控制器2送指令.
+//修改日期:2009.10.30
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwc2(unsigned char c)            //向液晶显示控制器2送指令
+{   lcdwaitidle2();
+    P1=c;
+    RSPIN=0;
+    RWPIN=0;
+    CS1PIN=0;
+    CS2PIN=1;
+    EPIN=1;
+    _nop_();
+    EPIN=0;
+    CS2PIN=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:voidlcdwaitidle1(void).
+//功能:忙检测,在对液晶显示控制器操作的每一条指令之前,需检测液晶显示器是否空闲.
+//修改日期:2009.10.30
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwaitidle1(void)                 //控制器1忙检测子程序
+{   unsigned char i;
+    P1=0xff;
+    RSPIN=0;
+    RWPIN=1;
+    CS1PIN=1;
+    CS2PIN=0;
+    EPIN=1;
+    for(i=0;i<20;i++)                   //
+        if( (P1&0x80) != 0x80 ) break;  //D7=0 空闲退出
+    EPIN=0;
+    CS1PIN=0;
+}
+//-------------------------------------------------------------------------------
+//子程序名称:voidlcdwaitidle2(void).
+//功能:忙检测,在对液晶显示控制器操作的每一条指令之前,需检测液晶显示器是否空闲.
+//修改日期:2009.10.30
+//修改人:chujianjun@sunman.cn,tanchao@sunman.cn
+//-------------------------------------------------------------------------------
+void lcdwaitidle2(void)                 //控制器2忙检测子程序
+{   unsigned char i;
+    P1=0xff;
+    RSPIN=0;
+    RWPIN=1;
+    CS1PIN=0;
+    CS2PIN=1;
+    EPIN=1;
+    for(i=0;i<20;i++)                   //
+        if( (P1&0x80) != 0x80 ) break;  //D7=0 空闲退出
+    EPIN=0;
+    CS2PIN=0;
+}
+

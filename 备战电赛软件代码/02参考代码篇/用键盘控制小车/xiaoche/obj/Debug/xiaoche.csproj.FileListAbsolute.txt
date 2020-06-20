@@ -1,0 +1,10 @@
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\ResolveAssemblyReference.cache
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\xiaoche.Form1.resources
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\xiaoche.Properties.Resources.resources
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\xiaoche.csproj.GenerateResource.Cache
+G:\shangweiji\testForXiaoChe\xiaoche\bin\Debug\xiaoche.exe
+G:\shangweiji\testForXiaoChe\xiaoche\bin\Debug\xiaoche.pdb
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\xiaoche.exe
+G:\shangweiji\testForXiaoChe\xiaoche\obj\Debug\xiaoche.pdb
+G:\shangweiji\testForXiaoChe\xiaoche\bin\Debug\mode.accdb
+G:\shangweiji\testForXiaoChe\xiaoche\bin\Debug\xiaoche.exe.config

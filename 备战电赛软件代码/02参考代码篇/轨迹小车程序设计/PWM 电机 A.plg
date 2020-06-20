@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+G:\林雄 PWM 小车\PWM 电机 A.uv2
+Project File Date:  03/02/2009
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling PWM 电机 A.c...
+linking...
+Program Size: data=13.0 xdata=0 code=499
+creating hex file from "PWM 电机 A"...
+"PWM 电机 A" - 0 Error(s), 0 Warning(s).

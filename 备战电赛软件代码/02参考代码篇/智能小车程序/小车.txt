@@ -1,0 +1,239 @@
+#include<c8051f020.h>
+#include<intrins.h>
+
+#define uchar unsigned char
+#define uint  unsigned int
+#define SYSCLK 22118400
+sfr PH0=0xFA;
+sfr PH1=0xFB;
+sbit IN1=P3^0;
+sbit IN2=P3^1;        
+sbit IN3=P3^2;
+sbit IN4=P3^3;          
+sbit S1=P2^0;        
+sbit S2=P2^1;
+sbit S3=P2^2;
+sbit S4=P2^3;        
+sbit S5=P2^4;
+sbit S6=P2^5;    
+
+uchar code table[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
+uint num,temp,left,right,t,r,ge,shi,bai,qian;
+
+
+void SYSCLK_init()    //时钟初始化
+{
+      int i;                              
+      OSCXCN=0x67;                                                        
+      for(i=0;i<256;i++);          
+      while(!(OSCXCN&0x80));          
+      OSCICN=0x88; 
+}
+
+void IO_init()        //IO口初始化
+{
+    XBR0=0x10;
+    XBR1=0x00;
+    XBR2=0x40;
+    P0MDOUT=0xff;
+    P3MDOUT=0xff;    
+}
+
+void PCA_int_init()        //PCA0初始化
+{
+    PCA0MD=0x08;            //使用系统时钟 禁止中断
+    PCA0CPM0=0xc2;
+    PCA0CPM1=0xc2;
+    PCA0CN=0x40;
+    PCA0L=0x00;
+    PCA0H=0x00;
+    PCA0CPL0=0x00;              //设置PCA0CP0脉冲宽度
+    PCA0CPH0=240;
+    PCA0CPL1=0x00;              //设置PCA0CP1脉冲宽度
+    PCA0CPH1=240;
+}
+
+void T_init()            //定时器初始化
+{
+    IE=0x82;
+    TMOD=0x01;
+    TH0=(65536-18432)/256;
+    TL0=(65536-18432)%256;
+    TR0=0;
+}
+
+void delay1ms(uint z)        //延时函数
+{
+    uint x,y,i;
+    for(y=z;y>0;y--)
+    {
+        for(x=0;x<10;x++)
+            for(i=0;i<221;i++);
+    }
+}    
+
+void control()          //方向控制
+{    
+    num=P2;
+    num=num&0x3f;
+    switch(num)
+    {
+        case 0x0c:        //001100 011110 111111
+        case 0x1e:        
+        case 0x3f:
+        {
+            PH0=0xa0;    //左路电机
+            PH1=0xa0;    //右路电机
+        } break;
+        case 0x0e:        //001110 001111 011111
+        case 0x0f:
+        case 0x1f:
+        {
+            PH0=0xa0;
+            PH1=0x00;
+        } break;
+        case 0x06:        //000110 000111
+        case 0x07:
+        {
+            PH0=0xa0;
+            PH1=0x00;
+        } break;
+        case 0x01:        //000011 000001
+        case 0x03:        
+        {
+            PH0=0xb8;
+            PH1=0x00;            
+        } break;
+        case 0x1c:        //011100 111100 111110
+        case 0x3c:
+        case 0x3e:
+        {
+            PH0=0x90;
+            PH1=0xa0;
+        } break; 
+        case 0x18:        //011000 111000
+        case 0x38:
+        {
+            PH0=0x80;
+            PH1=0xa0;            
+        } break;
+        case 0x30:        //110000 100000
+        case 0x20:        
+        {
+            PH0=0x60;
+            PH1=0xb8;
+        } break;
+        case 0x00:        //000000
+        {
+            if(PH0<PH1)
+            {
+                PH0=0x00;
+                PH1=0x70;
+            }
+            if(PH0>PH1)
+            {
+                PH0=0x70;
+                PH1=0x00;
+            }
+        } break; 
+    }
+
+}
+
+void display(uchar qian,uchar bai,uchar shi,uchar ge)    //数码管显示函数
+{
+    if(qian!=0)
+    {
+        P4=0xef;
+        P7=table[qian];
+        delay1ms(2);
+    }
+    if(qian!=0||bai!=0)
+    {
+        P4=0xdf;
+        P7=table[bai];
+        delay1ms(2);
+    }
+    if(qian!=0||bai!=0||shi!=0)
+    {
+        P4=0xbf;
+        P7=table[shi];
+        delay1ms(2);
+    }
+    P4=0x7f;
+    P7=table[ge];
+    delay1ms(2);    
+}
+    
+void main()        //主函数
+{
+    WDTCN=0xde;      //关闭看门狗 
+    WDTCN=0xad;
+    SYSCLK_init();
+    IO_init();
+    PCA_int_init();
+    T_init();    
+    IN1=0;
+    IN2=1;
+    IN3=0;
+    IN4=1;
+    TR0=1;        //打开定时器
+    while(1)
+    {
+        control();
+        display(qian,bai,shi,ge);
+        if(temp==1)
+        {
+            temp=0;
+            ge=shi=bai=qian=0;
+            display(qian,bai,shi,ge);
+            for(r=0;r<5;r++)
+            {
+                P6=0x00;
+                delay1ms(1000);
+                P6=0xff;
+                delay1ms(1000);
+                    
+            }
+            IN2=1;
+            IN4=1;
+            TR0=1;
+        }
+    } 
+}
+
+void timer0()    interrupt 1
+{
+    TH0=(65536-18432)/256;
+    TL0=(65536-18432)%256;
+    t++;
+    if(t==100)
+    {
+        t=0;
+        ge++;
+        if(ge==10)        //秒计数
+        {
+            ge=0;
+            shi++;
+        }
+        if(shi==10)
+        {
+            shi=0;
+            bai++;
+        }
+        if(bai==10)
+        {
+            bai=0;
+            qian++;
+        }
+        if(qian==10)
+            ge=shi=bai=qian=0;
+    }
+    if(shi==5)
+    {
+        IN2=0;
+        IN4=0;
+        TR0=0;
+        temp=1;
+    }
+}

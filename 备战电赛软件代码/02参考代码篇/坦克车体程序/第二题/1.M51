@@ -1,0 +1,179 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        02/27/2009  21:31:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE 1.obj TO 1 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  1.obj (1)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  1 (1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?1
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     004BH     UNIT         ?PR?XUNJI?1
+            CODE    084BH     0037H     UNIT         ?PR?TIME0?1
+            CODE    0882H     0012H     UNIT         ?PR?_DS?1
+            CODE    0894H     0011H     UNIT         ?PR?MAIN?1
+            CODE    08A5H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   1 (1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?1
+
+?PR?MAIN?1
+  +--> ?PR?XUNJI?1
+
+?PR?XUNJI?1
+  +--> ?PR?_DS?1
+
+
+
+SYMBOL TABLE OF MODULE:  1 (1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/27/2009  21:31:41  PAGE 2
+
+
+  -------         MODULE        1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0894H         PUBLIC        main
+  D:0008H         PUBLIC        x3
+  D:0009H         PUBLIC        x4
+  C:0800H         PUBLIC        xunji
+  B:0090H.0       PUBLIC        P10
+  B:0090H.1       PUBLIC        P11
+  B:00B0H.6       PUBLIC        P20
+  B:0090H.2       PUBLIC        P12
+  B:00B0H.7       PUBLIC        P21
+  B:0090H.3       PUBLIC        P22
+  D:0098H         PUBLIC        SCON
+  B:0090H.4       PUBLIC        P23
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0090H.5       PUBLIC        P24
+  B:0090H.6       PUBLIC        P25
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:0882H         PUBLIC        _ds
+  C:084BH         PUBLIC        time0
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DS
+  D:0007H         SYMBOL        x1
+  D:0005H         SYMBOL        x2
+  C:0882H         LINE#         14
+  C:0882H         LINE#         15
+  C:0882H         LINE#         16
+  C:0885H         LINE#         17
+  C:0887H         LINE#         18
+  C:0889H         LINE#         19
+  C:088BH         LINE#         20
+  C:088DH         LINE#         22
+  C:0891H         LINE#         23
+  C:0893H         LINE#         24
+  -------         ENDPROC       _DS
+  -------         PROC          XUNJI
+  C:0800H         LINE#         26
+  C:0800H         LINE#         27
+  C:0800H         LINE#         28
+  C:0809H         LINE#         29
+  C:0809H         LINE#         30
+  C:080BH         LINE#         31
+  C:080DH         LINE#         32
+  C:080FH         LINE#         33
+  C:0811H         LINE#         34
+  C:0811H         LINE#         35
+  C:0823H         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/27/2009  21:31:41  PAGE 3
+
+
+  C:0823H         LINE#         37
+  C:082AH         LINE#         38
+  C:082AH         LINE#         39
+  C:0833H         LINE#         40
+  C:0833H         LINE#         41
+  C:083AH         LINE#         42
+  C:083AH         LINE#         43
+  C:0843H         LINE#         44
+  C:0843H         LINE#         45
+  C:084AH         LINE#         46
+  C:084AH         LINE#         47
+  -------         ENDPROC       XUNJI
+  -------         PROC          MAIN
+  C:0894H         LINE#         48
+  C:0894H         LINE#         49
+  C:0894H         LINE#         51
+  C:0894H         LINE#         52
+  C:0894H         LINE#         53
+  C:0897H         LINE#         55
+  C:0899H         LINE#         56
+  C:089BH         LINE#         57
+  C:089DH         LINE#         58
+  C:089FH         LINE#         59
+  C:08A1H         LINE#         60
+  C:08A3H         LINE#         61
+  -------         ENDPROC       MAIN
+  -------         PROC          TIME0
+  C:084BH         LINE#         63
+  C:084BH         LINE#         65
+  C:084EH         LINE#         66
+  C:0851H         LINE#         67
+  C:0863H         LINE#         68
+  C:0863H         LINE#         69
+  C:0865H         LINE#         70
+  C:0867H         LINE#         71
+  C:0867H         LINE#         72
+  C:0870H         LINE#         73
+  C:0870H         LINE#         74
+  C:0872H         LINE#         75
+  C:0874H         LINE#         76
+  C:0874H         LINE#         77
+  C:087DH         LINE#         78
+  C:087DH         LINE#         79
+  C:087FH         LINE#         80
+  C:0881H         LINE#         81
+  C:0881H         LINE#         82
+  -------         ENDPROC       TIME0
+  -------         ENDMOD        1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A8H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=183
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,157 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        02/13/2009  23:59:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE 2.obj TO 2 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  2.obj (2)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  2 (2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0013H     UNIT         ?DT?2
+            DATA    001BH     0004H     UNIT         _DATA_GROUP_
+            IDATA   001FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     0005H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     00AAH     UNIT         ?PR?TIME0?2
+            CODE    08AAH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0936H     0055H     UNIT         ?C?LIB_CODE
+            CODE    098BH     0015H     UNIT         ?PR?MAIN?2
+            CODE    09A0H     0013H     UNIT         ?C_INITSEG
+            CODE    09B3H     0003H     UNIT         ?PR?EXTER0?2
+
+
+
+OVERLAY MAP OF MODULE:   2 (2)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?PR?TIME0?2                    001BH    0004H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?2
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  2 (2)
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/13/2009  23:59:24  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:098BH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:0008H         PUBLIC        tie
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:09B3H         PUBLIC        exter0
+  D:0009H         PUBLIC        a
+  C:0800H         PUBLIC        time0
+  D:0019H         PUBLIC        b
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:098BH         LINE#         12
+  C:098BH         LINE#         13
+  C:098BH         LINE#         14
+  C:098EH         LINE#         15
+  C:0991H         LINE#         16
+  C:0994H         LINE#         17
+  C:0996H         LINE#         18
+  C:0998H         LINE#         19
+  C:099AH         LINE#         20
+  C:099CH         LINE#         22
+  C:099EH         LINE#         23
+  C:099EH         LINE#         24
+  C:099EH         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         PROC          EXTER0
+  C:09B3H         LINE#         33
+  C:09B3H         LINE#         34
+  -------         ENDPROC       EXTER0
+  -------         PROC          TIME0
+  -------         DO            
+  D:001BH         SYMBOL        tt
+  D:0004H         SYMBOL        l
+  D:0002H         SYMBOL        shi
+  D:001DH         SYMBOL        min
+  -------         ENDDO         
+  C:0800H         LINE#         35
+BL51 BANKED LINKER/LOCATER V6.00                                                      02/13/2009  23:59:24  PAGE 3
+
+
+  C:0817H         LINE#         37
+  C:081AH         LINE#         38
+  C:081DH         LINE#         39
+  C:0825H         LINE#         40
+  C:082FH         LINE#         41
+  C:083FH         LINE#         42
+  C:0847H         LINE#         43
+  C:084FH         LINE#         44
+  C:085AH         LINE#         45
+  C:085AH         LINE#         46
+  C:0862H         LINE#         47
+  C:0866H         LINE#         48
+  C:086EH         LINE#         49
+  C:0876H         LINE#         50
+  C:087AH         LINE#         51
+  C:087FH         LINE#         52
+  C:0885H         LINE#         53
+  C:0886H         LINE#         54
+  C:088EH         LINE#         55
+  C:0895H         LINE#         56
+  -------         ENDPROC       TIME0
+  -------         ENDMOD        2
+
+  -------         MODULE        ?C?UIDIV
+  C:0936H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00DAH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=32.0 xdata=0 code=447
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

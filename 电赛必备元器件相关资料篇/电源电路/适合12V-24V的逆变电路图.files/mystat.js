@@ -1,0 +1,1 @@
+document.write("<script language='javascript' src='http://count6.51yes.com/click.aspx?id=66527442&logo=12'></script>");

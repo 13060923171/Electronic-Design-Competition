@@ -1,0 +1,240 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        04/18/2009  12:08:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+D:\\C51\BIN\BL51.EXE 坦克 循迹 计时 测速.obj TO 坦克 循迹 计时 测速 CODE (0X0000-0X0FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  坦克 循迹 计时 测速.obj (坦克_循迹_计时_测速)
+  D:\\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\\C51\LIB\C51S.LIB (?C?IMUL)
+  D:\\C51\LIB\C51S.LIB (?C?UIDIV)
+  D:\\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  坦克 循迹 计时 测速 (坦克_循迹_计时_测速)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001AH     UNIT         ?DT?坦克_循迹_计时_测速
+            DATA    0022H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0024H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0017H     UNIT         ?C_INITSEG
+                    001AH     0001H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     01FCH     UNIT         ?PR?TIMER1?坦克_循迹_计时_测速
+            CODE    021AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    02A6H     0067H     UNIT         ?C?LIB_CODE
+            CODE    030DH     0059H     UNIT         ?PR?MAIN?坦克_循迹_计时_测速
+            CODE    0366H     0012H     UNIT         ?PR?_DELAY?坦克_循迹_计时_测速
+
+
+
+OVERLAY MAP OF MODULE:   坦克 循迹 计时 测速 (坦克_循迹_计时_测速)
+
+
+SEGMENT                                  DATA_GROUP 
+  +--> CALLED SEGMENT                  START    LENGTH
+------------------------------------------------------
+?PR?TIMER1?坦克_循迹_计时_测速         0022H    0002H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                          -----    -----
+  +--> ?PR?MAIN?坦克_循迹_计时_测速
+  +--> ?C_INITSEG
+
+?PR?MAIN?坦克_循迹_计时_测速           -----    -----
+  +--> ?PR?_DELAY?坦克_循迹_计时_测速
+
+
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/18/2009  12:08:05  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  坦克 循迹 计时 测速 (坦克_循迹_计时_测速)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        坦克_循迹_计时_测速
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:0366H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:030DH         PUBLIC        main
+  D:0008H         PUBLIC        time
+  B:0090H.0       PUBLIC        P10
+  B:0090H.1       PUBLIC        P11
+  B:0090H.2       PUBLIC        P12
+  D:0098H         PUBLIC        SCON
+  B:0090H.4       PUBLIC        P14
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0090H.5       PUBLIC        P15
+  B:0090H.6       PUBLIC        P16
+  B:0090H.7       PUBLIC        P17
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  D:0009H         PUBLIC        kop
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  C:001EH         PUBLIC        timer1
+  D:000BH         PUBLIC        dr
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:000DH         PUBLIC        a
+  D:0017H         PUBLIC        c
+  D:001BH         PUBLIC        d
+  D:00C8H         PUBLIC        T2CON
+  D:001FH         PUBLIC        i
+  D:0021H         PUBLIC        j
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0366H         LINE#         18
+  C:0366H         LINE#         19
+  C:0366H         LINE#         21
+  C:036CH         LINE#         22
+  C:0377H         LINE#         23
+  -------         ENDPROC       _DELAY
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/18/2009  12:08:05  PAGE 3
+
+
+  -------         PROC          MAIN
+  C:030DH         LINE#         25
+  C:030DH         LINE#         26
+  C:030DH         LINE#         27
+  C:0310H         LINE#         28
+  C:0313H         LINE#         29
+  C:0315H         LINE#         31
+  C:0318H         LINE#         32
+  C:031BH         LINE#         33
+  C:031DH         LINE#         34
+  C:031FH         LINE#         35
+  C:0321H         LINE#         36
+  C:0323H         LINE#         37
+  C:0325H         LINE#         39
+  C:0325H         LINE#         40
+  C:0325H         LINE#         41
+  C:032EH         LINE#         42
+  C:032EH         LINE#         43
+  C:0330H         LINE#         44
+  C:0333H         LINE#         45
+  C:0336H         LINE#         46
+  C:033BH         LINE#         47
+  C:033EH         LINE#         48
+  C:0341H         LINE#         49
+  C:0346H         LINE#         51
+  C:0349H         LINE#         52
+  C:034CH         LINE#         53
+  C:0351H         LINE#         54
+  C:0354H         LINE#         55
+  C:0357H         LINE#         56
+  C:035CH         LINE#         57
+  C:0364H         LINE#         58
+  C:0364H         LINE#         59
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER1
+  -------         DO            
+  D:0022H         SYMBOL        qq
+  D:0006H         SYMBOL        ww
+  -------         ENDDO         
+  C:001EH         LINE#         61
+  C:0031H         LINE#         63
+  C:003AH         LINE#         64
+  C:003DH         LINE#         65
+  C:0040H         LINE#         66
+  C:0048H         LINE#         67
+  C:0057H         LINE#         68
+  C:0057H         LINE#         69
+  C:0062H         LINE#         70
+  C:006DH         LINE#         71
+  C:0078H         LINE#         72
+  C:0081H         LINE#         73
+  C:0081H         LINE#         74
+  C:0081H         LINE#         75
+  C:0089H         LINE#         77
+  C:0092H         LINE#         78
+  C:0098H         LINE#         79
+  C:00A1H         LINE#         80
+BL51 BANKED LINKER/LOCATER V6.00                                                      04/18/2009  12:08:05  PAGE 4
+
+
+  C:00A7H         LINE#         81
+  C:00B0H         LINE#         82
+  C:00B6H         LINE#         83
+  C:00BFH         LINE#         84
+  C:00C5H         LINE#         85
+  C:00CEH         LINE#         86
+  C:00D4H         LINE#         87
+  C:00DDH         LINE#         88
+  C:00E3H         LINE#         90
+  C:00FCH         LINE#         91
+  C:00FCH         LINE#         92
+  C:0108H         LINE#         94
+  C:0112H         LINE#         96
+  C:0118H         LINE#         98
+  C:0122H         LINE#         100
+  C:0130H         LINE#         102
+  C:013EH         LINE#         103
+  C:013EH         LINE#         105
+  C:015AH         LINE#         106
+  C:015AH         LINE#         107
+  C:0160H         LINE#         108
+  C:0168H         LINE#         109
+  C:0168H         LINE#         110
+  C:0188H         LINE#         111
+  C:0188H         LINE#         112
+  C:0188H         LINE#         113
+  C:0190H         LINE#         114
+  C:0190H         LINE#         116
+  C:019CH         LINE#         117
+  C:019CH         LINE#         118
+  C:01A2H         LINE#         119
+  C:01A9H         LINE#         120
+  C:01B5H         LINE#         121
+  C:01C3H         LINE#         122
+  C:01CFH         LINE#         123
+  C:01E1H         LINE#         124
+  C:01E3H         LINE#         125
+  C:01EFH         LINE#         126
+  C:01FDH         LINE#         127
+  C:0203H         LINE#         128
+  C:0206H         LINE#         129
+  C:0209H         LINE#         130
+  C:0209H         LINE#         131
+  -------         ENDPROC       TIMER1
+  -------         ENDMOD        坦克_循迹_计时_测速
+
+  -------         MODULE        ?C?IMUL
+  C:02A6H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:02B8H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=37.0 xdata=0 code=887
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

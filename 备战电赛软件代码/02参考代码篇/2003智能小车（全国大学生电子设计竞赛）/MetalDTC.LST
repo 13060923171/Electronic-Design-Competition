@@ -1,0 +1,46 @@
+C51 COMPILER V8.02   METALDTC                                                              07/29/2009 23:40:26 PAGE 1   
+
+
+C51 COMPILER V8.02, COMPILATION OF MODULE METALDTC
+OBJECT MODULE PLACED IN MetalDTC.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE MetalDTC.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"Config.h"
+   3          #include"IOCfg.c"
+   4          #include"TimeDLY.h"
+   5          #include"StepMot.h"
+   6          #include"MetalDTC.h"
+   7          
+   8          //金属检测函数：MetalDetec()
+   9          bit  Metal_Detec()
+  10          {
+  11   1              bit x;
+  12   1              if(Metal_DTC == 1) //检测到金属
+  13   1              {
+  14   2                      Guide = 1;  //声光报警
+  15   2                      x = 1;          
+  16   2                      }
+  17   1              else
+  18   1              {
+  19   2                      Guide = 0;
+  20   2                      x = 0;
+  21   2                      }
+  22   1              return x;
+  23   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     16    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

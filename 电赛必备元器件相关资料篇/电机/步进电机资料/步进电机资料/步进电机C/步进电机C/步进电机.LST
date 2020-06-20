@@ -1,0 +1,56 @@
+C51 COMPILER V7.20   _浇缁_                                                              05/15/2009 22:19:45 PAGE 1   
+
+
+C51 COMPILER V7.20, COMPILATION OF MODULE _浇缁_
+OBJECT MODULE PLACED IN 步进电机.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 步进电机.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*
+   2           1、本程序用于测试4相步进电机常规驱动 
+   3           2、需要用跳帽或者杜邦线把信号输出端和对应的步进电机信号输入端连接起来
+   4           3、速度不可以调节的过快，不然就没有力矩转动了
+   5           可以按照给的原理图接线
+   6            接P1.1-P1.4
+   7          */
+   8          
+   9          #include <reg52.h>
+  10          
+  11          
+  12          unsigned char code F_Rotation[4]={0x02,0x04,0x08,0x10};//正转表格
+  13          unsigned char code B_Rotation[4]={0x10,0x08,0x040,0x02};//反转表格
+  14          
+  15          void Delay(unsigned int i)//延时
+  16          {
+  17   1       while(--i);
+  18   1      }
+  19          
+  20          main()
+  21          {
+  22   1       
+  23   1       unsigned char i;
+  24   1      
+  25   1       while(1)
+  26   1       {
+  27   2        for(i=0;i<4;i++)      //4相
+  28   2           {
+  29   3           P1=F_Rotation[i];  //输出对应的相 可以自行换成反转表格
+  30   3           Delay(500);        //改变这个参数可以调整电机转速
+  31   3               }
+  32   2        }
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

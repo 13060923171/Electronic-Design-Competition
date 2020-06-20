@@ -1,0 +1,72 @@
+C51 COMPILER V8.05a   1                                                                    02/27/2009 18:28:17 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN 1.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE 1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          sbit P10=P1^0; 
+   5          sbit P11=P1^1;
+   6          sbit P12=P1^2;
+   7          sbit P13=P1^3;
+   8          sbit P14=P1^4;
+   9          fun1()
+  10          { P10=0;P11=1;P12=0;P13=1;}
+  11          fun2()
+  12          { P10=1;P11=0;P12=1;P13=0;}
+  13          fun3()
+  14          { P10=1;P11=1;P12=1;P13=1;}
+  15          void init()
+  16          { TMOD=0x01;
+  17   1        TH0=(65536-50000)/256;
+  18   1        TL0=(65536-50000)%256;
+  19   1        EA=1;
+  20   1        ET0=1;
+  21   1        TR0=1;
+  22   1      }
+  23          void main()
+  24          { init();
+  25   1        while(1)
+  26   1       { 
+  27   2       }
+  28   1      }
+  29          void time0() interrupt 1
+  30          {       uchar tt,k;
+  31   1         TH0=(65536-50000)/256;
+  32   1         TL0=(65536-50000)%256;
+  33   1              tt++;
+  34   1              if(tt==100)
+  35   1              { tt=0;
+  36   2                k++;
+  37   2                if(k==1)
+  38   2                { fun1();}
+  39   2                if(k==2)
+  40   2                { fun2();}
+  41   2                 if(k==3)
+  42   2                { fun3();}
+  43   2                if(k>3)
+  44   2                {k=0;}
+  45   2               }
+  46   1      }
+  47                                                    
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    109    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+C51 COMPILER V8.05a   1                                                                    02/27/2009 18:28:17 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,310 @@
+Archive member included because of file (symbol)
+
+C:/Program Files//WinAVR/lib/gcc/avr/3.4.6/avr5\libgcc.a(_clear_bss.o)
+                              24L01.o (__do_clear_bss)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+LOAD 24L01.o
+LOAD C:/Program Files//WinAVR/lib/gcc/avr/3.4.6/avr5\libgcc.a
+LOAD C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5\libc.a
+LOAD C:/Program Files//WinAVR/lib/gcc/avr/3.4.6/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x5a2
+ *(.vectors)
+ .vectors       0x00000000       0x8c C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+                0x0000008c                __ctors_start = .
+ *(.ctors)
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
+ *(.dtors)
+                0x0000008c                __dtors_end = .
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000008c                . = ALIGN (0x2)
+ *(.init0)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000008c        0xc C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+ *(.init3)
+ *(.init4)
+ .init4         0x00000098       0x1a C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+                0x00000098                __do_copy_data
+ .init4         0x000000b2       0x10 C:/Program Files//WinAVR/lib/gcc/avr/3.4.6/avr5\libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
+ *(.init5)
+ *(.init6)
+ *(.init7)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000c2        0x4 C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+ *(.text)
+ .text          0x000000c6        0x4 C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+                0x000000c6                __vector_22
+                0x000000c6                __vector_28
+                0x000000c6                __vector_1
+                0x000000c6                __vector_32
+                0x000000c6                __vector_34
+                0x000000c6                __vector_24
+                0x000000c6                __vector_12
+                0x000000c6                __bad_interrupt
+                0x000000c6                __vector_6
+                0x000000c6                __vector_31
+                0x000000c6                __vector_3
+                0x000000c6                __vector_23
+                0x000000c6                __vector_30
+                0x000000c6                __vector_25
+                0x000000c6                __vector_11
+                0x000000c6                __vector_13
+                0x000000c6                __vector_17
+                0x000000c6                __vector_19
+                0x000000c6                __vector_7
+                0x000000c6                __vector_27
+                0x000000c6                __vector_5
+                0x000000c6                __vector_33
+                0x000000c6                __vector_4
+                0x000000c6                __vector_9
+                0x000000c6                __vector_2
+                0x000000c6                __vector_21
+                0x000000c6                __vector_15
+                0x000000c6                __vector_29
+                0x000000c6                __vector_8
+                0x000000c6                __vector_26
+                0x000000c6                __vector_14
+                0x000000c6                __vector_10
+                0x000000c6                __vector_16
+                0x000000c6                __vector_18
+                0x000000c6                __vector_20
+ .text          0x000000ca      0x4d8 24L01.o
+                0x00000130                delayms
+                0x000001c6                SPI_RW
+                0x00000194                spi_init
+                0x0000046e                nRF24L01_TxPacket
+                0x0000032c                SPI_Write_Buf
+                0x00000252                SPI_RW_Reg
+                0x0000054a                main
+                0x00000408                nRF24L01_RxPacket
+                0x0000051a                init_NRF24L01
+                0x000000ca                delayus
+                0x000002a2                SPI_Read_Buf
+                0x000003a2                SetRX_Mode
+                0x00000204                SPI_Read
+                0x000005a2                . = ALIGN (0x2)
+ *(.text.*)
+                0x000005a2                . = ALIGN (0x2)
+ *(.fini9)
+ *(.fini8)
+ *(.fini7)
+ *(.fini6)
+ *(.fini5)
+ *(.fini4)
+ *(.fini3)
+ *(.fini2)
+ *(.fini1)
+ *(.fini0)
+                0x000005a2                _etext = .
+
+.data           0x00800100        0xa load address 0x000005a2
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0xa 24L01.o
+                0x00800105                RX_ADDRESS
+                0x00800100                TX_ADDRESS
+ *(.gnu.linkonce.d*)
+                0x0080010a                . = ALIGN (0x2)
+                0x0080010a                _edata = .
+                0x0080010a                PROVIDE (__data_end, .)
+
+.bss            0x0080010a        0x0
+                0x0080010a                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(COMMON)
+                0x0080010a                PROVIDE (__bss_end, .)
+                0x000005a2                __data_load_start = LOADADDR (.data)
+                0x000005ac                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080010a        0x0
+                0x0080010a                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080010a                PROVIDE (__noinit_end, .)
+                0x0080010a                _end = .
+                0x0080010a                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000      0x408
+ *(.stab)
+ .stab          0x00000000      0x408 C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+
+.stabstr        0x00000000       0x84
+ *(.stabstr)
+ .stabstr       0x00000000       0x84 C:/Program Files/winavr/bin/../lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x14
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x14 24L01.o
+
+.debug_pubnames
+                0x00000000       0xf5
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xf5 24L01.o
+
+.debug_info     0x00000000      0x4b8
+ *(.debug_info)
+ .debug_info    0x00000000      0x4b8 24L01.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x107
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x107 24L01.o
+
+.debug_line     0x00000000      0x2eb
+ *(.debug_line)
+ .debug_line    0x00000000      0x2eb 24L01.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x00000000       0x17
+ *(.debug_str)
+ .debug_str     0x00000000       0x17 24L01.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(24L01.elf elf32-avr)

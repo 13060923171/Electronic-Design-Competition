@@ -1,0 +1,158 @@
+C51 COMPILER V8.05a   坦克_循迹_计时_测速                                                  04/18/2009 12:08:04 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE 坦克_循迹_计时_测速
+OBJECT MODULE PLACED IN 坦克 循迹 计时 测速.OBJ
+COMPILER INVOKED BY: D:\C51\BIN\C51.EXE 坦克 循迹 计时 测速.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          unsigned int i=0;
+   3          sbit P36=P3^6; 
+   4          
+   5          sbit P10=P1^0;   //循迹口
+   6          sbit P11=P1^1;
+   7          sbit P12=P1^2;
+   8          
+   9          sbit P14=P1^4;   //电机口
+  10          sbit P15=P1^5;
+  11          sbit P16=P1^6;                     
+  12          sbit P17=P1^7;
+  13          unsigned char j,time;
+  14          unsigned int kop,dr;
+  15          unsigned char a[10]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+  16          unsigned char c[4]={0xff,0xff,0xff,0xff},d[4];
+  17          
+  18          void delay(unsigned char z)       //延时子程序
+  19          {
+  20   1       unsigned char j;
+  21   1       while(z--)
+  22   1       for(j=123;j>0;j--);
+  23   1      }
+  24          
+  25             void main()
+  26            {     
+  27   1          TMOD=0x15;              // 打开定时器和计数器
+  28   1              TH0=0x00;
+  29   1              TL0=0x00;
+  30   1                      
+  31   1              TH1=0XFc;               //1ms
+  32   1              TL1=0X18;
+  33   1              EA = 1;
+  34   1          ET0=1;
+  35   1              ET1=1;
+  36   1          TR1 = 1;
+  37   1              TR0 = 1;
+  38   1      
+  39   1         while(1)
+  40   1            {  
+  41   2                    if(P10==0&&P11==0&&P12==0)
+  42   2                   { 
+  43   3                        TR0=0;                                  //显示时间      停
+  44   3                    P0=d[0];            
+  45   3                    P2=0XFE;
+  46   3                    delay(1);
+  47   3                    P0=d[3];            
+  48   3                    P2=0XFB;
+  49   3                    delay(3);
+  50   3      
+  51   3                   P0=d[2];                            //显示测速                停
+  52   3                   P2=0XFD;
+  53   3                   delay(3);
+  54   3                   P0=d[3];           
+  55   3                   P2=0XF7;
+C51 COMPILER V8.05a   坦克_循迹_计时_测速                                                  04/18/2009 12:08:04 PAGE 2   
+
+  56   3                   delay(3);
+  57   3                   P14=1;P15=1;P16=1; P17=1;
+  58   3              }
+  59   2            }
+  60   1        }
+  61             void timer1() interrupt 3    //中断 服务程序
+  62           {
+  63   1         unsigned int qq=0,ww=0;
+  64   1         TH1=0XFc;
+  65   1         TL1=0X18;//1ms
+  66   1         i++;
+  67   1          switch(i%4)
+  68   1          {                   
+  69   2          case 0:P0=c[0],P2=0XFE;d[0]=c[0];break;
+  70   2          case 1:P0=c[1],P2=0XFD;d[1]=c[1];break;
+  71   2          case 2:P0=c[2],P2=0XFB;d[2]=c[2]; break;
+  72   2          case 3:P0=c[3],P2=0XF7;d[3]=c[3]; break;
+  73   2          default:break;
+  74   2          }              
+  75   1          P14=1;P15=1;P16=1; P17=1;
+  76   1              
+  77   1              if(P10==0&&P11==0&&P12==0)              //全测到
+  78   1              dr=0;
+  79   1              if(P10==1&&P11==0&&P12==1)              //中间测到
+  80   1              dr=1; 
+  81   1              if(P10==0&&P11==1&&P12==1)               //左边测到
+  82   1              dr=2;
+  83   1          if(P10==1&&P11==1&&P12==0)           //右边测到
+  84   1              dr=3;
+  85   1              if(P10==0&&P11==0&&P12==1)               //左两测到
+  86   1              dr=4;
+  87   1              if(P10==1&&P11==0&&P12==0)               //右两测到     
+  88   1              dr=5;
+  89   1          
+  90   1              switch(dr)
+  91   1               {
+  92   2           case 0:P14=1,P15=1,P16=1,P17=1,TR1=0;break;              //全测到     停
+  93   2                
+  94   2           case 1:P14=0,P15=1,P16=0,P17=1;break;            //直走
+  95   2               
+  96   2               case 2:P14=1,P15=1,P16=0,P17=1,ww=1;break;    //左拐
+  97   2                
+  98   2               case 3:P14=0,P15=1,P16=1,P17=1,qq=1;break;        //右拐
+  99   2                
+ 100   2               case 4:P14=1,P15=0,P16=0,P17=1,ww=1;break;        //左两测到   左拐
+ 101   2       
+ 102   2               case 5:P14=0,P15=1,P16=1,P17=0,qq=1;break;        //右两测到   右拐
+ 103   2               } 
+ 104   1               /*跑出跑道外记忆 回到跑道内 */
+ 105   1               if(dr==2&&ww==1||dr==4&&ww==1)                   //单边或双边 测到跑出去 
+ 106   1                  {
+ 107   2                              qq=0;
+ 108   2                              P14=1;P15=1;P16=0;P17=1;
+ 109   2                      }
+ 110   1                if(dr==3&&qq==1||dr==5&&qq==1)
+ 111   1                      {
+ 112   2                           ww=0;
+ 113   2                        P14=0;P15=1;P16=1;P17=1;
+ 114   2                  }
+ 115   1      
+ 116   1                 if(i==1000) //1s
+ 117   1                 {
+C51 COMPILER V8.05a   坦克_循迹_计时_测速                                                  04/18/2009 12:08:04 PAGE 3   
+
+ 118   2                   kop=TH0;//计数器计入脉冲
+ 119   2                   kop=kop<<8;
+ 120   2                   kop=kop+TL0;
+ 121   2                   kop=kop*15;
+ 122   2                   c[3]=a[kop/10];
+ 123   2                   c[2]=a[kop%10];
+ 124   2                   time++;
+ 125   2                   c[1]=a[time/10];
+ 126   2                   c[0]=a[time%10];
+ 127   2                   i=0;
+ 128   2                   TH0=0;
+ 129   2                   TL0=0;
+ 130   2                  }
+ 131   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    615    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     26       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

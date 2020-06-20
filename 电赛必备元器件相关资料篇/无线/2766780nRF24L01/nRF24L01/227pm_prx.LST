@@ -1,0 +1,392 @@
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE 227PM_PRX
+OBJECT MODULE PLACED IN .\227pm_prx.OBJ
+COMPILER INVOKED BY: C:\Èí¼þ±¸·Ý\Ñ§Ï°¹¤¾ßÈí¼þ\KeilC51v612\programm\C51\BIN\C51.EXE .\227pm_prx.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include "API.h"
+   2          #include<reg52.h>
+   3          
+   4          #define uchar unsigned char
+   5          //******************initializtion*******************//
+   6          
+   7          //paramenters part******//
+   8          
+   9          #define addr_wid 0x05//both,length of adress.
+  10          #define pld_wid	0x01//both,1~32,only ack canbe use 0 length
+  11          uchar ptx_addr[addr_wid]={0x7c,0x7c,0x7c,0x7c,0x7c};//PTX ,the free address ,the destination of the packet
+  12          uchar pipe0_addr[addr_wid]={0x7c,0x7c,0x7c,0x7c,0x7c};//PRX ,free address  which pipe0 canbe allow.
+  13          uchar static_rcv_buf[5]=0;//PTX,data buf to be transmitted.
+  14          uchar new_data=0;
+  15          uchar led[16]={0x7e,0x30,0x6d,0x79,0x33,0x5b,0x5f,0x70,0x7f,0x7b,0x77,0x1f,0x0d,0x3d,0x4f,0x47};
+  16          
+  17          
+  18          sbit CE=P3^0;
+  19          sbit CSN= P1^4;
+  20          sbit SCK=  P1^7;
+  21          sbit MOSI= P1^5;
+  22          sbit MISO= P1^6;
+  23          sbit IRQ = P3^2;
+  24          sbit send_over=P0^0;
+  25          sbit recieve_over=P0^1;
+  26          sbit begin_tran=P0^2;
+  27          sbit init_over=P0^3;
+  28          //functions part********//
+  29          
+  30          
+  31          //****************************************************//
+  32          //function name: delay_11us();
+  33          //parameter: dull.
+  34          //function: to delay 11us,for transmiting.
+  35          
+  36           void delay_11us(void)
+  37          {uchar counter=0;
+  38   1       for(;counter<5;counter++);
+  39   1      }	
+  40          
+  41          //****************************************************//
+  42          //function name: delay_50us();
+  43          //parameter: dull.
+  44          //function: to delay 50us.
+  45          
+  46          void delay_50us(void)
+  47          {
+  48   1      uchar counter=0;
+  49   1       for(;counter<15;counter++);
+  50   1      }	
+  51          
+  52          //****************************************************//
+  53          //function name: delay_200us();
+  54          //parameter: dull.
+  55          //function: to delay 50us.
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 2   
+
+  56          
+  57          void delay_200us(void)
+  58          {
+  59   1      uchar counter=0;
+  60   1       for(;counter<60;counter++);
+  61   1      }
+  62          
+  63          //****************************************************//
+  64          //function name: delay_1.5ms();
+  65          //parameter: dull.
+  66          //function: to delay 1.5ms.
+  67          
+  68          void delay_1p5ms(void)
+  69          {
+  70   1       uchar counter;
+  71   1      
+  72   1       for(counter=0;counter<0x2e;counter++)
+  73   1          delay_50us();
+  74   1      
+  75   1      }	
+  76          
+  77          //****************************************************//
+  78          //function name: delay_0.5s();
+  79          //parameter: dull.
+  80          //function: to delay 1s.
+  81          
+  82          void delay_0p5s(void)
+  83          {
+  84   1       uchar counter1;
+  85   1       uchar counter2;
+  86   1       for(counter1=0;counter1<0x20;counter1++)//80*250*50=1*10^6 us
+  87   1      {
+  88   2       for(counter2=0;counter2<0xfa;counter2++)
+  89   2          delay_50us();
+  90   2      }
+  91   1      }	
+  92          
+  93          //****************************************************//
+  94          //function name: delay_1s();
+  95          //parameter: dull.
+  96          //function: to delay 1s.
+  97          
+  98          void delay_1s(void)
+  99          {
+ 100   1       uchar counter1;
+ 101   1       uchar counter2;
+ 102   1       for(counter1=0;counter1<0x50;counter1++)//80*250*50=1*10^6 us
+ 103   1      {
+ 104   2       for(counter2=0;counter2<0xfa;counter2++)
+ 105   2          delay_50us();
+ 106   2      }
+ 107   1      }	
+ 108          
+ 109          //****************************************************//
+ 110          //function name: mcu_init().
+ 111          //parameter: dull.
+ 112          //function: to set initial condition of MCU.
+ 113          
+ 114          void mcu_init(void)	//IO£¬SPI_init,CEÏßµçÆ½0£¬¸÷µÆÆëÉÁ£¬Éè¶¨SPI¹¤×÷Ä£Ê½£¬CSNÏßµçÆ½,CLKÆµÂÊ
+ 115          {
+ 116   1       P0=0x0f;		// led close
+ 117   1       CE=0;			// chip enable
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 3   
+
+ 118   1       CSN=1;			// Spi disable	
+ 119   1       SCK=0;			// Spi clock line init high
+ 120   1       MOSI=1;
+ 121   1       MISO=1;		//NUST TO WRITE 1,THEN YOU CAN USE IT AS INPUT PIN.
+ 122   1       delay_0p5s();
+ 123   1       P0=0x00;		// led close
+ 124   1      
+ 125   1      }
+ 126          
+ 127          //****************************************************//
+ 128          //function name: SPI_DEAL(data)
+ 129          //parameter: data
+ 130          //function: operation on SPI department.then return the walue in MISO reg.
+ 131          
+ 132          uchar SPI_DEAL(uchar byte)
+ 133          {
+ 134   1      uchar bit_ctr;
+ 135   1      for(bit_ctr=0;bit_ctr<8;bit_ctr++)   // output 8-bit
+ 136   1      {
+ 137   2       MOSI = (byte & 0x80);         // output 'byte', MSB to MOSI
+ 138   2       byte = (byte << 1);  			// shift next bit into MSB..
+ 139   2       SCK = 1; 						// Set SCK high..
+ 140   2       byte |=MISO;       		  // capture current MISO bit
+ 141   2       SCK = 0;            		  // ..then set SCK low again
+ 142   2      }
+ 143   1       return (byte);
+ 144   1      }
+ 145          //****************************************************//
+ 146          //function name: TRAN_COMMOND(commond)
+ 147          //parameter: commond,the SPI commonds such as,NOP,FLUSH_TX,FLUSH_RX,REUSE_TX_PL.
+ 148          //function: to read status reg,as the last commonds,return the value in the status reg
+ 149          
+ 150          uchar TRAN_COMMOND(uchar commond)
+ 151          {
+ 152   1       uchar temp=0;
+ 153   1       CSN=0;		//ÃüÁî²Ù×÷Ê¹ÄÜ
+ 154   1       temp=SPI_DEAL(commond);//·¢ËÍ²Ù×÷ÃüÁî£¬Í¬Ê±·µ»Østature¼Ä´æÆ÷µÄÖµ
+ 155   1       CSN=1;		//ÃüÁî²Ù×÷½áÊø
+ 156   1       return temp;   //·µ»ØÖµ
+ 157   1      }
+ 158          
+ 159          //****************************************************//
+ 160          //function name: READ_REG(commond)
+ 161          //parameter: reg,the register whoes value is to be read.
+ 162          //function:read single byte value  of reg
+ 163          
+ 164          uchar READ_REG(uchar commond)		//¶Á¼Ä´æÆ÷µÄÖµ
+ 165          {
+ 166   1       uchar temp=0;
+ 167   1       CSN=0;		//ÃüÁî²Ù×÷Ê¹ÄÜ
+ 168   1       SPI_DEAL(commond);//·¢ËÍÃüÁî£¬Í¬Ê±·µ»Østature¼Ä´æÆ÷µÄÖµ
+ 169   1       temp=SPI_DEAL(0);//¶ÁÈ¡ÏàÓ¦¼Ä´æÆ÷µÄÖµ
+ 170   1       CSN=1;		//ÃüÁî²Ù×÷½áÊø
+ 171   1       return temp;//·µ»ØÖµ
+ 172   1      }
+ 173          
+ 174          //****************************************************//
+ 175          //function name: READ_BUF(commond,buf,wid)
+ 176          //parameter: commond,a special commond to read many bytes from a register.
+ 177          //           buf, where is the read out bytes to be storeged.
+ 178          //           wid,the length of bytes
+ 179          //function: read multi values from a register.
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 4   
+
+ 180          
+ 181          void READ_BUF(uchar commond,uchar *buf,uchar wid)//¶Árx_payload»òÕßpipeÀïµÄµØÖ·,¶à×Ö½Ú,wid ¿ÉÍ¨¹ý¶ÁÏàÓ¦¼Ä´
+             -æÆ÷µÃ³ö¡£
+ 182          {
+ 183   1       uchar temp=0;
+ 184   1       CSN=0;//enable trans commond
+ 185   1       SPI_DEAL(commond);
+ 186   1       for(temp=0;temp<wid;temp++)//lsb first output
+ 187   1       {
+ 188   2       buf[temp]=SPI_DEAL(0);
+ 189   2       }
+ 190   1       CSN=1;//close trans
+ 191   1      }
+ 192          
+ 193          //****************************************************//
+ 194          //function name: WRITE_REG(commond,data)
+ 195          //parameter: commond,a special commond to write one byte to a register.
+ 196          //           data, the value to be written.
+ 197          //function: write sigle value to a register.
+ 198          
+ 199          uchar WRITE_REG(uchar commond,uchar dat)
+ 200          {
+ 201   1       uchar temp;
+ 202   1       CSN=0; 	//ÃüÁî²Ù×÷Ê¹ÄÜ
+ 203   1       temp=SPI_DEAL(commond);//·¢ËÍÃüÁî£¬Í¬Ê±·µ»Østature¼Ä´æÆ÷µÄÖµ
+ 204   1       SPI_DEAL(dat);	//write data
+ 205   1       CSN=1;		//ÃüÁî²Ù×÷½áÊø
+ 206   1       return temp;   //·µ»ØÖµ
+ 207   1      }
+ 208          
+ 209          
+ 210          //****************************************************//
+ 211          //function name: WRITE_BUF(commond,buf,wid)
+ 212          //parameter: commond,a special commond to write many bytes to a register.
+ 213          //           buf, where is the bytes to be writen.
+ 214          //           wid,the length of bytes
+ 215          //function: write multi values to a register.
+ 216          
+ 217          void WRITE_BUF(uchar commond,uchar *buf,uchar wid)//¶Árx_payload»òÕßpipeÀïµÄµØÖ·,¶à×Ö½Ú,wid ¿ÉÍ¨¹ý¶ÁÏàÓ¦¼Ä
+             -´æÆ÷µÃ³ö¡£
+ 218          {
+ 219   1       uchar temp=0;
+ 220   1       CSN=0;
+ 221   1       SPI_DEAL(commond);
+ 222   1       for(temp=0;temp<wid;temp++)//lsb first output,µÍ×Ö½ÚµÄ¸ßÎ»ÏÈ´«ËÍ
+ 223   1       {
+ 224   2       SPI_DEAL(buf[temp]);
+ 225   2       }
+ 226   1       CSN=1;
+ 227   1      }
+ 228          
+ 229          
+ 230          //****************************************************//
+ 231          //function name: RX_INIT_REG().
+ 232          //parameter: dull.
+ 233          //function: to set initial condition of a PRX.
+ 234          void RX_INIT_REG(void)
+ 235          {
+ 236   1      WRITE_REG(W_REG+EN_AA,0x00);//only pipe 0 enabled  Auto Acknowledgment
+ 237   1      WRITE_REG(W_REG+EN_RXADDR,0x01);//only pipe 0 enabled rx and tx
+ 238   1      WRITE_REG(W_REG+SETUP_AW,0x03);//set Address Widths of tx and rx to be 5 byte
+ 239   1      WRITE_REG(W_REG+SETUP_RETR,0x10);//Auto Retransmit Delay time is 500us,disable .15 times retransmission
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 5   
+
+ 240   1      WRITE_REG(W_REG+RF_CH,0x10);//channel frequency is 2400+(16)RF_CH MHZ
+ 241   1      WRITE_REG(W_REG+RF_SETUP,0x0f);//2Mbit/s,0dbm,LAN gain
+ 242   1      WRITE_BUF(W_REG+RX_ADDR_P0,pipe0_addr,addr_wid);//pipe 0 adress reset 0xE7E7E7E7E7,maybe 0x7c7c7c7c7c
+ 243   1      WRITE_BUF(W_REG+TX_ADDR,pipe0_addr,addr_wid);// ptx address set as pipe0,when ACK enable
+ 244   1      WRITE_REG(W_REG+RX_PW_P0,pld_wid);//Number of bytes in RX payload in data pipe 0, value of 0 is indicated 
+             -of pipe no use
+ 245   1      WRITE_REG(W_REG+CONFIG,0x7b);//disable INT of all.enable CRC with 1 byte,power down,prx
+ 246   1      }
+ 247          
+ 248          //****************************************************//
+ 249          //function name: PRX_INIT()
+ 250          //parameter: dull
+ 251          //function: the PRX set of RFIC.
+ 252          
+ 253          void PRX_INIT(void)
+ 254          {
+ 255   1       init_over=1;
+ 256   1       RX_INIT_REG();
+ 257   1       CE=1;
+ 258   1       delay_0p5s();
+ 259   1       init_over=0;
+ 260   1      
+ 261   1      }
+ 262          
+ 263          //****************************************************//
+ 264          //function name: STATIC_RCV_PCK()
+ 265          //parameter: static buf is "static_rcv_buf"
+ 266          //function: receive bytes from RFIC.
+ 267          
+ 268          void STATIC_RCV_PCK()
+ 269          {
+ 270   1       READ_BUF(R_RX_PAYLOAD,static_rcv_buf,pld_wid); //read data
+ 271   1       WRITE_REG(W_REG+STATUS,0x40);					//clear rx_dr
+ 272   1      }
+ 273          //****************************************************//
+ 274          //function name: PRX_HANDLE()
+ 275          //parameter: dull
+ 276          //function: the PRX work plan of RFIC.
+ 277          
+ 278          void PRX_HANDLE(void)
+ 279          {
+ 280   1      	int status=0;
+ 281   1      	while(new_data==0)	//wait for rcv over.
+ 282   1      		{
+ 283   2      			status=TRAN_COMMOND(NOP);
+ 284   2      			if(status&0x40)
+ 285   2      				{new_data=1;}	//data is received jump out wait.
+ 286   2      		}
+ 287   1      	if(new_data)//recieve 
+ 288   1      		{
+ 289   2      			STATIC_RCV_PCK();
+ 290   2      			new_data=0;
+ 291   2      		}
+ 292   1      }
+ 293          
+ 294          //
+ 295          //****the PRX will display 0~f
+ 296          
+ 297          void main()//prx
+ 298          {
+ 299   1       uchar num=0;
+ 300   1      
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 6   
+
+ 301   1       mcu_init();
+ 302   1       PRX_INIT();
+ 303   1       new_data=0;
+ 304   1       //start_display();//led 0~f
+ 305   1       while(1)
+ 306   1       {
+ 307   2        recieve_over=0;
+ 308   2        PRX_HANDLE();
+ 309   2        P2=led[static_rcv_buf[0]];
+ 310   2        recieve_over=1;
+ 311   2        delay_0p5s();
+ 312   2       /*
+ 313   2       while(new_data==0)	//wait for rcv over.
+ 314   2      	{
+ 315   2      	 num=TRAN_COMMOND(NOP);
+ 316   2      	 if(num&0x40)
+ 317   2      	 {new_data=1;}	//data is received.
+ 318   2      	}
+ 319   2      ////
+ 320   2      	num=TRAN_COMMOND(NOP);//recieve
+ 321   2        P2=led[num&0x0f];
+ 322   2        num=(num>>4);
+ 323   2        delay_0p5s();
+ 324   2       P2=led[num&0x0f];
+ 325   2       delay_0p5s();
+ 326   2      /////
+ 327   2      if(new_data)
+ 328   2      {
+ 329   2      STATIC_RCV_PCK();
+ 330   2      new_data=0;
+ 331   2      WRITE_REG(W_REG+STATUS,0x40);
+ 332   2      */
+ 333   2      /*
+ 334   2        num=TRAN_COMMOND(NOP);
+ 335   2        P2=led[num&0x0f];
+ 336   2        num=(num>>4);
+ 337   2        delay_0p5s();
+ 338   2       P2=led[num&0x0f];
+ 339   2       delay_0p5s();
+ 340   2      */
+ 341   2      //recieve_over=1;
+ 342   2      
+ 343   2      //}
+ 344   2       ///
+ 345   2       
+ 346   2       
+ 347   2       // recieve_over=1;
+ 348   2        // recieve_over=0;
+ 349   2        }
+ 350   1      }
+ 351          
+ 352          
+ 353          
+ 354          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    414    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     32      11
+C51 COMPILER V6.12  227PM_PRX                                                              02/27/2009 16:06:01 PAGE 7   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
